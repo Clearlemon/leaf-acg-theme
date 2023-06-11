@@ -11,20 +11,42 @@ if( class_exists( 'CSF' ) ) {
                             <div class="maple-set-admin-bottom-ico"><svg class="admin-bottom-icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="#icon-github"></use></svg><svg class="admin-bottom-icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="#icon-shejiaotubiao-39"></use></svg><svg class="admin-bottom-icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="#icon-youxiang"></use></svg><svg class="admin-bottom-icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="#icon-gitee"></use></svg><svg class="admin-bottom-icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="#icon-bilibili"></use></svg></div></div>
                             <div class="maple-set-admin-bottom-img"><img class="admin-bottom-img" src="'.get_template_directory_uri().'/admin-function/assets/images/tg.webp"/><img class="admin-bottom-img" src="'.get_template_directory_uri().'/admin-function/assets/images/qq.webp"/></div>',
     ));
+    //主题首页设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'home',
+        'title'  => '首页布局功能',
+        'icon' => '#icon-shouye',
+        ));
+    //文章内页设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'single',
+        'title'  => '文章内页功能',
+        'icon' => '#icon-shouye',
+        ));
+    //幻灯片设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'slide',
+        'title'  => '幻灯片功能',
+        'icon' => '#icon-shouye',
+        ));
+    //其他设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'other',
+        'title'  => '其他功能',
+        'icon' => '#icon-shouye',
+        ));
+        
     //主题文档
     CSF::createSection($prefix, array(
     'title'  => '主题文档',
     'icon' => '#icon-wendang',
     ));
-    CSF::createSection( $prefix, array(
-    'id'  => 'home',
-    'title'  => '首页',
-    'icon' => '#icon-shouye',
-    ));
+    //主题更新
     CSF::createSection($prefix, array(
     'title'       => '主题更新',
     'icon' => '#icon-gengxin',
     ));
+    //主题备份
     CSF::createSection($prefix, array(
     'title'  => '备份&导入',
     'icon' => '#icon-shujubeifen',
