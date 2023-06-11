@@ -15,37 +15,72 @@ if( class_exists( 'CSF' ) ) {
     CSF::createSection( $prefix, array(
         'id'  => 'home',
         'title'  => '首页布局功能',
-        'icon' => '#icon-shouye',
+        'icon' => '#icon-shouyetianchong',
         ));
+    //主题外观设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'appearance',
+        'title'  => '外观功能',
+        'icon' => '#icon-waiguanzidingyi',
+        )); 
     //文章内页设置
     CSF::createSection( $prefix, array(
         'id'  => 'single',
         'title'  => '文章内页功能',
-        'icon' => '#icon-shouye',
+        'icon' => '#icon-wenzhanglan',
         ));
     //幻灯片设置
     CSF::createSection( $prefix, array(
         'id'  => 'slide',
         'title'  => '幻灯片功能',
-        'icon' => '#icon-shouye',
+        'icon' => '#icon-zujian-huandengpian',
         ));
+    //评论设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'comments',
+        'title'  => '评论功能',
+        'icon' => '#icon-pinglun',
+        ));
+    //用户中心设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'user',
+        'title'  => '用户功能',
+        'icon' => '#icon-yonghu',
+        ));
+    //SEO设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'seo',
+        'title'  => '网站SEO功能',
+        'icon' => '#icon-SEO',
+        ));
+    //主题广告位置设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'ad',
+        'title'  => '广告位置功能',
+        'icon' => '#icon-guanggao',
+        ));
+    //主题优化设置
+    CSF::createSection( $prefix, array(
+        'id'  => 'optimize',
+        'title'  => '优化功能',
+        'icon' => '#icon-youhua2',
+        ));       
     //其他设置
     CSF::createSection( $prefix, array(
         'id'  => 'other',
         'title'  => '其他功能',
-        'icon' => '#icon-shouye',
+        'icon' => '#icon-qita',
         ));
-        
     //主题文档
     CSF::createSection($prefix, array(
     'title'  => '主题文档',
     'icon' => '#icon-wendang',
-    ));
+        ));
     //主题更新
     CSF::createSection($prefix, array(
     'title'       => '主题更新',
-    'icon' => '#icon-gengxin',
-    ));
+    'icon' => '#icon-xitonggengxin',
+        ));
     //主题备份
     CSF::createSection($prefix, array(
     'title'  => '备份&导入',
