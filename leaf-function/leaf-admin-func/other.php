@@ -81,7 +81,7 @@ if (_leaf('optimize-classic-reception-style', true)) {
     add_action('wp_enqueue_scripts', 'disable_classic_theme_style', 100);      
 }
 //是否禁用REST API
-if (_leaf('optimize-classic-reception-style', true)) {
+if (_leaf('optimize-rest-api', true)) {
 add_filter('rest_authentication_errors', function($result) {
     if (!empty($result)) {
         return $result;
