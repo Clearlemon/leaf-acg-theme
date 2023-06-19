@@ -162,6 +162,22 @@ if( class_exists( 'CSF' ) ) {
                 'desc' => '启用后前台不会加载与古经典辑器样式文件',
               ),
             array(
+                'id'    => 'optimize-dns-prefetch',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用前台dns-prefetch',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台网页不再显示WordPress版本号标识符，以免遭受版本号攻击',
+              ),
+              array(
+                'id'    => 'optimize-rest-api',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用前台REST API',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后某些小程序可能无法使用',
+              ),
+            array(
                 'type'    => 'heading',
                 'content' => '<h3>   ----函数优化----    </h3>',
               ),

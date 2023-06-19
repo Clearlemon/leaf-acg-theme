@@ -74,10 +74,30 @@ add_action('admin_enqueue_scripts', 'disable_block_library_style');
 }
 //是否禁用前台的经典编辑器样式
 if (_leaf('optimize-classic-reception-style', true)) {
-function disable_classic_editor_style() {
-    wp_dequeue_style('classic-editor-styles'); 
+    function disable_classic_theme_style() {
+        wp_dequeue_style('classic-theme');
+        wp_deregister_style('classic-theme');
+    }
+    add_action('wp_enqueue_scripts', 'disable_classic_theme_style', 100);      
 }
-add_action('wp_enqueue_scripts', 'disable_classic_editor_style');
+//是否禁用REST API
+if (_leaf('optimize-classic-reception-style', true)) {
+add_filter('rest_authentication_errors', function($result) {
+    if (!empty($result)) {
+        return $result;
+    }
+    if (!is_user_logged_in()) {
+        return new WP_Error('rest_not_logged_in', 'You are not currently logged in.', array('status' => 401));
+    }
+    return $result;
+});
+}
+//是否禁用dns-prefetch
+if (_leaf('optimize-dns-prefetch', true)) {
+function remove_dns_prefetch() {
+    remove_action('wp_head', 'wp_resource_hints', 2);
+}
+add_action('init', 'remove_dns_prefetch');
 }
 //是否禁用translations_api函数
 if (_leaf('optimize-translations-api', true)) {
