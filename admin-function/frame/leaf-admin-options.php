@@ -66,10 +66,54 @@ if( class_exists( 'CSF' ) ) {
         'icon' => '#icon-youhua2',
         'fields'      => array(
             array(
+                'type'    => 'heading',
+                'content' => '<h3>   ----功能优化----    </h3>',
+              ),
+            array(
                 'type'    => 'subheading',
                 'content' => '以下优化为禁用Wordpress某功能的优化功能',
                 ),
+              array(
+                'id'    => 'optimize-nowordpress-version',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Wordpress自动更新版本功能',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后Wordpress不会自动更新',
+              ),
+              array(
+                'id'    => 'optimize-gutenberg-editor',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Wordpress古腾堡编辑器',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后则会将Wordpress的古腾堡编辑器禁用，取而代之的是经典编辑器',
+              ),
+              array(
+                'id'    => 'optimize-block-widgets',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Wordpress新版小工具',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后则会将Wordpress的新版小工具禁用，取而代之的是经典小工具设置',
+              ),
             array(
+                'type'    => 'heading',
+                'content' => '<h3>   ----前台输出优化----    </h3>',
+              ),
+            array(
+                'type'    => 'subheading',
+                'content' => '以下优化为禁用前台不必要文件的优化功能',
+              ),
+              array(
+                'id'    => 'optimize-wordpress-version',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Wordpress版本功能',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台不会显示Wordpress的版本号而遭受该版本的漏洞攻击。',
+              ),
+             array(
                 'id'    => 'optimize-admin-banner',
                 'type'  => 'switcher',
                 'default'  => true,
@@ -93,11 +137,38 @@ if( class_exists( 'CSF' ) ) {
                 'subtitle' => '默认选项为禁用',
                 'desc' => '启用后前台不会显示Wordpress的版本号而遭受该版本的漏洞攻击。',
               ),
-              // A Heading
-              array(
+            array(
+                'id'    => 'optimize-emoji',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Emoji表情功能',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台不会加载与Emoji相关的文件',
+              ),
+            array(
+                'id'    => 'optimize-gutenberg-reception-style',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用前台的古腾堡编辑器样式',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台不会加载与古腾堡编辑器样式文件',
+              ),
+            array(
+                'id'    => 'optimize-classic-reception-style',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用前台的经典编辑器样式',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台不会加载与古经典辑器样式文件',
+              ),
+            array(
+                'type'    => 'heading',
+                'content' => '<h3>   ----函数优化----    </h3>',
+              ),
+            array(
                 'type'    => 'subheading',
                 'content' => '以下优化为禁用函数的优化功能',
-                ),
+              ),
             array(
                 'id'    => 'optimize-translations-api',
                 'type'  => 'switcher',

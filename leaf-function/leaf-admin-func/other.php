@@ -34,6 +34,51 @@ if (_leaf('optimize-wordpress-version', true)) {
     }
     add_filter('the_generator', 'remove_wp_version');
 }
+//是否禁用Wordpress自动更新
+if (_leaf('optimize-nowordpress-version', true)) {
+add_filter( 'auto_update_core', '__return_false' );
+}
+//是否禁用Wordpress的古腾堡编辑器
+if (_leaf('optimize-gutenberg-editor', true)) {
+add_filter('use_block_editor_for_post', '__return_false', 10);
+add_filter('classic_editor_enabled', '__return_true', 10);
+}
+//是否禁用Wordpress的区块小工具
+if (_leaf('optimize-block-widgets', true)) {
+add_filter('gutenberg_use_widgets_block_editor', '__return_false');
+add_filter('classic_widgets_block_editor', '__return_true');
+}
+//是否禁用表情功能
+if (_leaf('optimize-emoji', true)) {
+function disable_emoji() {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+    add_filter('tiny_mce_plugins', 'disable_emoji_tinymce');
+}
+add_action('init', 'disable_emoji');
+}
+//是否禁用前台的古腾堡编辑器
+if (_leaf('optimize-gutenberg-reception-style', true)) {
+function disable_block_library_style() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme'); 
+    wp_dequeue_style('wp-block-library-editor'); 
+}
+add_action('wp_enqueue_scripts', 'disable_block_library_style');
+add_action('admin_enqueue_scripts', 'disable_block_library_style');
+}
+//是否禁用前台的经典编辑器样式
+if (_leaf('optimize-classic-reception-style', true)) {
+function disable_classic_editor_style() {
+    wp_dequeue_style('classic-editor-styles'); 
+}
+add_action('wp_enqueue_scripts', 'disable_classic_editor_style');
+}
 //是否禁用translations_api函数
 if (_leaf('optimize-translations-api', true)) {
 function disable_translations_api() {
