@@ -64,6 +64,65 @@ if( class_exists( 'CSF' ) ) {
         'id'  => 'optimize',
         'title'  => '优化功能',
         'icon' => '#icon-youhua2',
+        'fields'      => array(
+            array(
+                'type'    => 'subheading',
+                'content' => '以下优化为禁用Wordpress某功能的优化功能',
+                ),
+            array(
+                'id'    => 'optimize-admin-banner',
+                'type'  => 'switcher',
+                'default'  => true,
+                'title' => '禁用头部的管理员Banner横条',
+                'subtitle' => '默认选项为启用',
+                'desc' => '启用后不会显示前台顶部的黑条管理员Banner，关闭也无妨但会影响网站的美观',
+              ),
+            array(
+                'id'    => 'optimize-xml-rpl',
+                'type'  => 'switcher',
+                'default'  => true,
+                'title' => '禁用XML-RPL功能',
+                'subtitle' => '默认选项为启用',
+                'desc' => '启用后不会被XML-RPC协议使用XML格式的数据进行通信，而无需直接访问WordPress后台。',
+              ),
+            array(
+                'id'    => 'optimize-wordpress-version',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用Wordpress版本功能',
+                'subtitle' => '默认选项为禁用',
+                'desc' => '启用后前台不会显示Wordpress的版本号而遭受该版本的漏洞攻击。',
+              ),
+              // A Heading
+              array(
+                'type'    => 'subheading',
+                'content' => '以下优化为禁用函数的优化功能',
+                ),
+            array(
+                'id'    => 'optimize-translations-api',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用translations_api函数',
+                'subtitle' => '默认是为禁用的状态',
+                'desc' => '启用后进入设置后，不会再次去WordPress.org查询翻译了',
+              ),
+            array(
+                'id'    => 'optimize-check-php',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用wp_check_php_version函数',
+                'subtitle' => '默认是为禁用的状态',
+                'desc' => '启用后进入设置后，不会再次去查用户是否要更新PHP了',
+              ),
+            array(
+                'id'    => 'optimize-check-browser',
+                'type'  => 'switcher',
+                'default'  => false,
+                'title' => '禁用wp_check_browser_version函数',
+                'subtitle' => '默认是为禁用的状态',
+                'desc' => '启用后进入设置后，不会再次去查用户是否要更新浏览器了',
+              ),                                    
+        ),
         ));       
     //其他设置
     CSF::createSection( $prefix, array(
@@ -91,7 +150,6 @@ if( class_exists( 'CSF' ) ) {
         ),                  
     ),
     ));
-
 }
 add_filter('admin_footer_text', 'maple_admin_footer', 99999);
 function maple_admin_footer()

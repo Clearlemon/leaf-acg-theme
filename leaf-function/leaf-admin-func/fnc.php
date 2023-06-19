@@ -3,12 +3,13 @@
 // 一行一个文件
 $files = array(
     // 前台文件
+    'leaf-function/leaf-admin-func/other.php',
     // 后台设置文件
     'admin-function/leaf-framework.php',
     'admin-function/frame/leaf-admin-options.php',
     'admin-function/frame/leaf-nav-options.php',
 );
-
 foreach ($files as $file) {
     require_once get_theme_file_path('/' . $file);
 }
+
