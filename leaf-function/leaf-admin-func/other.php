@@ -1,11 +1,13 @@
 <?php
-//全局CSS和JS文件
+//前台全局CSS和JS文件
 function leaf_scripts_styles(){
-    // 引用JavaScript文件
-    wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), '1.0', true);
-    wp_enqueue_script('leaf', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.js', array(), '1.0', true);
-    // 引用CSS文件
-    wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-home.css', array(), '1.0','all');
+    $var = '1.0';  // 版本号（注意是字符串类型）
+    // 引用 JavaScript 文件
+    wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);
+    wp_enqueue_script('leaf', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.js', array(), $var, true);
+    // 引用 CSS 文件
+    wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
+    wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all'); 
 }
 add_action('wp_enqueue_scripts', 'leaf_scripts_styles');
 //获取后台的设置选项函数
@@ -74,12 +76,14 @@ add_action('admin_enqueue_scripts', 'disable_block_library_style');
 }
 //是否禁用前台的经典编辑器样式
 if (_leaf('optimize-classic-reception-style', true)) {
-    function disable_classic_theme_style() {
-        wp_dequeue_style('classic-theme');
-        wp_deregister_style('classic-theme');
+    function remove_default_styles() {
+        wp_dequeue_style('classic-theme-styles');
+        wp_deregister_style('classic-theme-styles');
     }
-    add_action('wp_enqueue_scripts', 'disable_classic_theme_style', 100);      
+    add_action('wp_enqueue_scripts', 'remove_default_styles', 20);        
 }
+//是否禁用
+
 //是否禁用版本修订
 if (_leaf('optimize-postings-revision', true)) {
 function disable_post_revisions() {
