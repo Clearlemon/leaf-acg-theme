@@ -80,6 +80,52 @@ if (_leaf('optimize-classic-reception-style', true)) {
     }
     add_action('wp_enqueue_scripts', 'disable_classic_theme_style', 100);      
 }
+//是否禁用版本修订
+if (_leaf('optimize-postings-revision', true)) {
+function disable_post_revisions() {
+    if (!defined('WP_POST_REVISIONS')) {
+        define('WP_POST_REVISIONS', false);
+    }
+}
+add_action('init', 'disable_post_revisions');
+}
+//是否禁用Wordpress的图像限制功能
+if (_leaf('optimize-image-restrictions', true)) {
+function remove_image_size_limits() {
+    add_filter('big_image_size_threshold', '__return_false');
+}
+add_action('after_setup_theme', 'remove_image_size_limits');
+}
+//是否禁用Wordpress的多图片尺寸功能
+if (_leaf('optimize-multiple-image-sizes', true)) {
+function disable_image_sizes($sizes) {
+    unset($sizes['thumbnail']);
+    unset($sizes['medium']);
+    unset($sizes['large']);
+    unset($sizes['medium_large']);
+    unset($sizes['1536x1536']);
+    unset($sizes['2048x2048']);
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'disable_image_sizes');
+add_filter('big_image_size_threshold', '__return_false');
+}
+//是否禁用字符转码
+if (_leaf('optimize-character-to-ma', true)) {
+remove_filter('the_content', 'wptexturize');
+remove_filter('the_title', 'wptexturize');
+remove_filter('the_excerpt', 'wptexturize');
+remove_filter('widget_text_content', 'wptexturize');
+}
+//是否禁用
+if (_leaf('optimize-picture-properties', true)) {
+function remove_image_attributes( $html ) {
+    $html = preg_replace('/(width|height)="\d*"\s/', '', $html);
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'remove_image_attributes' );
+add_filter( 'image_send_to_editor', 'remove_image_attributes' );
+}
 //是否禁用REST API
 if (_leaf('optimize-rest-api', true)) {
 add_filter('rest_authentication_errors', function($result) {
@@ -92,6 +138,15 @@ add_filter('rest_authentication_errors', function($result) {
     return $result;
 });
 }
+//是否禁用Trackbacks/Pingbacks
+if (_leaf('optimize-trackbacks-pingbacks', true)) {
+function disable_trackbacks() {
+    global $wp;
+    $wp->query_vars['tb'] = false;
+    $wp->query_vars['ping'] = false;
+}
+}
+add_action('template_redirect', 'disable_trackbacks');
 //是否禁用dns-prefetch
 if (_leaf('optimize-dns-prefetch', true)) {
 function remove_dns_prefetch() {
