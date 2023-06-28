@@ -7,7 +7,7 @@ wp_head();
 ?>
 <?php
 //引用主题的主体文件
-require_once get_theme_file_path('/leaf-theme/theme-header.php');
+require_once get_theme_file_path('/leaf-theme/theme-index.php');
 ?>
 <?php
 //引用主题的底部文件

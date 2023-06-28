@@ -1,4 +1,286 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
+
+body {
+    background: azure;
+}
+
+:root {
+    --wp-leaf-nav-color: #000000;
+    --wp-leaf-nav-width: 9%;
+    --wp-leaf-text-size-color: #000000;
+}
+
+.leaf-menu-ul {
+    display: flex;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.leaf-menu-ul>li>a {
+    color: var(--wp-leaf-nav-color);
+}
+
+.leaf-menu-ul>li {
+    margin: 0px 10px;
+    padding: 19px 0px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.leaf_first_menu>ul {
+    display: none;
+    margin-top: 5px;
+    background: white;
+    padding: 2px 0px;
+    border-radius: 5px;
+
+}
+
+.leaf-second_menu>ul {
+    display: none;
+}
+
+.leaf-second_menu {
+    padding: 3px 10px;
+    text-align: left;
+    width: 140px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.leaf-second_menu>a {
+    color: var(--wp-leaf-text-size-color);
+}
+
+.leaf_first_menu:hover>ul {
+    display: block;
+    position: absolute;
+}
+
+@keyframes leafnavrotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+.leaf_first_menu:hover>a>i {
+    animation: leafnavrotate 2s forwards;
+    transform: rotate(90deg);
+}
+
+.leaf-menu_inli_ul::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    position: absolute;
+    top: -4px;
+    transform: rotate(45deg);
+    left: 5px;
+}
+
+.leaf-second_menu:hover>ul {
+    display: block;
+    position: absolute;
+    top: 30;
+
+}
+
+.leaf-third_menu {
+    padding: 3px 10px;
+    text-align: left;
+    width: 140px;
+    top: 0;
+    margin-left: 158px;
+    position: absolute;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: white;
+    border-radius: 5px;
+}
+
+.leaf_login_enroll_img {
+    padding: 19px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.leaf-user_login>a {
+    color: var(--wp-leaf-text-size-color);
+}
+
+.leaf-user_login {
+    background: aliceblue;
+    padding: 1px 5px;
+    margin-right: -8px;
+    border-radius: 3px;
+}
+
+.leaf-user_enroll>a {
+    color: var(--wp-leaf-text-size-color);
+}
+
+.leaf-user_enroll {
+    margin-left: 18px;
+    color: var(--wp-leaf-text-size-color);
+    background: aliceblue;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.login-enroll-texte {
+    position: absolute;
+    background: white;
+    font-size: 12px;
+    top: 18;
+    line-height: 1.4;
+    width: 18px;
+    border-radius: 100%;
+    height: 18px;
+    text-align: center;
+    border: 2px solid #e7e7e7;
+}
+
+
+
+.leaf-navtop_bigbackground {
+    display: flex;
+    z-index: 999;
+    width: 100%;
+    position: absolute;
+    box-shadow: inset 0 0 2px #c5c5c5d1;
+    backdrop-filter: saturate(200%) blur(30px);
+    background-color: hsl(0deg 0% 100% / 50%) !important;
+}
+
+
+.leaf-img_logo {
+    height: 50px;
+    margin-top: 4px;
+    width: 200px;
+    object-fit: contain;
+}
+
+.leaf-headnav {
+    width: 70%;
+}
+
+.leaf-banner_search {
+    width: var(--wp-leaf-nav-width);
+    margin: 15px 0px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 10px;
+    background: #ddefff;
+}
+
+.leaf-banner_search>a>i {
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.leaf-banner_search>a {
+    color: var(--wp-leaf-nav-color);
+}
+
+.logo_img_text {
+    width: 12%;
+    margin-left: 70px;
+}
+
+.leaf-user_img_admin {
+    width: var(--wp-leaf-nav-width);
+}
+
+.leaf-user_img_admin {
+    margin-left: 20px;
+    margin-right: 70px;
+}
+
+.leaf-head_nav_backgroundimg {
+    position: relative;
+}
+
+.leaf_title-speech {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+}
+
+.leaf_h1_title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-text-size-color);
+}
+
+.leaf_h4_title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-text-size-color);
+}
+
+.leaf-head_nav_backgroundimg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSIxLjQxNCI+PHBhdGggZD0iTTEyIDEybDEyIDEySDBsMTItMTJ6IiBmaWxsPSIjZjZmN2ZkIi8+PC9zdmc+);
+    background-size: 24px 24px;
+    width: 100%;
+    height: 24px;
+    bottom: -1px;
+    z-index: 11;
+}
+
+.leaf-third_menu::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    position: absolute;
+    top: 11px;
+    transform: rotate(45deg);
+    left: -6px;
+}
+
+/*头部部分结束*/
+/*主体部分*/
+.leaf_postings_main {
+    margin: 0px 250px;
+    margin-top: 25px;
+}
+
+.leaf_article_display {
+    float: left;
+    width: 70%;
+    padding: 10px 20px;
+}
+
+.leaf-sidebar {
+    float: left;
+    padding: 10px 10px;
+    margin-left: 20px;
+    width: 23%;
+}
+
+/*主体部分结束*/
+/*底部部分开始*/
+/*底部部分结束*/

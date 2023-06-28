@@ -82,7 +82,6 @@ if (_leaf('optimize-classic-reception-style', true)) {
     }
     add_action('wp_enqueue_scripts', 'remove_default_styles', 20);        
 }
-//是否禁用
 
 //是否禁用版本修订
 if (_leaf('optimize-postings-revision', true)) {
@@ -149,8 +148,8 @@ function disable_trackbacks() {
     $wp->query_vars['tb'] = false;
     $wp->query_vars['ping'] = false;
 }
-}
 add_action('template_redirect', 'disable_trackbacks');
+}
 //是否禁用dns-prefetch
 if (_leaf('optimize-dns-prefetch', true)) {
 function remove_dns_prefetch() {
