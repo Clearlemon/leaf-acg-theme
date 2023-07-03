@@ -1,4 +1,5 @@
 <?php
+
 //前台全局CSS和JS文件
 function leaf_scripts_styles(){
     $var = '1.0';  // 版本号（注意是字符串类型）
@@ -6,10 +7,18 @@ function leaf_scripts_styles(){
     wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);
     wp_enqueue_script('leaf', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.js', array(), $var, true);
     // 引用 CSS 文件
-    wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
-    wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all'); 
+    wp_enqueue_style('leaf-header', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
+    wp_enqueue_style('leaf-footer', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all');
+    if (is_home()) {
+        wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-home.css', array(), $var, 'all'); 
+    }
 }
 add_action('wp_enqueue_scripts', 'leaf_scripts_styles');
+if (is_home()) {
+
+} else {
+
+}
 //获取后台的设置选项函数
 if ( ! function_exists( '_leaf' ) ) {
     function _leaf( $option = '', $default = null ) {
