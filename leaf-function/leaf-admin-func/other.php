@@ -1,5 +1,48 @@
 <?php
+//检查主题是否第一次激活
+// if (is_admin() && isset($_GET['activated']) && 'themes.php' == $GLOBALS['pagenow']) {
+//     // 创建示例页面
+//     $page_title = '示例页面';
+//     $page_content = '这是示例页面的内容。';
+//     $page_template = 'template-example.php'; // 自定义页面模板文件名
 
+//     // 检查示例页面是否已存在
+//     $page_check = get_page_by_title($page_title);
+
+//     if (!$page_check) {
+//         // 创建示例页面
+//         $page_args = array(
+//             'post_title'   => $page_title,
+//             'post_content' => $page_content,
+//             'post_status'  => 'publish',
+//             'post_type'    => 'page',
+//         );
+
+//         // 插入页面并获取页面 ID
+//         $page_id = wp_insert_post($page_args);
+
+//         if ($page_id && !is_wp_error($page_id)) {
+//             // 设置页面模板
+//             update_post_meta($page_id, '_wp_page_template', $page_template);
+//         }
+//     }
+// }
+
+// // 禁止删除示例页面
+// function prevent_example_page_deletion($post_ID) {
+//     $page_title = '示例页面';
+
+//     if (get_the_title($post_ID) == $page_title) {
+//         wp_die("无法删除示例页面。");
+//     }
+// }
+// add_action('before_delete_post', 'prevent_example_page_deletion');
+// //
+//注册导航栏菜单
+register_nav_menus(array(
+    'leaf_head_nav' => '头部导航',
+    'leaf_footer_nav' => '页脚导航'));
+add_theme_support('nav_menus'); 
 //前台全局CSS和JS文件
 function leaf_scripts_styles(){
     $var = '1.0';  // 版本号（注意是字符串类型）
@@ -14,11 +57,6 @@ function leaf_scripts_styles(){
     }
 }
 add_action('wp_enqueue_scripts', 'leaf_scripts_styles');
-if (is_home()) {
-
-} else {
-
-}
 //获取后台的设置选项函数
 if ( ! function_exists( '_leaf' ) ) {
     function _leaf( $option = '', $default = null ) {
@@ -56,8 +94,25 @@ add_filter('classic_editor_enabled', '__return_true', 10);
 }
 //是否禁用Wordpress的区块小工具
 if (_leaf('optimize-block-widgets', true)) {
-add_filter('gutenberg_use_widgets_block_editor', '__return_false');
-add_filter('classic_widgets_block_editor', '__return_true');
+add_filter('use_widgets_block_editor', '__return_false');
+add_action( 'widgets_init', 'my_unregister_widgets' );
+function my_unregister_widgets() {
+unregister_widget( 'WP_Widget_Archives' );
+unregister_widget( 'WP_Widget_Calendar' );
+unregister_widget( 'WP_Widget_Categories' );
+unregister_widget( 'WP_Widget_Links' );
+unregister_widget( 'WP_Widget_Meta' );
+unregister_widget( 'WP_Widget_Pages' );
+unregister_widget( 'WP_Widget_Recent_Comments' );
+unregister_widget( 'WP_Widget_Recent_Posts' );
+unregister_widget( 'WP_Widget_Tag_Cloud' );
+unregister_widget( 'WP_Widget_Text' );
+unregister_widget( 'WP_Nav_Menu_Widget' );
+unregister_widget('WP_Widget_Media_Audio');
+unregister_widget('WP_Widget_Media_Image');
+unregister_widget('WP_Widget_Media_Gallery');
+unregister_widget('WP_Widget_Media_Video');
+}
 }
 //是否禁用表情功能
 if (_leaf('optimize-emoji', true)) {

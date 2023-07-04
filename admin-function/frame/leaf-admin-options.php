@@ -95,7 +95,7 @@ if( class_exists( 'CSF' ) ) {
                 'default'  => false,
                 'title' => '禁用Wordpress新版小工具',
                 'subtitle' => '默认选项为禁用',
-                'desc' => '启用后则会将Wordpress的新版小工具禁用，取而代之的是经典小工具设置',
+                'desc' => '启用后则会将Wordpress的新版小工具禁用，取而代之的是经典小工具设置【同时禁用某些我觉得没必要存留的小工具】',
               ),
               array(
                 'id'    => 'optimize-postings-revision',
