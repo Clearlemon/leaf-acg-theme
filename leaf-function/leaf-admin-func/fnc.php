@@ -9,6 +9,7 @@ $files = array(
     'admin-function/leaf-framework.php',
     'admin-function/frame/leaf-admin-options.php',
     'admin-function/frame/leaf-nav-options.php',
+    'admin-function/frame/leaf-widgets-options.php',
 );
 foreach ($files as $file) {
     require_once get_theme_file_path('/' . $file);

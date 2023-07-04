@@ -37,12 +37,37 @@
 //     }
 // }
 // add_action('before_delete_post', 'prevent_example_page_deletion');
-// //
+
+
 //注册导航栏菜单
 register_nav_menus(array(
     'leaf_head_nav' => '头部导航',
     'leaf_footer_nav' => '页脚导航'));
 add_theme_support('nav_menus'); 
+
+
+
+
+// // 启用友情链接功能
+// add_filter('pre_option_link_manager_enabled', '__return_true');
+// // 修改“Link Manager”为“友情链接”
+// function modify_link_manager_name($name) {
+//     return '友情链接';
+// }
+// add_filter('admin_menu', 'modify_link_manager_menu');
+
+// function modify_link_manager_menu() {
+//     global $menu;
+//     foreach ($menu as $key => $value) {
+//         if ($value[0] == '链接') { // 找到原始的“链接”菜单
+//             $menu[$key][0] = '友情链接'; // 修改菜单名称
+//             break;
+//         }
+//     }
+// }
+
+
+
 //前台全局CSS和JS文件
 function leaf_scripts_styles(){
     $var = '1.0';  // 版本号（注意是字符串类型）
@@ -124,8 +149,7 @@ function disable_emoji() {
     remove_filter('the_content_feed', 'wp_staticize_emoji');
     remove_filter('comment_text_rss', 'wp_staticize_emoji');
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-    add_filter('tiny_mce_plugins', 'disable_emoji_tinymce');
-}
+}  
 add_action('init', 'disable_emoji');
 }
 //是否禁用前台的古腾堡编辑器
