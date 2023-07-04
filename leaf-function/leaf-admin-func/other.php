@@ -66,8 +66,12 @@ add_theme_support('nav_menus');
 //     }
 // }
 
-
-
+//后台引入样式文件
+function enqueue_custom_admin_styles() {
+    wp_enqueue_style( 'leaf', CSF::include_plugin_url( 'assets/css/leaf.css' ), array(), '1.0.0', 'all' );
+    wp_enqueue_style( 'leaf-min', CSF::include_plugin_url( 'assets/css/leaf.min.css' ), array(), '1.0.0', 'all' );
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_custom_admin_styles' );
 //前台全局CSS和JS文件
 function leaf_scripts_styles(){
     $var = '1.0';  // 版本号（注意是字符串类型）

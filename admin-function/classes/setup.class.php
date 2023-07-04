@@ -11,8 +11,8 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
   class CSF_Setup {
 
     // Default constants
-    public static $premium  = false;
-    public static $version  = '2.2.9';
+    public static $premium  = true;
+    public static $version  = '2.2.8';
     public static $dir      = '';
     public static $url      = '';
     public static $css      = '';
@@ -39,7 +39,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
 
     private static $instance = null;
 
-    public static function init( $file = __FILE__, $premium = false ) {
+    public static function init( $file = __FILE__, $premium = true ) {
 
       // Set file constant
       self::$file = $file;
@@ -66,7 +66,13 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
 
       // Init action
       do_action( 'csf_init' );
-
+        
+        //moe
+        if (is_admin()) {
+            
+            do_action( 'csf_admin_init' );
+        }
+        
       // Setup textdomain
       self::textdomain();
 
@@ -381,6 +387,10 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
     public static function includes() {
 
       // Include common functions
+      self::include_plugin_file( 'functions/actions.php'  );
+      self::include_plugin_file( 'functions/helpers.php'  );
+      self::include_plugin_file( 'functions/sanitize.php' );
+      self::include_plugin_file( 'functions/validate.php' );
 
       // Include free version classes
       self::include_plugin_file( 'classes/abstract.class.php'      );
@@ -481,10 +491,6 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
             self::set_used_fields( array( 'fields' => $field['accordions'] ) );
           }
 
-          if ( ! empty( $field['elements'] ) ) {
-            self::set_used_fields( array( 'fields' => $field['elements'] ) );
-          }
-
           if ( ! empty( $field['type'] ) ) {
             self::$fields[$field['type']] = $field;
           }
@@ -572,7 +578,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       wp_enqueue_style( 'wp-color-picker' );
       wp_enqueue_script( 'wp-color-picker' );
 
-      // Font awesome 6.4.0
+      // Font awesome 4 and 5 loader
       wp_enqueue_style( 'csf-fa', 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.css', array(), '6.4.0', 'all' );
 
       // Check for developer mode
@@ -771,7 +777,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
           $instance = new $classname( $field, $value, $unique, $where, $parent );
           $instance->render();
         } else {
-          echo '<p>'. esc_html__( '这是一个错误的字段请检查字段是否正确', 'csf' ) .'</p>';
+          echo '<p>'. esc_html__( 'Field not found!', 'csf' ) .'</p>';
         }
 
       } else {
@@ -788,7 +794,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
 
 }
 
-CSF_Setup::init( __FILE__, false );
+CSF_Setup::init( __FILE__, true );
 
 /**
  *

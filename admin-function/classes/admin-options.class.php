@@ -122,6 +122,67 @@ if ( ! class_exists( 'CSF_Options' ) ) {
       return new self( $key, $params );
     }
 
+    public function pre_tabs( $sections ) {
+
+      $result  = array();
+      $parents = array();
+      $count   = 100;
+
+      foreach ( $sections as $key => $section ) {
+        if ( ! empty( $section['parent'] ) ) {
+          $section['priority'] = ( isset( $section['priority'] ) ) ? $section['priority'] : $count;
+          $parents[$section['parent']][] = $section;
+          unset( $sections[$key] );
+        }
+        $count++;
+      }
+
+      foreach ( $sections as $key => $section ) {
+        $section['priority'] = ( isset( $section['priority'] ) ) ? $section['priority'] : $count;
+        if ( ! empty( $section['id'] ) && ! empty( $parents[$section['id']] ) ) {
+          $section['subs'] = wp_list_sort( $parents[$section['id']], array( 'priority' => 'ASC' ), 'ASC', true );
+        }
+        $result[] = $section;
+        $count++;
+      }
+
+      return wp_list_sort( $result, array( 'priority' => 'ASC' ), 'ASC', true );
+    }
+
+    public function pre_fields( $sections ) {
+
+      $result  = array();
+
+      foreach ( $sections as $key => $section ) {
+        if ( ! empty( $section['fields'] ) ) {
+          foreach ( $section['fields'] as $field ) {
+            $result[] = $field;
+          }
+        }
+      }
+
+      return $result;
+    }
+
+    public function pre_sections( $sections ) {
+
+      $result = array();
+
+      foreach ( $this->pre_tabs as $tab ) {
+        if ( ! empty( $tab['subs'] ) ) {
+          foreach ( $tab['subs'] as $sub ) {
+            $sub['ptitle'] = $tab['title'];
+            $result[] = $sub;
+          }
+        }
+        if ( empty( $tab['subs'] ) ) {
+          $result[] = $tab;
+        }
+      }
+
+      return $result;
+    }
+
     // add admin bar menu
     public function add_admin_bar_menu( $wp_admin_bar ) {
 
@@ -491,7 +552,7 @@ if ( ! class_exists( 'CSF_Options' ) ) {
         echo '<input type="hidden" class="csf-section-id" name="csf_transient[section]" value="1">';
 
         wp_nonce_field( 'csf_options_nonce', 'csf_options_nonce'. $this->unique );
-        
+
         echo '<div class="feng-admin">
         <div class="feng-banner">
                   <h2>叶主题设置页面</h2>
@@ -514,16 +575,16 @@ if ( ! class_exists( 'CSF_Options' ) ) {
 
             echo '<div class="csf-form-result csf-form-success '. esc_attr( $notice_class ) .'">'. $notice_text .'</div>';
 
-            echo ( $this->args['show_form_warning'] ) ? '<div class="csf-form-result csf-form-warning">'. esc_html__( '设置已更改，请你记得保存设置！', 'csf' ) .'</div>' : '';
+            echo ( $this->args['show_form_warning'] ) ? '<div class="csf-form-result csf-form-warning">'. esc_html__( 'You have unsaved changes, save your changes!', 'csf' ) .'</div>' : '';
 
             echo ( $has_nav && $this->args['show_all_options'] ) ? '<div class="csf-expand-all" title="'. esc_html__( 'show all settings', 'csf' ) .'"><i class="fas fa-outdent"></i></div>' : '';
 
-            echo ( $this->args['show_search'] ) ? '<div class="csf-search"><input type="text" name="csf-search" placeholder="'. esc_html__( '搜索...', 'csf' ) .'" autocomplete="off" /></div>' : '';
+            echo ( $this->args['show_search'] ) ? '<div class="csf-search"><input type="text" name="csf-search" placeholder="'. esc_html__( 'Search...', 'csf' ) .'" autocomplete="off" /></div>' : '';
 
             echo '<div class="csf-buttons">';
             echo '<input type="submit" name="'. esc_attr( $this->unique ) .'[_nonce][save]" class="button button-primary csf-top-save csf-save'. esc_attr( $ajax_class ) .'" value="'. esc_html__( 'Save', 'csf' ) .'" data-save="'. esc_html__( 'Saving...', 'csf' ) .'">';
-            echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="csf_transient[reset_section]" class="button button-secondary csf-reset-section csf-confirm" value="'. esc_html__( 'Reset Section', 'csf' ) .'" data-confirm="'. esc_html__( '你确定要重置所有设置吗？【确定后不可逆回，检查是否备份主题设置】', 'csf' ) .'">' : '';
-            echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="csf_transient[reset]" class="button csf-warning-primary csf-reset-all csf-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'csf' ) : esc_html__( 'Reset', 'csf' ) ) .'" data-confirm="'. esc_html__( '你确定要重置所有设置吗？【确定后不可逆回，检查是否备份主题设置】', 'csf' ) .'">' : '';
+            echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="csf_transient[reset_section]" class="button button-secondary csf-reset-section csf-confirm" value="'. esc_html__( 'Reset Section', 'csf' ) .'" data-confirm="'. esc_html__( 'Are you sure to reset this section options?', 'csf' ) .'">' : '';
+            echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="csf_transient[reset]" class="button csf-warning-primary csf-reset-all csf-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'csf' ) : esc_html__( 'Reset', 'csf' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'csf' ) .'">' : '';
             echo '</div>';
 
           echo '</div>';
@@ -544,7 +605,7 @@ if ( ! class_exists( 'CSF_Options' ) ) {
 
                 $tab_id    = sanitize_title( $tab['title'] );
                 $tab_error = $this->error_check( $tab );
-                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<svg class="icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="'. esc_attr( $tab['icon'] ) .'"></use></svg>' : '';
+                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<i class="csf-tab-icon '. esc_attr( $tab['icon'] ) .'"></i>' : '';
 
                 if ( ! empty( $tab['subs'] ) ) {
 
@@ -665,14 +726,11 @@ if ( ! class_exists( 'CSF_Options' ) ) {
         echo ( ! empty( $this->args['footer_after'] ) ) ? $this->args['footer_after'] : '';
 
       echo '</div>';
-      
-      
+
       do_action( 'csf_options_after' );
-      
       echo '<div class="maple-back-to-top" style=""><img class="maple-back-to-top-img" src="https://www.boxmoe.com/wp-content/themes/lolimeow/assets/images/top/lolisister2.gif"></div>';
       
       echo '<div class="maple-back-to-bottom" style=""><img class="maple-back-to-bottom-img" src="https://www.boxmoe.com/wp-content/themes/lolimeow/assets/images/top/lolisister2.gif"></div>';
-
       echo '<!DOCTYPE html>
       <html>
       <head>
@@ -687,7 +745,6 @@ if ( ! class_exists( 'CSF_Options' ) ) {
       <script src="'. get_template_directory_uri() .'/admin-function/assets/js/index.bundle.js"></script>
       <script src="'. get_template_directory_uri() .'/admin-function/assets/js/leaf.js"></script>    
       </html>';
-
     }
   }
 }
