@@ -1,21 +1,27 @@
 <?php
-class Leaf_home_colored_labels extends WP_Widget
-{
-//注册小工具
-    function __construct()
-    {
-        parent::__construct(false, 'Leaf-彩色标签云');
-    }
-//输出内容
-    function widget($args, $instance){
+if( class_exists( 'CSF' ) ) {
 
-    }
+CSF::createWidget( 'leaf_home_colored_labels', array(
+    'title'       => 'Leaf-彩色标签云',
+    'classname'   => 'leaf_home_colored_labels',
+    'description' => '此小工具适用于各种页面',
+    'fields'      => array(
+    array(
+        'id'      => 'leaf_home_colored_labels_widget_title',
+        'type'    => 'text',
+        'title'   => '小工具标题名称',
+    ),
+    array(
+        'id'          => 'leaf_home_colored_labels_select',
+        'type'        => 'select',
+        'title'       => '热榜文章显示选择',
+        'options'     => array(
+    'leaf_home_colored_labels_default'  => '默认选择',
+    'leaf_home_colored_labels_3D'  => '3D选择',
+        ),
+        'default'     => 'leaf_home_colored_labels_default'
+    ),
+    )
+));
 }
-
-function Leaf_home_colored_labels_widgets()
-{
-    register_widget('Leaf_home_colored_labels');
-}
-add_action('widgets_init', 'Leaf_home_colored_labels_widgets');
-
 ?>

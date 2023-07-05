@@ -1289,7 +1289,7 @@
     <div class="leaf-sidebar">
         <!-- 侧边栏用户样式开始 -->
         <div class="leaf_sidebar_user_all">
-            <div class=""></div>
+            <div class=""><?php dynamic_sidebar( 'leaf-home-sideba' ); ?></div>
         </div>
         <!-- 侧边栏用户样式结束 -->
         <!-- IP地址侧边栏开始 -->

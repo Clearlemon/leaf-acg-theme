@@ -153,7 +153,7 @@ if( class_exists( 'CSF' ) ) {
                 'subtitle' => '默认选项为禁用',
                 'desc' => '启用后前台不会显示Wordpress的版本号而遭受该版本的漏洞攻击。',
               ),
-             array(
+              array(
                 'id'    => 'optimize-admin-banner',
                 'type'  => 'switcher',
                 'default'  => true,
@@ -256,7 +256,7 @@ if( class_exists( 'CSF' ) ) {
                 'title' => '禁用wp_check_browser_version函数',
                 'subtitle' => '默认是为禁用的状态',
                 'desc' => '启用后进入设置后，不会再次去查用户是否要更新浏览器了',
-              ),                                    
+              ),                                 
         ),
         ));       
     //其他设置

@@ -605,7 +605,7 @@ if ( ! class_exists( 'CSF_Options' ) ) {
 
                 $tab_id    = sanitize_title( $tab['title'] );
                 $tab_error = $this->error_check( $tab );
-                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<i class="csf-tab-icon '. esc_attr( $tab['icon'] ) .'"></i>' : '';
+                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<svg class="icon" aria-hidden="true"><use class="maple-ico-admin" xlink:href="'. esc_attr( $tab['icon'] ) .'"></use></svg>' : '';
 
                 if ( ! empty( $tab['subs'] ) ) {
 

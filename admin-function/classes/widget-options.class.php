@@ -58,9 +58,8 @@ if ( ! class_exists( 'CSF_Widget' ) ) {
     }
 
     // Front-end display of widget.
-    public function widget( $args, $instance ) { //icydm
-       // print_r($this->unique);
-        call_user_func( '\Moe\Modules\Templates\Widgets\\'.ucfirst(str_replace(array('moe_widget_'),array(''), $this->unique)).'::widget', $args, $instance );
+    public function widget( $args, $instance ) {
+      call_user_func( $this->unique, $args, $instance );
     }
 
     // get default value

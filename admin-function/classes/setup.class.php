@@ -589,6 +589,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       wp_enqueue_style( 'leaf', CSF::include_plugin_url( 'assets/css/leaf.css' ), array(), '1.0.0', 'all' );
       wp_enqueue_style( 'leaf', CSF::include_plugin_url( 'assets/css/leaf.min.css' ), array(), '1.0.0', 'all' );
 
+
       // Main RTL styles
       if ( is_rtl() ) {
         wp_enqueue_style( 'csf-rtl', self::include_plugin_url( 'assets/css/style-rtl'. $min .'.css' ), array(), self::$version, 'all' );
