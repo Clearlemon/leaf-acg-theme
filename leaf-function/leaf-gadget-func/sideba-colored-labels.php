@@ -23,5 +23,18 @@ CSF::createWidget( 'leaf_home_colored_labels', array(
     ),
     )
 ));
+if ( ! function_exists( 'leaf_home_colored_labels' ) ) {
+    function leaf_home_colored_labels( $args, $instance ) {
+
+        foreach ( $instance as $key => $colored_labels ) {
+            if ( isset( $colored_labels ) && ! empty( $colored_labels ) ) {
+                if ( $key === 'leaf_home_colored_labels_widget_title' ) {
+                    echo $colored_labels;
+                }
+            }
+        }
+    }
 }
+}
+
 ?>

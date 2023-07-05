@@ -70,9 +70,9 @@ CSF::createWidget( 'leaf_home_article_hot', array(
         'type'       => 'radio',
         'title'      => '选择哪个端是否显示',
         'options'    => array(
-        'leaf_sideba_all_pc_and_mobile' => '[PC]和[mobile]都显示',
+        'leaf_sideba_all_pc_and_mobile' => '[PC]和[移动设备]都显示',
         'leaf_sideba_all_pc' => '只显示[PC]',
-        'leaf_sideba_all_mobile' => '只显示[mobile]',
+        'leaf_sideba_all_mobile' => '只显示[移动设备]',
     ),
         'default'    => 'leaf_sideba_all_pc_and_mobile', 
     ),
