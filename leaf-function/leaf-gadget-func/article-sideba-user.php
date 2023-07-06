@@ -11,6 +11,7 @@ CSF::createWidget( 'leaf_article_user', array(
         'id'      => 'leaf_article_user_widget_title',
         'type'    => 'text',
         'title'   => '小工具标题名称',
+        'default' => '用户信息',
     ),
     array(
         'id'    => 'leaf_article_user_bg',
@@ -22,6 +23,16 @@ CSF::createWidget( 'leaf_article_user', array(
         'id'    => 'leaf_article_user_article_number',
         'type'  => 'number',
         'title' => '文章数量显示',
+    ),
+    array(
+        'id'          => 'leaf_article_user_assets',
+        'type'        => 'select',
+        'title'       => '文章显示样式',
+        'options'     => array(
+    'leaf_article_user_assets_slider'  => '滑块文章[用户信息下方]',
+    'leaf_article_user_assets_block'  => '大图文章样式[样式下方单独区块]',
+        ),
+        'default'     => 'home_article_hot_small_picture'
     ),
     array(
         'id'    => 'leaf_article_user_profile',
@@ -50,20 +61,12 @@ CSF::createWidget( 'leaf_article_user', array(
 // echo=输出  
 // $instance['leaf_article_user_title'];=上面的设置选项内容
 // 
-}
+
 if ( ! function_exists( 'leaf_article_user' ) ) {
-    function leaf_article_user( $args, $instance ) {
-
-        foreach ( $instance as $key => $article_user ) {
-            if ( isset( $article_user ) && ! empty( $article_user ) ) {
-
-
-                echo $instance['leaf_article_user_widget_title'];
-
-
-                
-            }
-        }
-
+    function leaf_article_user( $args, $article_user ) {
+if ( isset( $article_user['leaf_article_user_widget_title'] ) && ! empty( $article_user['leaf_article_user_widget_title'] ) ) {
+               echo $article_user['leaf_article_user_widget_title'];
+}
     }
+}
 }

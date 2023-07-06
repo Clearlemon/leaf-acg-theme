@@ -11,6 +11,7 @@ CSF::createWidget( 'leaf_home_article_hot', array(
         'id'      => 'leaf_home_article_hot_widget_title',
         'type'    => 'text',
         'title'   => '小工具标题名称',
+        'default' => '热榜文章',
     ),
     array(
         'id'          => 'leaf_home_article_hot_select',
@@ -24,6 +25,18 @@ CSF::createWidget( 'leaf_home_article_hot', array(
     'home_article_hot_random'  => '随机显示',
         ),
         'default'     => 'home_article_hot_default'
+    ),
+    array(
+        'id'          => 'leaf_home_article_hot_class',
+        'type'        => 'select',
+        'title'       => '热榜文章显示选择',
+        'options'     => array(
+    'home_article_hot_big_picture'  => '大图样式',
+    'home_article_hot_first_big_picture'  => '第一大图',
+    'home_article_hot_small_picture'  => '小图样式',
+    'home_article_hot_text'  => '全文字样式',
+        ),
+        'default'     => 'home_article_hot_small_picture'
     ),
     array(
             'id'      => 'leaf_home_article_hot_day',
@@ -79,17 +92,18 @@ CSF::createWidget( 'leaf_home_article_hot', array(
     
     )
 ));
+
 // 
 // echo=输出  
 // $instance['leaf_home_article_hot_title'];=上面的设置选项内容
 // 
 if( ! function_exists( 'leaf_home_article_hot' ) ) {
-    function leaf_home_article_hot( $args, $instance ) {
-
-    echo $instance['leaf_home_article_hot_widget_title'];
-
+    function leaf_home_article_hot( $args, $article_hot ) {
+if ( isset( $article_hot['leaf_home_article_hot_widget_title'] ) && ! empty( $article_hot['leaf_home_article_hot_widget_title'] ) ) {
+    echo $article_hot['leaf_home_article_hot_widget_title'];
 
     }
+    }
+}
 }
 
-}

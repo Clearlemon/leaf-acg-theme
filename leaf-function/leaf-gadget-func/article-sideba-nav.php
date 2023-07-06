@@ -8,9 +8,10 @@ CSF::createWidget( 'leaf_article_nav', array(
     'description' => '此小工具适用于文章内页才会显示',
     'fields'      => array(
     array(
-        'id'      => 'leaf_article_nav_title',
+        'id'      => 'leaf_article_nav_widget_title',
         'type'    => 'text',
         'title'   => '小工具标题名称',
+        'default' => '文章导航',
     ),
     array(
         'id'    => 'leaf_all_sideba_fixed',
@@ -30,19 +31,19 @@ CSF::createWidget( 'leaf_article_nav', array(
     ),
     )
 ));
+
 // 
 // echo=输出  
 // $instance['leaf_article_nav_title'];=上面的设置选项内容
 // 
-  if( ! function_exists( 'leaf_article_nav' ) ) {
-    function leaf_article_nav( $args, $instance ) {
-        foreach ( $instance as $key => $article_nav ) {
-            if ( isset( $article_nav ) && ! empty( $article_nav ) ) {
-      echo $instance['leaf_article_nav_title'];
-
-            }
-        }
+if( ! function_exists( 'leaf_article_nav' ) ) {
+    function leaf_article_nav( $args, $article_nav ) {
+        //判断该值是否有效，则决定输出
+if ( isset( $article_nav['leaf_article_nav_widget_title'] ) && ! empty( $article_nav['leaf_article_nav_widget_title'] ) ) {
+    //这里为输出的内容
+        echo $article_nav['leaf_article_nav_widget_title'];
     }
-  }
-
+    }
 }
+}
+
