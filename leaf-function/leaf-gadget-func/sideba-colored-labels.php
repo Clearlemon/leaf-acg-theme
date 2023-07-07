@@ -13,6 +13,21 @@ CSF::createWidget( 'leaf_home_colored_labels', array(
         'default' => '标签云',
     ),
     array(
+            'id'      => 'leaf_home_colored_labels_chapter',
+            'title'   => '选择要显示的[x]标签数量',
+            'max'     => 16,
+            'min'     => 0,
+            'step'    => 1,
+            'unit'    => '个',
+            'type'    => 'spinner',
+            'default' => 0,
+    ),
+    array(
+            'id'    => 'leaf_home_colored_labels_displayed',
+            'type'  => 'number',
+            'title' => '不显示的标签',
+    ),
+    array(
         'id'          => 'leaf_home_colored_labels_select',
         'type'        => 'select',
         'title'       => '热榜文章显示选择',

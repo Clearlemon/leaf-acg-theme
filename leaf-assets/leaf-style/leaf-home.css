@@ -1042,6 +1042,7 @@
     border-top-right-radius: 100%;
     background-position-x: center;
     background-size: cover;
+    z-index: -1;
 }
 
 .leaf_article_user_name_rotate_card {
@@ -1147,7 +1148,7 @@
 }
 
 .leaf_article_classification_rotate_card {
-    width: 96%;
+    width: 90%;
     margin: 5px;
     font-size: small;
     overflow: hidden;

@@ -9,6 +9,7 @@ CSF::createWidget( 'leaf_home_comments', array(
         'id'      => 'leaf_home_comments_widget_title',
         'type'    => 'text',
         'title'   => '小工具标题名称',
+        'default' => '网站评论',
     ),
     array(
             'id'      => 'leaf_home_comments_day',

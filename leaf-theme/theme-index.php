@@ -1248,8 +1248,7 @@
                                         叶主题是一个不错的ACG个人博客主题，.....
                                     </p>
                                     <div class="leaf_article_classification_rotate_card">
-                                        <span
-                                            class="leaf_posting_classify_1 leaf_posting_classify_all">Wordpress主题</span>
+                                        <span class="leaf_posting_classify_1 leaf_posting_classify_all">Wordpress主题</span>
                                         <span class="leaf_posting_classify_2 leaf_posting_classify_all">ACG</span>
                                         <span class="leaf_posting_classify_3 leaf_posting_classify_all">Wordpress</span>
                                         <span class="leaf_posting_classify_4 leaf_posting_classify_all">二次元</span>

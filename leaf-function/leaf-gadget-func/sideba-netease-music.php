@@ -9,6 +9,7 @@ CSF::createWidget( 'leaf_home_netease_music', array(
         'id'      => 'leaf_home_netease_music_widget_title',
         'type'    => 'text',
         'title'   => '小工具标题名称',
+        'default' => '网站音乐',
     ),
     array(
         'id'          => 'leaf_home_netease_music_select',
