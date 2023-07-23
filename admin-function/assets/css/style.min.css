@@ -416,15 +416,6 @@
 }
 
 
-.csf-theme-dark .csf-nav ul ul li a {
-    border-color: #2f2f2f;
-    background-color: #191919
-}
-
-.csf-theme-dark .csf-nav ul ul li .csf-active {
-    background-color: #101010
-}
-
 .csf-theme-dark .csf-nav ul ul:before {
     background-color: rgba(34, 34, 34, .75)
 }
@@ -1346,14 +1337,8 @@
     box-shadow: 0 1px 0 rgba(0, 0, 0, .08)
 }
 
-.csf-field-image_select .csf--image {
-    display: inline-block;
-    margin: 0 5px 5px 0
-}
 
-.csf-field-image_select .csf--inline-list .csf--image {
-    display: block
-}
+
 
 .csf-field-image_select figure {
     cursor: pointer;
@@ -1393,12 +1378,6 @@
 
 .csf-field-image_select .csf--active figure:before {
     opacity: 1
-}
-
-.csf-field-image_select img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: top
 }
 
 .csf-field-image_select input {

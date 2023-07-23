@@ -113,32 +113,35 @@ for (let i = 0; i < m.length; i++) {
 
 //图片预加载功能
 window.addEventListener('DOMContentLoaded', function () {
-    //获取图片的属性
+    // 获取图片的属性
     var thumbnails = document.querySelectorAll('.leaf_images_are_preloaded');
 
     thumbnails.forEach(function (thumbnail) {
         var originalSrc = thumbnail.getAttribute('data-original');
         var tempSrc = thumbnail.getAttribute('src');
 
-        // 创建一个新的 Image 对象
-        var img = new Image();
+        if (originalSrc) {
+            // 创建一个新的 Image 对象
+            var img = new Image();
 
-        // 设置加载完成的回调函数
-        img.onload = function () {
-            // 替换原始的 src 属性
-            thumbnail.setAttribute('src', originalSrc);
-        };
+            // 设置加载完成的回调函数
+            img.onload = function () {
+                // 替换原始的 src 属性
+                thumbnail.setAttribute('src', originalSrc);
+            };
 
-        // 设置加载失败的回调函数
-        img.onerror = function () {
-            // 如果加载失败，保留原始的 src 属性
-            thumbnail.setAttribute('src', tempSrc);
-        };
+            // 设置加载失败的回调函数
+            img.onerror = function () {
+                // 如果加载失败，保留原始的 src 属性
+                thumbnail.setAttribute('src', tempSrc);
+            };
 
-        // 设置 Image 对象的 src 属性为 data-original 的值
-        img.src = originalSrc;
+            // 设置 Image 对象的 src 属性为 data-original 的值
+            img.src = originalSrc;
+        }
     });
 });
+
 
 const carousel = document.querySelector(".leaf_slider_article_flex");
 const firstImg = carousel.querySelector("img");

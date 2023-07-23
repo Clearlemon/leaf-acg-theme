@@ -80,3 +80,7 @@ $.ajax({
     console.log("Failed to get hitokoto.");
   }
 });
+
+
+
+

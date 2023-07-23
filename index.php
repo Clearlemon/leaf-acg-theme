@@ -15,4 +15,5 @@ require_once get_theme_file_path('/footer.php');
 //引用Wordpress自带的底部函数文件
 wp_footer();
 ?>
+
 </html>

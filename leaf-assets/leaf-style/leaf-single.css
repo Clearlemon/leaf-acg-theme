@@ -1,0 +1,14 @@
+.single_all_first {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.single_subject_first {
+    width: 50%;
+    padding: 10px 20px;
+    height: 1300px;
+    background: white;
+    color: black;
+}

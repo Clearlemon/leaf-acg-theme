@@ -352,3 +352,44 @@ body {
 .csf-field.csf-field-heading {
     background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
 }
+
+.csf-field-image_select img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.csf-field-image_select .csf--inline-list .csf--image {
+    display: block;
+    float: left;
+    width: calc(100%/2);
+}
+
+.csf-field-image_select .csf--image {
+    display: inline-block;
+    /* margin: 0 5px 5px 0; */
+}
+
+.leaf-three-tabbed-img>.csf-fieldset>.csf-siblings>.csf--sibling.csf--image {
+    width: calc(100%/3) !important;
+}
+
+.leaf-four-tabbed-img>.csf-fieldset>.csf-siblings>.csf--sibling.csf--image {
+    width: calc(100%/34) !important;
+}
+
+b.leaf_emphasis_fonts {
+    font-size: 13px;
+    color: #54d7b9;
+}
+
+.wp-core-ui .button-primary {
+    background: #54d7b9 !important;
+    border-color: #0f896d !important;
+}
+
+.leaf-no-options-shortcodes>.csf-fieldset>input {
+    background: #e5e5e5;
+    border: white;
+    pointer-events: none;
+}

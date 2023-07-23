@@ -29,6 +29,13 @@ $files = array(
     'leaf-function/leaf-gadget-func/sideba-weather.php',
     'leaf-function/leaf-gadget-func/sidebar-ip-address.php',
     'leaf-function/leaf-gadget-func/sidebar-users.php',
+    //加载所有的短代文件
+    'leaf-function/leaf-shortcodes/index.php',
+    'leaf-function/leaf-shortcodes/short-hide-codes/short-hide-codes.php',
+    'leaf-function/leaf-shortcodes/short-fold-codes/short-fold-codes.php',
+    'leaf-function/leaf-shortcodes/short-background-codes/short-background-codes.php',
+    'leaf-function/leaf-shortcodes/short-video-codes/short-video-codes.php',
+    'leaf-function/leaf-shortcodes/short-other-all-codes/short-other-all-codes.php',
 );
 foreach ($files as $file) {
     require_once get_theme_file_path('/' . $file);
