@@ -12,11 +12,11 @@ function content_fold($atts, $content = null)
     $title = $atts['title'];
 
     // 构建输出内容
-    $output = '<div>';
+    $output = '<div class="leaf_fold_all">';
     if ($title) {
-        $output .= '<h2>' . esc_html($title) . '</h2>'; // 将标题添加到输出内容中
+        $output .= '<div class="leaf_fold_title">' . esc_html($title) . '</div>'; // 将标题添加到输出内容中
     }
-    $output .= do_shortcode($content);
+    $output .= '<div class="leaf_fold_hide_text" style="display: none;">' . do_shortcode($content) . '</div>';
     $output .= '</div>';
 
     return $output;

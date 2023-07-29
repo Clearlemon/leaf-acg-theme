@@ -7,7 +7,9 @@ wp_head();
 ?>
 <?php
 require_once get_theme_file_path('/leaf-theme/theme-single/theme-single-first.php');
+
 ?>
+
 <?php
 //引用主题的底部文件
 require_once get_theme_file_path('/footer.php');

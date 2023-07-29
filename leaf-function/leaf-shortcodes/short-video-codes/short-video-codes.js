@@ -22,22 +22,6 @@
                     },
                 },
                 {
-                    text: '优酷视频',
-                    value: 'youku',
-                    icon: ' ',
-                    image: url + '/youku.png', // 注意图片的路径 url是当前js的路径
-                    onclick: function () {
-                        // 获取选中的值
-                        var value = this.value();
-
-                        // 处理所选的菜单选项
-                        if (value === 'youku') {
-                            // 插入绿色背景标签
-                            editor.insertContent('[' + value + ' url="输入视频ID"][/' + value + ']');
-                        }
-                    },
-                },
-                {
                     text: '腾讯视频',
                     value: 'tencent',
                     icon: ' ',

@@ -1207,9 +1207,6 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
     <!-- 侧边栏样式开始 -->
     <div class="leaf-sidebar">
         <!-- 侧边栏用户样式开始 -->
-        <div class="leaf_sidebar_user_all">
-            <div class=""><?php dynamic_sidebar( 'leaf-home-sideba' ); ?></div>
-        </div>
         <!-- 侧边栏用户样式结束 -->
         <!-- IP地址侧边栏开始 -->
         <!-- IP地址侧边栏结束 -->
@@ -1335,5 +1332,6 @@ const player = new Plyr(vs, {
             }
         ];
     </script> -->
+    
     </body>
 </html>
