@@ -18,6 +18,7 @@ window.addEventListener('scroll', function () {
         targetDiv.className = 'leaf-navtop_bigbackground';
     }
 });
+
 //添加文章分类的class标签元素
 //第一种文章样式
 function showDiv(element) {
@@ -110,37 +111,62 @@ for (let i = 0; i < m.length; i++) {
 }
 // 最后的最后我们将定时器开起来，这样子图片就可以自动轮播啦
 // timer()
+// 图片懒加载功能
+document.addEventListener('DOMContentLoaded', function () {
+    // 获取所有需要懒加载的图片元素
+    var lazyImages = document.querySelectorAll('.leaf_images_are_preloaded');
 
-//图片预加载功能
-window.addEventListener('DOMContentLoaded', function () {
-    // 获取图片的属性
-    var thumbnails = document.querySelectorAll('.leaf_images_are_preloaded');
+    // 创建一个 Intersection Observer 对象，用于观察图片是否进入视口
+    var imageObserver = new IntersectionObserver(function (entries, observer) {
+        // entries 是一个包含所有被观察元素的数组
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                // 当图片进入视口时，执行以下操作
 
-    thumbnails.forEach(function (thumbnail) {
-        var originalSrc = thumbnail.getAttribute('data-original');
-        var tempSrc = thumbnail.getAttribute('src');
+                // 获取图片元素
+                var img = entry.target;
 
-        if (originalSrc) {
-            // 创建一个新的 Image 对象
-            var img = new Image();
+                // 获取图片的原始 URL 和当前的临时 URL
+                var originalSrc = img.getAttribute('data-original');
+                var tempSrc = img.getAttribute('src');
 
-            // 设置加载完成的回调函数
-            img.onload = function () {
-                // 替换原始的 src 属性
-                thumbnail.setAttribute('src', originalSrc);
-            };
+                // 确认 originalSrc 存在且为字符串类型
+                if (originalSrc && typeof originalSrc === 'string') {
+                    // 创建一个新的 Image 对象，用于预加载图片
+                    var preloadImage = new Image();
 
-            // 设置加载失败的回调函数
-            img.onerror = function () {
-                // 如果加载失败，保留原始的 src 属性
-                thumbnail.setAttribute('src', tempSrc);
-            };
+                    // 设置加载完成的回调函数
+                    preloadImage.onload = function () {
+                        // 仅当网络状态为200时，将 src 属性替换为 data-original 的值
+                        if (preloadImage.naturalWidth > 0) {
+                            img.setAttribute('src', originalSrc);
+                        }
+                    };
 
-            // 设置 Image 对象的 src 属性为 data-original 的值
-            img.src = originalSrc;
-        }
+                    // 设置加载失败的回调函数
+                    preloadImage.onerror = function () {
+                        // 如果网络状态不是200，保留原始的 src 属性
+                        img.setAttribute('src', tempSrc);
+                    };
+
+                    // 设置 Image 对象的 src 属性为 data-original 的值，触发图片预加载
+                    preloadImage.src = originalSrc;
+                }
+
+                // 停止观察该图片，因为图片已经加载过了
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    // 开始观察需要懒加载的图片
+    lazyImages.forEach(function (img) {
+        imageObserver.observe(img);
     });
 });
+
+
+
 
 
 const carousel = document.querySelector(".leaf_slider_article_flex");
@@ -206,26 +232,3 @@ carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 carousel.addEventListener("mouseup", dragStop);
 
-//主题点赞功能
-$.fn.postLike = function () {
-    if ($(this).hasClass('done')) {
-        return false;
-    } else {
-        $(this).addClass('done');
-        var id = $(this).data("id"),
-            action = $(this).data('action'),
-            rateHolder = $(this).children('.count');
-        var ajax_data = {
-            action: "bigfa_like",
-            um_id: id,
-            um_action: action
-        };
-        $.post("/wp-admin/admin-ajax.php", ajax_data, function (data) {
-            $(rateHolder).html(data);
-        });
-        return false;
-    }
-};
-$(document).on("click", ".favorite", function () {
-    $(this).postLike();
-});

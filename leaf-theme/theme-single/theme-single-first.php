@@ -18,7 +18,11 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
                     <h1 class="single_title">这是文章的的标题</h1>
                     <div class="single_time_like_comments_browse">
                         <p class="single_time_all">此文章于2023/7/23发布[最后编辑于2023/7/24]</p>
-                        <p class="single_like_all">喜欢人数：<?php echo get_post_meta($post->ID, 'bigfa_ding', true); ?></p>
+                        <p class="single_like_all">喜欢人数： <?php if (get_post_meta($post->ID, 'bigfa_ding', true)) {
+                                                                echo get_post_meta($post->ID, 'bigfa_ding', true);
+                                                            } else {
+                                                                echo '0';
+                                                            } ?></p>
                         <p class="single_comments_all">浏览人数：<?php get_post_views($post->ID); ?></p>
                     </div>
                 </div>

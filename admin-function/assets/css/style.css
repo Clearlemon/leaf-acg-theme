@@ -1719,15 +1719,7 @@
   transition: all .2s;
 }
 
-.csf-field-palette .csf--palette span {
-  vertical-align: middle;
-  display: inline-block;
-  width: 22px;
-  height: 60px;
-  line-height: 60px;
-  overflow: hidden;
-  text-indent: -999px;
-}
+
 
 .csf-field-palette .csf--palette:before {
   position: absolute;

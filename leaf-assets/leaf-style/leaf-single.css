@@ -563,3 +563,7 @@ iframe {
 .leaf_password_viewing_block {
     margin-top: 20px;
 }
+
+.leaf_inhome_article_img {
+    max-width: 100%;
+}

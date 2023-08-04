@@ -33,6 +33,7 @@
 // {
 //     $args = array(
 //         'public' => true, // 是否公开可见
+//         'name' => 'say', // 自定义文章类型的名称
 //         'labels' => array(
 //             'name' => '说说', // 自定义文章类型的名称
 //             'singular_name' => '写说说', // 自定义文章类型的单数形式名称
@@ -42,12 +43,14 @@
 //         'menu_icon' => get_template_directory_uri() . '/leaf-assets/leaf-images/leaf-setings-demo/saysay.png', // 设置图标路径
 //         'menu_position' => 6,
 //     );
-//     register_post_type('custom_post_type', $args);
+//     register_post_type('say', $args); // 将 'post_type' 参数改为 'say'
 // }
 // add_action('init', 'custom_post_type');
 
+
 // // 禁止删除示例页面
-// function prevent_example_page_deletion($post_ID) {
+// function prevent_example_page_deletion($post_ID)
+// {
 //     $page_title = '示例页面';
 
 //     if (get_the_title($post_ID) == $page_title) {
@@ -56,71 +59,26 @@
 // }
 // add_action('before_delete_post', 'prevent_example_page_deletion');
 
-
-//注册导航栏菜单
-register_nav_menus(array(
-    'leaf_head_nav' => '头部导航',
-    'leaf_footer_nav' => '页脚导航'
-));
-add_theme_support('nav_menus');
-
-
-// // 启用友情链接功能
-// add_filter('pre_option_link_manager_enabled', '__return_true');
-// // 修改“Link Manager”为“友情链接”
-// function modify_link_manager_name($name) {
-//     return '友情链接';
-// }
-// add_filter('admin_menu', 'modify_link_manager_menu');
-
-// function modify_link_manager_menu() {
-//     global $menu;
-//     foreach ($menu as $key => $value) {
-//         if ($value[0] == '链接') { // 找到原始的“链接”菜单
-//             $menu[$key][0] = '友情链接'; // 修改菜单名称
-//             break;
-//         }
-//     }
-// }
-
-
-// 获取文章的阅读次数
-function get_post_views($post_id)
+// 启用友情链接功能
+add_filter('pre_option_link_manager_enabled', '__return_true');
+// 修改“Link Manager”为“友情链接”
+function modify_link_manager_name($name)
 {
-
-    $count_key = 'views';
-    $count = get_post_meta($post_id, $count_key, true);
-
-    if ($count == '') {
-        delete_post_meta($post_id, $count_key);
-        add_post_meta($post_id, $count_key, '0');
-        $count = '0';
-    }
-
-    echo number_format_i18n($count);
+    return '友情链接';
 }
+add_filter('admin_menu', 'modify_link_manager_menu');
 
-// 设置更新文章的阅读次数
-function set_post_views()
+function modify_link_manager_menu()
 {
-
-    global $post;
-
-    $post_id = $post->ID;
-    $count_key = 'views';
-    $count = get_post_meta($post_id, $count_key, true);
-
-    if (is_single() || is_page()) {
-
-        if ($count == '') {
-            delete_post_meta($post_id, $count_key);
-            add_post_meta($post_id, $count_key, '0');
-        } else {
-            update_post_meta($post_id, $count_key, $count + 1);
+    global $menu;
+    foreach ($menu as $key => $value) {
+        if ($value[0] == '链接') { // 找到原始的“链接”菜单
+            $menu[$key][0] = '友情链接'; // 修改菜单名称
+            break;
         }
     }
 }
-add_action('get_header', 'set_post_views');
+
 
 
 //后台引入样式文件
@@ -140,13 +98,27 @@ function leaf_scripts_styles()
 
     //引用主题的JavaScript和CSS 文件
     wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);
-    wp_enqueue_script('leaf', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.js', array(), $var, true);
+
     wp_enqueue_style('leaf-header', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
     wp_enqueue_style('leaf-footer', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all');
     wp_enqueue_style('leaf-sideba-all', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-sideba-all.css', array(), $var, 'all');
+
     //如果是首页则加载，如果不是则不加载
     if (is_home()) {
         wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-home.css', array(), $var, 'all');
+        wp_enqueue_script('leaf', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.js', array(), $var, true);
+    }
+    //如果时搜索页则加载，如果不是则不加载
+    if (is_search()) {
+        wp_enqueue_style('leaf-search', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-search.css', array(), $var, 'all');
+        wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-home.css', array(), $var, 'all');
+        wp_enqueue_script('leaf-search', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-search.js', array(), $var, true);
+    }
+    //如果是归档页则加载，如果不是则不加载
+    if (is_archive()) {
+        wp_enqueue_style('leaf-category', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-category.css', array(), $var, 'all');
+        wp_enqueue_style('leaf-home', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-home.css', array(), $var, 'all');
+        wp_enqueue_script('leaf-category', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-category.js', array(), $var, true);
     }
     //如果是文章页则加载，如果不是则不加载
     if (is_single()) {
@@ -199,6 +171,25 @@ if (!function_exists('_leaf')) {
     }
 }
 
+//获取文章模块的设置
+if (!function_exists('leaf_post')) {
+    function _leaf_post($leaf_post_key = '', $leaf_post_mate_key = '', $default = null)
+    {
+        $leaf_post = get_post_meta(get_the_ID(), 'leaf-theme-post', true);
+        $leaf_post_mate = get_post_meta(get_the_ID(), 'leaf-theme-post_meta', true);
+
+        if ($leaf_post_key !== '' && isset($leaf_post[$leaf_post_key])) {
+            return $leaf_post[$leaf_post_key];
+        } elseif ($leaf_post_mate_key !== '' && isset($leaf_post_mate[$leaf_post_mate_key])) {
+            return $leaf_post_mate[$leaf_post_mate_key];
+        } else {
+            return $default;
+        }
+    }
+}
+
+
+//判断是否为手机端用户，如果是就输出，如果不是则不输出
 $isMobile = wp_is_mobile();
 if ($isMobile) { ?>
     <html>
@@ -271,3 +262,6 @@ if ($isMobile) { ?>
 <?php
     exit;
 }
+
+
+

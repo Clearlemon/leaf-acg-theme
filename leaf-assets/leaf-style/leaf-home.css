@@ -1,11 +1,11 @@
 .leaf_postings_main {
-    margin: 0px 250px;
+    margin: 0px 200px;
     margin-top: 25px;
 }
 
 .leaf_article_display {
     float: left;
-    width: 75%;
+    width: 70%;
     padding: 10px 20px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .leaf_slide_all {
-    width: 630px;
+    width: 100%;
     height: 345px;
     position: relative;
     overflow: hidden;
@@ -163,7 +163,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-image: url(http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/posting_bg.jpg);
 }
 
 .leaf_article_small_label {
@@ -346,6 +345,7 @@
     height: 200px;
     width: 200px;
     border-radius: 4px;
+    object-fit: cover;
 }
 
 .leaf_home_article_container .leaf_home_article_card .leaf_home_article_content_card {
@@ -419,6 +419,7 @@
     letter-spacing: 0.3px;
     font-size: 14px;
     text-align: left;
+    min-width: 240px;
 }
 
 .leaf_home_article_style_card {
@@ -459,6 +460,10 @@
 
 .leaf_article_classification_card.show span {
     opacity: 1;
+}
+
+.leaf_article_classification_card>a {
+    margin: 0px 5px;
 }
 
 .leaf_article_classification_title_card {
@@ -503,6 +508,7 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     transition: transform 0.3s ease-in-out;
+    filter: blur(2px);
 }
 
 .leaf_home_article_biglong_img_title {
@@ -619,6 +625,7 @@
 
 .leaf_article_other_elements_long {
     height: 100%;
+    position: relative;
 }
 
 .leaf_article_classification_long {
@@ -690,25 +697,14 @@
     max-width: 45%;
 }
 
-.leaf_home_article_img_three_img_card {
-    display: flex;
-    flex-direction: row;
-
-}
-
 .three_img_card_ingimg {
-    width: 305px;
+    width: 31%;
     height: 180px;
     padding: 10px;
     padding-bottom: 0px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
     border-radius: 15px;
-}
-
-.three_img_card_ingimg:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
 }
 
 .leaf_article_classification_three_img_card {
@@ -744,6 +740,7 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .leaf_article_information_three_img_card {
@@ -798,57 +795,28 @@
 .leaf_article_photo_album_all {
     column-count: 4;
     column-gap: 15px;
+    margin-bottom: 20px;
 }
 
 .leaf_article_photo_album_img_time_title {
     max-width: 100%;
     padding: 5px;
     position: relative;
+    margin-bottom: 20px;
 
 }
 
-.leaf_photo_album_blurry_left {
+.leaf_home_photo_album_articles_title {
+    background: var(--wp-leaf-all-color);
+    font-size: 14px;
+    padding: 5px;
     position: absolute;
-    top: 0;
-    left: 0px;
-    width: 6%;
-    height: 100%;
-    z-index: 2;
-    backdrop-filter: saturate(100%) blur(3px);
+    width: 92%;
+    bottom: 0;
 }
 
-.leaf_photo_album_blurry_top {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 5%;
-    z-index: 1;
-    backdrop-filter: saturate(100%) blur(3px);
-}
-
-.leaf_photo_album_blurry_right {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    width: 6%;
-    height: 100%;
-    z-index: 2;
-    backdrop-filter: saturate(100%) blur(3px);
-}
-
-.leaf_photo_album_blurry_bottom {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 5%;
-    z-index: 1;
-    backdrop-filter: saturate(100%) blur(3px);
-}
-
-.leaf_photo_album_size_type {
-
+.leaf_photo_album_size_type,
+.leaf_photo_album_size_type_title {
     display: none;
 }
 
@@ -866,13 +834,39 @@
 
 .leaf_photo_album_img_blurry:hover>.leaf_photo_album_size_type {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     z-index: 3;
     color: white;
-    display: block;
+    display: flex;
     transition: opacity 0.3s;
     transform: scale(1);
+    width: 91%;
+    height: 10%;
+    padding: 10px;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, .5), transparent);
+}
+
+.leaf_photo_album_img_blurry:hover>.leaf_photo_album_size_type_title {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 3;
+    color: white;
+    display: flex;
+    transition: opacity 0.3s;
+    transform: scale(1);
+    width: 91%;
+    height: 20%;
+    padding: 10px;
+    align-items: center;
+    font-size: 14px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .5));
+}
+
+.photo_album_size_type_title {
+    width: 100%;
 }
 
 .photo_album_size {
@@ -885,14 +879,11 @@
 
 .photo_album_size_type {
     font-size: 14px;
+    width: 100%;
 }
 
 .leaf_home_photo_album_articles_title_main {
-    background: var(--wp-leaf-all-color);
     font-size: 14px;
-    max-height: 5%;
-    padding: 5px;
-    padding-top: 20px;
     letter-spacing: 0.5px;
 }
 
@@ -902,9 +893,7 @@
 
 .leaf_article_photo_album_img {
     width: 100%;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-
+    border-radius: 15px;
 }
 
 .leaf_home_small_card_articles_style {
@@ -1198,6 +1187,7 @@
 
 .leaf_home_small_card_title_all {
     width: 100%;
+    height: 25%;
 }
 
 .leaf_home_small_card_img {
@@ -1250,6 +1240,7 @@
     line-height: 1.4;
     letter-spacing: 0.3px;
     padding: 5px;
+    height: 35%;
     margin: 5px;
     background: #d5d5d540;
 }
@@ -1399,4 +1390,88 @@
     left: -15px;
     cursor: pointer;
     transform: rotate(-90deg);
+}
+
+.leaf_home_article_title_all_no_article {
+    padding-left: 12px;
+    display: flex;
+    width: 500px;
+}
+
+.leaf_article_browse_comment_like>span {
+    margin: 0px 5px;
+}
+
+.leaf_article_browse_comment_like_long>span {
+    margin: 0px 5px;
+}
+
+.leaf_article_browse_comment_like_three_img_card>span {
+    margin: 0px 5px;
+}
+
+.leaf_article_classification>a {
+    margin: 0px 5px;
+}
+
+.leaf_article_small_label_long {
+    position: absolute;
+}
+
+.leaf_article_small_label_long {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.leaf_article_user_img_three_article_img_card {
+    display: flex;
+    width: 20%;
+    position: absolute;
+    right: 60px;
+    text-align: right;
+    align-items: center;
+}
+
+.leaf_article_small_label_card {
+    position: absolute;
+    right: -15px;
+    height: 60px;
+    top: -15px;
+    border-top-right-radius: 15px;
+    width: 8%;
+    background: linear-gradient(38deg, transparent 46px, #ffffff 0)top left;
+}
+
+.leaf_article_small_label_card>p {
+    top: 5px;
+    position: absolute;
+    font-size: 20px;
+    right: 5px;
+}
+
+.leaf-custom-pagination {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.leaf-custom-pagination>* {
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    color: black;
+    background: #7c75753d;
+}
+
+.prev.page-numbers {
+    display: none;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }

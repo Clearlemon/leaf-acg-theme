@@ -12,9 +12,30 @@ body {
 :root {
     --wp-leaf-nav-color: #000000;
     --wp-leaf-nav-width: 9%;
-    --wp-leaf-text-size-color: #000000;
+    --wp-leaf-all-text-size-color: #000000;
     --wp-leaf-all-color: #ddefff;
     --wp-leaf-all-text-hover: #eaf0f7;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 二级导航初始状态设置为可见 */
+
+/* 二级导航触发时添加动画效果 */
+.leaf-second_menu:hover>ul {
+    display: block;
+    /* 添加动画效果 */
+    animation: slideDown 0.5s ease;
 }
 
 .leaf-menu-ul {
@@ -54,24 +75,21 @@ body {
     height: 25px;
     display: flex;
     align-items: center;
-    flex-direction: row;
 }
 
 .leaf-second_menu>a {
-    color: var(--wp-leaf-text-size-color);
+    color: var(--wp-leaf-all-text-size-color);
 }
 
 .leaf_first_menu:hover>ul {
-    display: block;
+
     position: absolute;
     border: 2px solid;
     border-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, #00bbf2 20%, rgba(255, 255, 255, 0) 99%) 2 2 2 2;
-    background-clip: padding-box;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     transition-duration: .10s;
     background: white;
     border-radius: 5px;
-    opacity: 1;
 }
 
 
@@ -91,16 +109,7 @@ body {
     transform: rotate(90deg);
 }
 
-.leaf-menu_inli_ul::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    background: #fff;
-    position: absolute;
-    top: -4px;
-    transform: rotate(45deg);
-    left: 5px;
-}
+
 
 .leaf-second_menu:hover>ul {
     display: block;
@@ -112,9 +121,6 @@ body {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-.leaf-second_menu>ul {
-    display: none;
-}
 
 .leaf-third_menu {
     position: relative;
@@ -132,6 +138,7 @@ body {
     border-radius: 5px;
     background: white;
     width: 140px;
+    display: none;
 }
 
 .leaf-second_menu:hover>ul {
@@ -142,6 +149,16 @@ body {
 
 }
 
+.leaf-headnav {
+    width: 70%;
+}
+
+.leaf-headnav li:hover>ul {
+    display: block;
+    animation: slideDown .5s ease;
+    margin-top: 5px;
+}
+
 .leaf_login_enroll_img {
     padding: 19px;
     font-size: 14px;
@@ -149,7 +166,7 @@ body {
 }
 
 .leaf-user_login>a {
-    color: var(--wp-leaf-text-size-color);
+    color: var(--wp-leaf-all-text-size-color);
 }
 
 .leaf-user_login {
@@ -160,12 +177,12 @@ body {
 }
 
 .leaf-user_enroll>a {
-    color: var(--wp-leaf-text-size-color);
+    color: var(--wp-leaf-all-text-size-color);
 }
 
 .leaf-user_enroll {
     margin-left: 18px;
-    color: var(--wp-leaf-text-size-color);
+    color: var(--wp-leaf-all-text-size-color);
     background: aliceblue;
     padding: 1px 5px;
     border-radius: 3px;
@@ -214,6 +231,8 @@ body {
     transition: transform 1s ease;
 }
 
+
+
 .leaf-img_logo {
     height: 50px;
     margin-top: 4px;
@@ -221,26 +240,30 @@ body {
     object-fit: contain;
 }
 
-.leaf-headnav {
-    width: 70%;
-}
-
 .leaf-banner_search {
-    width: var(--wp-leaf-nav-width);
-    margin: 15px 0px;
+    display: flex;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 0px;
+}
+
+.leaf_searc_input_box {
+    width: 50%;
+    height: 100%;
+    outline: medium;
+    border: none;
     padding: 5px;
-    font-size: 14px;
-    border-radius: 10px;
-    background: #ddefff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
-.leaf-banner_search>a>i {
-    font-size: 14px;
-    margin-right: 3px;
-}
-
-.leaf-banner_search>a {
-    color: var(--wp-leaf-nav-color);
+.leaf_search_but {
+    height: 100%;
+    width: 100%;
+    outline: medium;
+    border: none;
+    padding: 0px 5px;
 }
 
 .logo_img_text {
@@ -274,13 +297,13 @@ body {
     font-size: 2.25rem;
     line-height: 2.5rem;
     margin-bottom: 5px;
-    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-text-size-color);
+    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-all-text-size-color);
 }
 
 .leaf_h4_title {
     font-size: 1rem;
     line-height: 1.5rem;
-    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-text-size-color);
+    text-shadow: 0 0.1875rem 0.3125rem var(--wp-leaf-all-text-size-color);
 }
 
 .leaf-head_nav_backgroundimg::after {
@@ -300,7 +323,12 @@ body {
 }
 
 .leaf_home_slide {
-    float: left;
+    width: 100%;
+}
+
+.leaf_home_slide_allon {
+    display: flex;
+    width: 100%;
 }
 
 .leaf_two_slide_all {
@@ -314,4 +342,23 @@ body {
     font-weight: 100;
     line-height: 58px;
     color: #1100f5;
+}
+
+.leaf_logo_titel_h4 {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px 0px;
+    color: black;
+}
+
+.leaf_loginng_avatar {
+    width: 30%;
+    height: 80%;
+    border-radius: 100%;
+}
+
+.leaf_login_enroll_avatar {
+    text-align: center;
+    padding: 5px 0px;
 }

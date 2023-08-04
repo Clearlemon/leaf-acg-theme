@@ -1,0 +1,22 @@
+.leaf_category_page {
+    margin: 0px 200px;
+    margin-top: 25px;
+}
+
+.leaf_category_page_all {
+    width: 70%;
+    float: left;
+    padding: 10px 20px;
+}
+
+.search_category_title {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.leaf_category_page_post_all {
+    float: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

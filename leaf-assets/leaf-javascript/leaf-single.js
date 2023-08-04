@@ -105,3 +105,73 @@ cloneIcons.forEach(icon => {
         }, 3000);
     });
 });
+
+// 图片懒加载功能
+document.addEventListener('DOMContentLoaded', function () {
+    // 获取所有需要懒加载的图片元素
+    var lazyImages = document.querySelectorAll('.leaf_images_are_preloaded');
+
+    // 创建一个 Intersection Observer 对象
+    var imageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var img = entry.target;
+
+                var originalSrc = img.getAttribute('data-original');
+                var tempSrc = img.getAttribute('src');
+
+                // 创建一个新的 Image 对象
+                var preloadImage = new Image();
+
+                // 设置加载完成的回调函数
+                preloadImage.onload = function () {
+                    // 仅当网络状态为200时，将 src 属性替换为 data-original 的值
+                    if (preloadImage.naturalWidth > 0) {
+                        img.setAttribute('src', originalSrc);
+                    }
+                };
+
+                // 设置加载失败的回调函数
+                preloadImage.onerror = function () {
+                    // 如果网络状态不是200，保留原始的 src 属性
+                    img.setAttribute('src', tempSrc);
+                };
+
+                // 设置 Image 对象的 src 属性为 data-original 的值
+                preloadImage.src = originalSrc;
+
+                // 停止观察该图片，因为图片已经加载过了
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    // 开始观察需要懒加载的图片
+    lazyImages.forEach(function (img) {
+        imageObserver.observe(img);
+    });
+});
+
+//主题点赞功能
+$.fn.postLike = function () {
+    if ($(this).hasClass('done')) {
+        return false;
+    } else {
+        $(this).addClass('done');
+        var id = $(this).data("id"),
+            action = $(this).data('action'),
+            rateHolder = $(this).children('.count');
+        var ajax_data = {
+            action: "bigfa_like",
+            um_id: id,
+            um_action: action
+        };
+        $.post("/wp-admin/admin-ajax.php", ajax_data, function (data) {
+            $(rateHolder).html(data);
+        });
+        return false;
+    }
+};
+$(document).on("click", ".favorite", function () {
+    $(this).postLike();
+});
