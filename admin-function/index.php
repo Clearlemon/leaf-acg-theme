@@ -2,7 +2,7 @@
 $files = array(
     //主题设置文件
     'admin-function/leaf-options/leaf-admin-options.php',
-    'admin-function/leaf-options/leaf-customize-options.php',
+    // 'admin-function/leaf-options/leaf-customize-options.php',
     'admin-function/leaf-options/leaf-metabox-options.php',
     'admin-function/leaf-options/leaf-nav-menu-options.php',
     'admin-function/leaf-options/leaf-profile-options.php',

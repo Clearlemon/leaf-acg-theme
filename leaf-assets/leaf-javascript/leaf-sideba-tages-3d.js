@@ -1,26 +1,3 @@
-
-var leafSpans = document.querySelectorAll('.leaf_link_tag');
-for (var i = 0; i < leafSpans.length; i++) {
-    var randomColor = getRandomColor(); // 获取随机颜色
-    leafSpans[i].style.backgroundColor = randomColor;
-    leafSpans[i].style.opacity = getRandomOpacity(); // 获取随机透明度
-}
-
-// 生成随机颜色的函数
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-// 生成随机透明度的函数
-function getRandomOpacity() {
-    return (Math.random() * (0.9 - 0.5) + 0.5).toFixed(2);
-}
-
 window.tagcloud = (function (win, doc) { // ns
     // 判断对象
     function isObject(obj) {

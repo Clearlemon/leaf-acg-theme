@@ -280,6 +280,7 @@ if (class_exists('CSF')) {
                   'word_air' => 'AIR',
                   'word_sp'  => 'Summer pockets',
                   'word_ab' => 'Angel Beats!',
+                  'word_kanon' => 'kanon',
                 ),
                 'default'    => 'word_cl'
               ),

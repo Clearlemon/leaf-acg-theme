@@ -64,36 +64,7 @@ require_once get_theme_file_path('/leaf-theme/theme-footer.php');
 ?>
 
 <body>
-    <script>
-        // // 播放器设置
-        // let vs = document.getElementById('videoAr');
-        // const player = new Plyr(vs, {
-        //   i18n: {
-        //     speed: '速度',
-        //     normal: '正常',
-        //   },
-        //   loop: {
-        //     active: true
-        //   },
-        //   speed: {
-        //     selected: 1,
-        //     options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 4],
-        //   },
-        //   disableContextMenu: true
-        // });
-        //         // 标签云设置
-        //         tagcloud({
-        //             selector: ".tagcloud",  //元素选择器
-        //             fontsize: 14,       //基本字体大小, 单位px
-        //             radius: 65,         //滚动半径, 单位px
-        //             mspeed: "slow",   //滚动最大速度, 取值: slow, normal(默认), fast
-        //             ispeed: "slow",   //滚动初速度, 取值: slow, normal(默认), fast
-        //             direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
-        //             keep: true          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
-        //         });
-        //         window.player = player;
-
-    </script>
+    
 
 </body>
 

@@ -160,6 +160,10 @@ function leaf_scripts_styles()
         wp_enqueue_style('leaf-sideba-time', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-sideba-time.css', array(), $var, 'all');
     }
 
+    if (is_active_widget(false, false, 'leaf_home_one_word', true)) {
+        wp_enqueue_script('leaf-sideba-one-word', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-sideba-one-word.js', array(), $var, true);
+    }
+
     //引用阿里巴巴失衡图标
     wp_enqueue_script('leaf-sideba-time', '//at.alicdn.com/t/c/font_4198813_b2p8wzx6qmh.js', array(), $var, true);
     wp_enqueue_script('leaf-jq', get_template_directory_uri() . '/leaf-assets/leaf-javascript/jquery.js', array(), $var, false);

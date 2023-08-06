@@ -1,3 +1,5 @@
  <div class="leaf-sidebar">
-     <?php dynamic_sidebar('leaf-home-sideba'); ?>
+     <div class="leaf_sidebat_all_fixed">
+         <?php dynamic_sidebar('leaf-home-sideba'); ?>
+     </div>
  </div>

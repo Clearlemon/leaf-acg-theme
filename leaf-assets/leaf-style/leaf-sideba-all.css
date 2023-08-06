@@ -5,7 +5,7 @@
     width: 24%;
 }
 
-.leaf-sidebar>* {
+.leaf_sidebat_all_fixed>* {
     padding: 10px 5px;
     background-color: white;
     padding-top: 20px;
@@ -15,6 +15,7 @@
 
 .sidebar_img {
     width: 100%;
+    height: 40%;
     object-fit: cover;
 }
 
@@ -65,11 +66,12 @@
     height: 35%;
 }
 
+.user_information_classifys,
+.user_information_tag,
 .user_information_comments,
 .user_information_article,
-.user_information_links,
-.user_information_day {
-    width: 25%;
+.user_information_links {
+    width: 20%;
     text-align: center;
 }
 

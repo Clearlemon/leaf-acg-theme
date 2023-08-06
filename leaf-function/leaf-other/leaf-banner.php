@@ -35,6 +35,8 @@ function leaf_banner_genre()
                             <h2 id="ab-one-word" class="leaf_h4_title"></h2>
                         <?php } elseif ($banner_one_word_choose == 'word_sp') { ?>
                             <h2 id="sp-one-word" class="leaf_h4_title"></h2>
+                        <?php } elseif ($banner_one_word_choose == 'word_kanon') { ?>
+                            <h2 id="kanon-one-word" class="leaf_h4_title"></h2>
                         <?php }
                     } else { ?>
                         <h2 class="leaf_h4_title"><?php echo $leaf_banner_title_h4; ?></h2>
