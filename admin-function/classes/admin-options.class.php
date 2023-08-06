@@ -710,6 +710,7 @@ if (!class_exists('CSF_Options')) {
       echo '<div class="maple-back-to-top" style=""><img class="maple-back-to-top-img" src="https://www.boxmoe.com/wp-content/themes/lolimeow/assets/images/top/lolisister2.gif"></div>';
 
       echo '<div class="maple-back-to-bottom" style=""><img class="maple-back-to-bottom-img" src="https://www.boxmoe.com/wp-content/themes/lolimeow/assets/images/top/lolisister2.gif"></div>';
+      echo '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>';
     }
   }
 }

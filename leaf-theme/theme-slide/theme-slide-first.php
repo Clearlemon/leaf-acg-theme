@@ -1,47 +1,18 @@
- <!-- 头部幻灯片样式开始 -->
- <div class="leaf_home_slide_allon">
-     <div class="leaf_home_slide">
-         <div class="leaf_slide_all">
-             <ul class="leaf_slide_ul_all" style="left: -400%;">
-                 <li class="leaf_li_imgs"><a href=""><img class="leaf_imgas_in_slide leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt=""></a>
-                     <h1>大标题</h1>
-                     <h3>小标题</h3>
-                 </li>
-                 <li class="leaf_li_imgs"><img class="leaf_imgas_in_slide leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt="">
-                     <h1>大标题</h1>
-                     <h3>小标题</h3>
-                 </li>
-                 <li class="leaf_li_imgs"><img class="leaf_imgas_in_slide leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt="">
-                     <h1>大标题</h1>
-                     <h3>小标题</h3>
-                 </li>
-                 <li class="leaf_li_imgs"><img class="leaf_imgas_in_slide leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt="">
-                     <h1>大标题</h1>
-                     <h3>小标题</h3>
-                 </li>
-                 <li class="leaf_li_imgs"><img class="leaf_imgas_in_slide leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt="">
-                     <h1>大标题</h1>
-                     <h3>小标题</h3>
-                 </li>
-             </ul>
-             <ul class="min">
-                 <li class="m"></li>
-                 <li class="m"></li>
-                 <li class="m"></li>
-                 <li class="m"></li>
-                 <li class="m"></li>
-             </ul>
-             <div class="leaf_change_imgs_button">
-                 <div class="leaf-button-left">&lt;</div>
-                 <div class="leaf-button-right">&gt;</div>
-             </div>
-         </div>
-     </div>
-     <div class="leaf_two_slide_all">
-         <div class="leaf_slied_two_inall">
-             <a href=""><img class="right_two_slide slide_topmost leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt=""></a>
-             <a href=""><img class="right_two_slide slide_below leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" alt=""></a>
-         </div>
-     </div>
- </div>
- <!-- 头部幻灯片样式结束 -->
+<?php if (_leaf('leaf_slide_layout_choose') == 'leaf_slide_layout_choose-1') {
+    if (!empty(_leaf('leaf_slide_layout_choose_1'))) {
+?>
+        <div class="leaf_slide_slider_article_all">
+            <div class="leaf_slide_all leaf_slide_first">
+                <div class="swiper-wrapper">
+                    <?php leaf_slide_first_func(); ?>
+                </div>
+                <div class="swiper-button-next"><svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiangyou"></use>
+                    </svg></div>
+                <div class="swiper-button-prev"><svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiangzuo"></use>
+                    </svg></div>
+            </div>
+        </div>
+<?php }
+} ?>

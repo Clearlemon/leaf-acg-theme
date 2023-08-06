@@ -184,6 +184,7 @@
     margin: 5px 0px;
     margin-bottom: 10px;
     height: 15%;
+    justify-content: space-between;
 }
 
 .leaf_home_article_title {
@@ -299,7 +300,6 @@
 
 .leaf_home_article_title_all {
     display: flex;
-    width: 500px;
 }
 
 /*需要修改的部分*/
@@ -684,7 +684,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 55%;
 }
 
 .leaf_home_article_deputy_title_three_img_card {
@@ -1328,11 +1327,6 @@
     cursor: default;
 }
 
-.leaf_slide_slider_article_all {
-    display: flex;
-    flex-direction: column;
-}
-
 .leaf_slider_article_img {
     height: 180px;
     width: 100%;
@@ -1395,7 +1389,6 @@
 .leaf_home_article_title_all_no_article {
     padding-left: 12px;
     display: flex;
-    width: 500px;
 }
 
 .leaf_article_browse_comment_like>span {
@@ -1474,4 +1467,8 @@
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
+}
+
+.leaf_links {
+    width: 100%;
 }

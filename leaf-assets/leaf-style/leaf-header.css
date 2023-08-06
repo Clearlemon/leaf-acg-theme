@@ -362,3 +362,118 @@ body {
     text-align: center;
     padding: 5px 0px;
 }
+
+.leaf_slide_slider_article_all {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+}
+
+/*第一种幻灯片的样式设计*/
+.leaf_slide_all_information {
+    position: absolute;
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 96%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .5));
+}
+
+.leaf_slide_avatar_name_time>p {
+    margin: 0px 5px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    display: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: #0c0c0c1a;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.leaf_slide_all:hover>.swiper-button-next,
+.leaf_slide_all:hover>.swiper-button-prev {
+    opacity: 1;
+}
+
+.leaf_slide_title {
+    padding: 5px 0px;
+}
+
+.slide_sub_title {
+    font-size: 16px;
+    text-align: left;
+
+}
+
+.slide_title {
+    color: white;
+    font-size: 30px;
+}
+
+.slide_avatar {
+    border-radius: 100%;
+}
+
+.slide_avatar_block {
+    width: 3%;
+}
+
+.leaf_slide_avatar_name_time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.leaf_slide_all_information p {
+    font-size: 14px;
+    color: white;
+}
+
+.leaf_slide_back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.leaf_slide_all {
+    width: 100%;
+    height: 100%;
+}
+
+.leaf-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

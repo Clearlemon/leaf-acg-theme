@@ -35,7 +35,27 @@ if (backToBottomBtn) {
 }
 
 
+//后台一言JS
+if (window.location.protocol === "https:") {
+  var url = "https://" + window.location.hostname;
+} else {
+  var url = "http://" + window.location.hostname;
+}
 
+url += "/wp-content/themes/leaf-acg-theme/admin-function/classes/leaf-admin-one-word.class.php";
+
+$.ajax({
+  url: url,
+  dataType: "text",
+  success: function (data) {
+    // data 就是一言内容，可以通过 DOM 操作将其输出到页面上
+    $("#maple-madin-Banner-one-word").text(data);
+  },
+  error: function () {
+    // 处理错误
+    console.log("Failed to get hitokoto.");
+  }
+});
 
 
 

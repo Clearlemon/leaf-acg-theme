@@ -39,12 +39,7 @@
     <!-- 右侧登录注册结束 -->
     <!-- 菜单栏总体布局结束 -->
     <!-- 大图Banner开始 -->
-    <div class="leaf-head_nav_backgroundimg">
-        <img class="leaf_header_banner_bg" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/bacg.jpg" width="100%" height="40%" alt="">
-        <div class="leaf_title-speech">
-            <h1 class="leaf_h1_title">生命的美好就是在那一瞬</h1>
-            <h2 class="leaf_h4_title">你好世界</h2>
-        </div>
-    </div>
+    <?php leaf_banner_genre(); ?>
+
     <!-- 大图Banner结束 -->
 </header>

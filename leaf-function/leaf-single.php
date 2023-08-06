@@ -33,18 +33,21 @@ function bigfa_like()
 // 添加上一篇和下一篇文章链接
 function leaf_custom_previous_next_links()
 {
+    $post_id = get_the_ID();
     //获取上一篇文章的ID
     $previous_post = get_previous_post();
     //获取下一篇文章的ID
     $next_post = get_next_post();
     //进行上一篇或者下一篇来判断
-
+    $previous_post_id = $previous_post->ID;
+    $next_post_id = $next_post->ID;
     if ($previous_post || $next_post) {
         echo '<div class="lea_fprevious_next_links">';
         //如果上一篇有文章的话则输出这些html，如果没有则不会输出相关内容
         if ($previous_post) {
+
             echo '<div class="leaf_previous_post_link_title_block"><a href="' . get_permalink($previous_post->ID) . '">';
-            echo '<img class="leaf_fprevious_next_img" src="' . leaf_featured_image(get_the_ID()) . '">';
+            echo '<img class="leaf_fprevious_next_img" src="' . leaf_featured_image($previous_post_id) . '">';
             echo '<span class="leaf_previous_post_link_text"><svg t="1690439328619" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5569" width="20" height="20">
                     <path d="M0 0h1024v1024H0V0z" fill="#202425" opacity=".01" p-id="5570"></path>
                     <path d="M122.402133 560.264533a68.266667 68.266667 0 0 1 0-96.529066l307.2-307.2a68.266667 68.266667 0 1 1 96.529067 96.529066L335.4624 443.733333H853.333333a68.266667 68.266667 0 1 1 0 136.533334H335.4624l190.6688 190.6688a68.266667 68.266667 0 1 1-96.529067 96.529066l-307.2-307.2z" fill="#1296db" p-id="5571" data-spm-anchor-id="a313x.7781069.0.i0" class="selected"></path>
@@ -54,13 +57,14 @@ function leaf_custom_previous_next_links()
         }
         //如果下一篇有文章的话则输出这些html，如果没有则不会输出相关内容
         if ($next_post) {
+
             echo '<div class="leaf_next_post_link_title_block"><a href="' . get_permalink($next_post->ID) . '">';
             echo '<span class="leaf_next_post_link_text">下一篇<svg t="1690439475629" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6583" width="20" height="20">
                     <path d="M0 0h1024v1024H0V0z" fill="#202425" opacity=".01" p-id="6584"></path>
                     <path d="M901.597867 463.735467a68.266667 68.266667 0 0 1 0 96.529066l-307.2 307.2a68.266667 68.266667 0 1 1-96.529067-96.529066L688.5376 580.266667H170.666667a68.266667 68.266667 0 1 1 0-136.533334h517.870933l-190.6688-190.6688a68.266667 68.266667 0 1 1 96.529067-96.529066l307.2 307.2z" fill="#1296db" p-id="6585" data-spm-anchor-id="a313x.7781069.0.i4" class="selected"></path>
                 </svg></span>';
             echo '<span class="leaf_next_post_link_title">【' . $next_post->post_title . '】</span>';
-            echo '<img class="leaf_fprevious_next_img" src="' . leaf_featured_image(get_the_ID()) . '">';
+            echo '<img class="leaf_fprevious_next_img" src="' . leaf_featured_image($next_post_id) . '">';
             echo '</a></div>';
         }
         echo '</div>';
@@ -78,13 +82,16 @@ function leaf_custom_previous_next_links()
  * 
  **/
 
-function leaf_featured_image($post_id)
+function leaf_featured_image($post_id = '')
 {
     // 设置一个初始值设定或返回默认值
     $first_image = '';
-    $leaf_diy_thumbnail = _leaf_post('leaf_post_thumbnail_img', '');
 
     // 获取文章模块功能的缩略图
+    //其中get_post_meta($post_id, 'leaf-theme-post', true);为框架默认获取值
+    $_leaf_post = get_post_meta($post_id, 'leaf-theme-post', true);
+    $leaf_diy_thumbnail = $_leaf_post['leaf_post_thumbnail_img'];
+
     if ($leaf_diy_thumbnail) {
         $first_image = $leaf_diy_thumbnail;
     }
@@ -116,6 +123,7 @@ function leaf_featured_image($post_id)
 }
 
 
+
 //适用于三张图片的文章样式的缩略图
 function leaf_featured_many_image($post_id, $img_number = 1)
 {
@@ -144,24 +152,35 @@ function leaf_featured_many_image($post_id, $img_number = 1)
 }
 
 //自定义文章首页的摘要输出，默认为55字符
-function leaf_post_excerpt($excerpt_length = 55)
+function leaf_post_excerpt($excerpt_length = 55, $post_id = '')
 {
-    global $post; // 确保获取全局的 $post 对象
-    $excerpt = '';
+    global $post;
 
-    if ($post) {
-        $excerpt = mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, $excerpt_length, '…');
+    if (!$post_id) {
+        $post_id = $post->ID;
+    }
+
+    $excerpt = '';
+    $post_content = get_post_field('post_content', $post_id);
+
+    if ($post_content) {
+        $excerpt = mb_strimwidth(strip_tags(apply_filters('the_content', $post_content)), 0, $excerpt_length, '…');
     }
 
     return $excerpt;
 }
+
 //发布时间设置
-function leaf_post_time()
+function leaf_post_time($post_id = '')
 {
     global $post;
 
+    if (!$post_id) {
+        $post_id = $post->ID;
+    }
+
     // 获取文章的发布时间（以Unix时间戳格式表示）
-    $post_time = strtotime(get_the_time('Y-m-d H:i:s', $post->ID));
+    $post_time = strtotime(get_the_time('Y-m-d H:i:s', $post_id));
 
     // 获取当前时间的时间戳
     $current_time = current_time('timestamp');
@@ -191,7 +210,7 @@ function leaf_post_time()
 
     return $time;
 }
-add_filter('the_time', 'leaf_post_time');
+
 
 //文章作者头像获取
 function leaf_post_user_avatar()
@@ -324,4 +343,23 @@ function leaf_custom_pagination()
         echo $paginate_links;
         echo '</div>';
     }
+}
+
+//获取文章的分类
+function leaf_post_category_name($post_id = '')
+{
+    $categories = get_the_category($post_id); // 获取当前文章的分类列表
+
+    if ($categories) {
+        // 只考虑第一个分类，因为通常一个文章只属于一个主要分类
+        $parent_category = $categories[0];
+        while ($parent_category->parent) {
+            // 循环获取父级分类，直到没有父级分类为止
+            $parent_category = get_category($parent_category->parent);
+        }
+
+        return $parent_category->name; // 返回父级分类的名称
+    }
+
+    return false; // 如果没有分类或者获取失败，返回false
 }

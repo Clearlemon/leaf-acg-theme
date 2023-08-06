@@ -8,7 +8,10 @@ $files = array(
     'leaf-function/leaf-index.php',
     'leaf-function/leaf-search.php',
     'leaf-function/leaf-category.php',
-
+    //顶部Banner函数设置
+    'leaf-function/leaf-other/leaf-banner.php',
+    //幻灯片设置功能
+    'leaf-function/leaf-slide/slide-first.php',
 );
 foreach ($files as $file) {
     require_once get_theme_file_path('/' . $file);

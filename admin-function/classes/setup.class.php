@@ -589,6 +589,7 @@ if (!class_exists('CSF_Setup')) {
       wp_enqueue_style('csf', self::include_plugin_url('assets/css/style' . $min . '.css'), array(), self::$version, 'all');
       wp_enqueue_style('leaf', CSF::include_plugin_url('assets/css/leaf.css'), array(), '1.0.0', 'all');
       wp_enqueue_style('leaf', CSF::include_plugin_url('assets/css/leaf.min.css'), array(), '1.0.0', 'all');
+      
 
 
       // Main RTL styles
@@ -603,6 +604,7 @@ if (!class_exists('CSF_Setup')) {
       wp_enqueue_script('leaf', CSF::include_plugin_url('assets/js/leaf.min.js'), array(), '1.0.0', 'all');
       wp_enqueue_script('leaf-admin-iconfont-one', CSF::include_plugin_url('assets/js/leaf-admin-iconfont-one.js'), array(), '1.0.0', 'all');
       wp_enqueue_script('leaf-admin-iconfont-two', CSF::include_plugin_url('assets/js/leaf-admin-iconfont-two.js'), array(), '1.0.0', 'all');
+ 
 
       // Main variables
       wp_localize_script('csf', 'csf_vars', array(

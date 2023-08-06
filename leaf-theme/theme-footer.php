@@ -40,3 +40,15 @@
         </div>
     </div>
 </footer>
+<script>
+    //判断当前是否有class为leaf_slide_first
+    if ($(".leaf_slide_first").length) {
+        var swiper = new Swiper(".leaf_slide_first", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    }
+</script>

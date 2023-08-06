@@ -99,9 +99,11 @@ function leaf_scripts_styles()
     //引用主题的JavaScript和CSS 文件
     wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);
 
+
     wp_enqueue_style('leaf-header', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
     wp_enqueue_style('leaf-footer', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all');
     wp_enqueue_style('leaf-sideba-all', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-sideba-all.css', array(), $var, 'all');
+    wp_enqueue_style('leaf-slide-min', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-slide.min.css', array(), $var, 'all');
 
     //如果是首页则加载，如果不是则不加载
     if (is_home()) {
@@ -136,6 +138,7 @@ function leaf_scripts_styles()
     //侧边栏播放器本地引用
     if (is_active_widget(false, false, 'leaf_home_netease_music', true)) {
         wp_enqueue_script('leaf-sideba-netease-music', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-sideba-netease-music.js', array(), $var, false);
+        wp_enqueue_script('leaf-sideba-netease-music-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-sideba-netease-music.min.js', array(), $var, false);
         wp_enqueue_style('leaf-sideba-netease-music', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-sideba-netease-music.css', array(), $var, 'all');
     }
 
@@ -158,7 +161,9 @@ function leaf_scripts_styles()
     }
 
     //引用阿里巴巴失衡图标
-    wp_enqueue_script('leaf-sideba-time', '//at.alicdn.com/t/c/font_4141464_eds3zcbwko6.js', array(), $var, true);
+    wp_enqueue_script('leaf-sideba-time', '//at.alicdn.com/t/c/font_4198813_b2p8wzx6qmh.js', array(), $var, true);
+    wp_enqueue_script('leaf-jq', get_template_directory_uri() . '/leaf-assets/leaf-javascript/jquery.js', array(), $var, false);
+    wp_enqueue_script('leaf-slide-jq-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-slide-jq.min.js', array(), $var, false);
 }
 add_action('wp_enqueue_scripts', 'leaf_scripts_styles');
 
@@ -187,7 +192,6 @@ if (!function_exists('leaf_post')) {
         }
     }
 }
-
 
 //判断是否为手机端用户，如果是就输出，如果不是则不输出
 $isMobile = wp_is_mobile();
@@ -262,6 +266,3 @@ if ($isMobile) { ?>
 <?php
     exit;
 }
-
-
-

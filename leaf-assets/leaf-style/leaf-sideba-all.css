@@ -8,7 +8,9 @@
 .leaf-sidebar>* {
     padding: 10px 5px;
     background-color: white;
+    padding-top: 20px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .sidebar_img {
@@ -77,7 +79,12 @@
 
 .leaf_sidebar_title_all {
     margin: 0px 10px;
-    margin-bottom: 15px;
+    position: absolute;
+    top: -13px;
+    font-size: 14px;
+    background: #3c666636;
+    padding: 5px 5px;
+    border-radius: 5px;
 }
 
 .sidebar_home_time {

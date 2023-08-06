@@ -105,15 +105,15 @@ function leaf_article_style()
 ?>
     <div class="leaf_home_article_style">
         <div class="leaf_home_article_img">
-            <a href="<?php echo get_permalink(); ?>"><img class="leaf_inhome_article_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>"></a>
+            <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"><img class="leaf_inhome_article_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>"></a>
         </div>
         <div class="leaf_home_article_detailed" style="<?php leaf_post_background_img() ?>">
             <div class=" leaf_label_and_title">
                 <?php if (is_sticky()) { ?>
                     <span class="leaf_article_small_label">
-                        <a class="leaf_home_article_links" href="<?php echo get_permalink(); ?>"><span>置顶</span></a>
+                        <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"><span>置顶</span></a>
                     </span><?php } ?>
-                <a href="<?php echo get_permalink(); ?>">
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
                     <div class="<?php if (is_sticky()) {
                                     echo 'leaf_home_article_title_all';
                                 } else {
@@ -164,10 +164,11 @@ function leaf_article_biglong_style()
 ?>
     <div class="leaf_home_article_biglong_style">
         <div class="leaf_home_article_biglong_img_title">
-            <a href="<?php echo get_permalink(); ?>"> <img class="leaf_home_article_img_long leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
-                <h2 class="leaf_home_article_main_title_long"><?php the_title(); ?></h2>
-                <h4 class="leaf_home_article_deputy_title_long" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+            <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                <img class="leaf_home_article_img_long leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
             </a>
+            <h2 class="leaf_home_article_main_title_long"><?php the_title(); ?></h2>
+            <h4 class="leaf_home_article_deputy_title_long" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
         </div>
         <div class="leaf_home_article_biglong_home_article_detailed">
             <div class="leaf_article_other_elements_long">
@@ -219,8 +220,10 @@ function leaf_article_three_img_card_style()
     <div class="leaf_home_article_three_img_card_style">
         <div class="leaf_home_article_three_img_card_all">
             <div class="leaf_home_article_three_img_card_title">
-                <h2 class="leaf_home_article_main_title_three_img_card"><?php the_title(); ?></h2>
-                <h4 class="leaf_home_article_deputy_title_three_img_card" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                    <h2 class="leaf_home_article_main_title_three_img_card"><?php the_title(); ?></h2>
+                    <h4 class="leaf_home_article_deputy_title_three_img_card" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                </a>
                 <?php if (is_sticky()) { ?>
                     <div class="leaf_article_small_label_card">
                         <p>置顶</p>
@@ -241,9 +244,9 @@ function leaf_article_three_img_card_style()
                 </p>
             </div>
             <div class="leaf_home_article_img_three_img_card">
-                <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 1); ?>">
-                <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 2); ?>">
-                <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 3); ?>">
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"> <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 1); ?>"></a>
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"> <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 2); ?>"></a>
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"> <img class="three_img_card_ingimg leaf_images_are_preloaded" src="<?php echo leaf_featured_many_image($post_id, 3); ?>"></a>
             </div>
             <div class="leaf_article_other_three_img_card">
                 <div class="leaf_article_classification_three_img_card" onmouseover="showDiv(this)" onmouseout="hideDiv(this)">
@@ -282,7 +285,7 @@ function leaf_small_card_articles_alling()
     <div class="leaf_home_small_card_articles_alling">
         <div class="leaf_home_small_card_articles_img">
             <div class="leaf_home_small_card_img">
-                <img class="leaf_home_small_incard_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"><img class="leaf_home_small_incard_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt=""></a>
                 <?php if (is_sticky()) { ?>
                     <img class="leaf_home_small_incard_figure" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/small_incard_figure.png">
                     <span class="leaf_home_small_incard_papertop">置顶</span>
@@ -291,12 +294,16 @@ function leaf_small_card_articles_alling()
             </div>
             <div class="leaf_home_small_card_content_all">
                 <div class="leaf_home_small_card_title_all">
-                    <h2 class="leaf_home_small_card_content_title_main"><?php the_title(); ?></h2>
-                    <h4 class="leaf_home_small_card_content_title_deputy" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                    <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                        <h2 class="leaf_home_small_card_content_title_main"><?php the_title(); ?></h2>
+                        <h4 class="leaf_home_small_card_content_title_deputy" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                    </a>
                 </div>
-                <p class="leaf_home_small_card_texte">
-                    <?php echo leaf_post_excerpt(81); ?>
-                </p>
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                    <p class="leaf_home_small_card_texte">
+                        <?php echo leaf_post_excerpt(81); ?>
+                    </p>
+                </a>
                 <div class="leaf_home_small_card_other_all">
                     <div class="leaf_home_small_card_user_all">
                         <img class="leaf_home_small_card_user_img leaf_images_are_preloaded" src="<?php echo leaf_post_user_avatar(); ?>" alt="">
@@ -330,12 +337,16 @@ function leaf_article_container()
 ?>
     <div class="leaf_home_article_container">
         <div class="leaf_home_article_card">
-            <div class="leaf_home_article_img_card">
-                <img class="leaf_home_article_inimg_card leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
-            </div>
-            <div class="leaf_home_article_title_card">
-                <h2 class="leaf_home_article_main_title_card"><?php the_title(); ?></h2>
-            </div>
+            <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                <div class="leaf_home_article_img_card">
+                    <img class="leaf_home_article_inimg_card leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
+                </div>
+            </a>
+            <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                <div class="leaf_home_article_title_card">
+                    <h2 class="leaf_home_article_main_title_card"><?php the_title(); ?></h2>
+                </div>
+            </a>
 
             <div class="leaf_article_topimg_card"> <?php if (is_sticky()) { ?><img src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/postingtop_bg.png" alt=""> <?php } ?></div>
 
@@ -355,7 +366,9 @@ function leaf_article_container()
                             } ?></span>
             </div>
             <div class="leaf_home_article_content_card">
-                <h4 class="leaf_home_article_deputy_title_card" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
+                    <h4 class="leaf_home_article_deputy_title_card" style="color:<?php echo leaf_post_deputy_color(); ?>;"><?php echo leaf_post_deputy_title(); ?></h4>
+                </a>
                 <p class="leaf_article_description_texte_card">
                     <?php echo leaf_post_excerpt(81); ?>
                 </p>
@@ -387,7 +400,7 @@ function leaf_article_photo_album()
             <div class="leaf_photo_album_size_type_title">
                 <p class="photo_album_size_type_title"><?php the_title(); ?></p>
             </div>
-            <img class="leaf_article_photo_album_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt="">
+            <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>"><img class="leaf_article_photo_album_img leaf_images_are_preloaded" src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/article_images_are_preloaded.webp" data-original="<?php echo leaf_featured_image($post_id); ?>" alt=""></a>
         </div>
     </div>
 <?php
