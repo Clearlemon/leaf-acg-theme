@@ -1,5 +1,5 @@
 .leaf_postings_main {
-    margin: 0px 200px;
+    margin: 0px 10%;
     margin-top: 25px;
 }
 
@@ -194,7 +194,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 17px;
-    max-width: 55%;
+    max-width: 100%;
 }
 
 .leaf_home_article_deputy_title {
@@ -205,7 +205,7 @@
     white-space: nowrap;
     line-height: 17px;
     margin-left: 10px;
-    max-width: 45%;
+    max-width: 100%;
 }
 
 .leaf_home_article_time {
@@ -1471,4 +1471,179 @@
 
 .leaf_links {
     width: 100%;
+}
+
+/*超小端*/
+@media screen and (max-width: 380px) {
+    .leaf_postings_main {
+        margin: 0px 0px;
+        margin-top: 25px;
+    }
+
+    .leaf_home_article_detailed {
+        width: 64%;
+        height: 100px;
+    }
+
+    .leaf_article_display {
+        float: left;
+        width: 100%;
+        padding: 0px 0px;
+    }
+
+    .leaf-sidebar {
+        width: 90%;
+        margin-left: 0px;
+    }
+
+    .leaf_inhome_article_img {
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 540px) and (min-width:380px) {
+    .leaf_postings_main {
+        margin: 0px 0px;
+        margin-top: 25px;
+    }
+
+    .leaf_home_article_detailed {
+        width: 66%;
+        height: 100px;
+    }
+
+    .leaf_article_display {
+        float: left;
+        width: 100%;
+        padding: 0px 0px;
+    }
+
+    .leaf-sidebar {
+        width: 90%;
+    }
+
+    .leaf_inhome_article_img {
+        height: 110px;
+    }
+
+}
+
+/*手机端样式*/
+@media screen and (max-width: 750px)and (min-width: 540px) {
+    .leaf_postings_main {
+        margin: 0px 0%;
+        margin-top: 25px;
+    }
+
+    .leaf_article_display {
+        width: 100%;
+        padding: 0px 0px;
+    }
+
+    .leaf_inhome_article_img {
+        height: 150px;
+    }
+
+    .leaf_home_article_style {
+        width: 93%;
+    }
+
+    .leaf_home_article_detailed {
+        width: 67%;
+        height: 140px;
+    }
+
+    .leaf_article_other_elements {
+        width: 100%;
+    }
+
+    .leaf_article_browse_comment_like {
+        width: 30%;
+    }
+
+    .leaf_article_user_img {
+        width: 8.5%;
+    }
+
+    .three_img_card_ingimg {
+        width: 29%;
+        height: 110px;
+    }
+
+    .leaf_home_article_biglong_style {
+        width: 93%;
+    }
+
+    .leaf_posting_inhome_all {
+        align-items: center;
+    }
+
+    .leaf_home_article_three_img_card_style {
+        width: 87%;
+    }
+
+    .three_img_card_ingimg {
+        width: 28%;
+    }
+
+    .leaf-sidebar {
+
+        width: 90%;
+    }
+}
+
+/*中等屏幕*/
+@media screen and (min-width: 751px) and (max-width: 995px) {
+    .leaf_postings_main {
+        margin: 0px 3%;
+        margin-top: 25px;
+    }
+
+    .leaf_article_display {
+        width: 100%;
+        padding: 0px 0px;
+    }
+
+    .leaf_home_article_detailed {
+        width: 67%;
+    }
+
+    .leaf_home_article_detailed {
+        height: 140px;
+    }
+
+    .leaf_inhome_article_img {
+        height: 150px;
+    }
+
+    .three_img_card_ingimg {
+        width: 30%;
+    }
+
+    .leaf-sidebar {
+
+        width: 93%;
+    }
+}
+
+
+
+@media screen and (min-width: 995px) and (max-width: 1666px) {
+    .leaf_postings_main {
+        margin: 0px 6%;
+        margin-top: 25px;
+    }
+
+    .leaf_article_display {
+        width: 65%;
+    }
+
+    .leaf_home_article_detailed {
+        width: 67%;
+    }
+
+    .three_img_card_ingimg {
+        width: 29%;
+    }
+
 }

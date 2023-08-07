@@ -38,14 +38,20 @@ function leaf_custom_previous_next_links()
     $previous_post = get_previous_post();
     //获取下一篇文章的ID
     $next_post = get_next_post();
+
     //进行上一篇或者下一篇来判断
-    $previous_post_id = $previous_post->ID;
-    $next_post_id = $next_post->ID;
+    if (!empty($previous_post)) {
+        $previous_post_id = $previous_post->ID;
+    }
+
+    if (!empty($next_post)) {
+        $next_post_id = $next_post->ID;
+    }
+
     if ($previous_post || $next_post) {
         echo '<div class="lea_fprevious_next_links">';
         //如果上一篇有文章的话则输出这些html，如果没有则不会输出相关内容
         if ($previous_post) {
-
             echo '<div class="leaf_previous_post_link_title_block"><a href="' . get_permalink($previous_post->ID) . '">';
             echo '<img class="leaf_fprevious_next_img" src="' . leaf_featured_image($previous_post_id) . '">';
             echo '<span class="leaf_previous_post_link_text"><svg t="1690439328619" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5569" width="20" height="20">
@@ -57,7 +63,6 @@ function leaf_custom_previous_next_links()
         }
         //如果下一篇有文章的话则输出这些html，如果没有则不会输出相关内容
         if ($next_post) {
-
             echo '<div class="leaf_next_post_link_title_block"><a href="' . get_permalink($next_post->ID) . '">';
             echo '<span class="leaf_next_post_link_text">下一篇<svg t="1690439475629" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6583" width="20" height="20">
                     <path d="M0 0h1024v1024H0V0z" fill="#202425" opacity=".01" p-id="6584"></path>
@@ -70,6 +75,7 @@ function leaf_custom_previous_next_links()
         echo '</div>';
     }
 }
+
 
 /**
  *[判断图片并输出特色图功能] 判断并获取文章的缩略图 输出顺序为 特色图 > 第一张图片 > 默认随机图
@@ -362,4 +368,79 @@ function leaf_post_category_name($post_id = '')
     }
 
     return false; // 如果没有分类或者获取失败，返回false
+}
+function leaf_post_child_category_name($post_id = '')
+{
+    $categories = get_the_category($post_id); // 获取当前文章的分类列表
+
+    if ($categories) {
+        // 检查第一个分类是否有子分类
+        $subcategories = get_categories(array(
+            'child_of' => $categories[0]->term_id,
+        ));
+
+        if ($subcategories) {
+            // 返回第一个子分类的名称
+            return $subcategories[0]->name;
+        }
+    }
+
+    return false; // 如果没有子分类或者获取失败，返回false
+}
+//输出文章内的父级分类
+function leaf_single_category_name($post_id = '')
+{
+    $categories = get_the_category($post_id); // 获取当前文章的分类列表
+
+    if ($categories) {
+        // 只考虑第一个分类，因为通常一个文章只属于一个主要分类
+        $parent_category = $categories[0];
+        while ($parent_category->parent) {
+            // 循环获取父级分类，直到没有父级分类为止
+            $parent_category = get_category($parent_category->parent);
+        }
+
+        $category_name = $parent_category->name; // 获取父级分类的名称
+        $category_link = get_category_link($parent_category->term_id); // 获取父级分类的链接
+
+        // 输出分类名称和链接
+        if ($category_name && $category_link) {
+            echo '<a class="leaf_single_category leaf_link_all" href="' . esc_url($category_link) . '">' . esc_html($category_name) . '</a>';
+        } else {
+            echo esc_html($category_name);
+        }
+    }
+}
+//输出文章内的子级分类
+function leaf_single_child_category_name($post_id = '')
+{
+    $categories = get_the_category($post_id); // 获取当前文章的分类列表
+
+    if ($categories) {
+        // 检查第一个分类是否有子分类
+        $subcategories = get_categories(array(
+            'child_of' => $categories[0]->term_id,
+        ));
+
+        if ($subcategories) {
+            // 获取第一个子分类的链接
+            $subcategory_link = get_category_link($subcategories[0]->term_id);
+            // 返回带链接的分类名称
+            return '<a class="leaf_single_child_category leaf_link_all" href="' . esc_url($subcategory_link) . '">' . $subcategories[0]->name . '</a>';
+        }
+    }
+
+    return false; // 如果没有子分类或者获取失败，返回false
+}
+function leaf_single_tag()
+{
+    $tags = get_the_tags();
+    if ($tags) {
+        $tages_number = 1;
+        foreach ($tags as $tag) {
+            // 输出每个标签的名称和链接
+            echo '<a class="leaf_single_tags_link leaf_link_all" href="' . esc_url(get_tag_link($tag->term_id)) . '"><span class="leaf_single_tags leaf_tags-' . $tages_number . '">' . esc_html($tag->name) . '</span></a>';
+            $tages_number++;
+        }
+    }
 }

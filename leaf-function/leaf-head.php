@@ -1,5 +1,5 @@
 <?php
-//图片LOGO判断函数
+//PC端图片LOGO判断函数
 function leaf_logo_text_img()
 {
     $close_logo = _leaf('close-logo');
@@ -23,7 +23,30 @@ function leaf_logo_text_img()
         echo '<div class="logo_img logo_img_text"><a href="' . $leaf_home_url . '"><img class="leaf-img_logo" src="' . $logo_tabbed_img . '" alt="' . $leaf_blog_name . '"></a></div>';
     }
 }
+//手机端LOGO
+function leaf_mobile_logo_text_img()
+{
+    $close_logo = _leaf('close-logo');
+    $leaf_home_url = get_bloginfo('url');
+    $leaf_blog_name = get_bloginfo('name');
 
+    if ($close_logo == 'text-logo') {
+        $logo_tabbed_text = _leaf('logo-tabbed-text');
+
+        if (is_array($logo_tabbed_text)) {
+            $logo_tabbed_text = implode(' ', $logo_tabbed_text);
+        }
+
+        echo '<div class="logo_text_mobile logo_img_text_mobile"><a href="' . $leaf_home_url . '"><h4 class="leaf_logo_titel_h4">' . $logo_tabbed_text . '</h4></a></div>';
+    } elseif ($close_logo == 'img-logo') {
+
+        $logo_tabbed_img = _leaf('logo-tabbed-img');
+        if (is_array($logo_tabbed_img)) {
+            $logo_tabbed_img = implode(' ', $logo_tabbed_img);
+        }
+        echo '<div class="logo_text_mobile logo_img_text_mobile"><a href="' . $leaf_home_url . '"><img class="leaf-img_logo" src="' . $logo_tabbed_img . '" alt="' . $leaf_blog_name . '"></a></div>';
+    }
+}
 //检查当前用户是否为登录状态
 function leaf_loging_enroll_user()
 {
@@ -31,9 +54,7 @@ function leaf_loging_enroll_user()
         $current_user_id = get_current_user_id();
         $avatar_url = get_avatar_url($current_user_id);
 ?>
-        <div class="leaf_login_enroll_avatar">
-            <img class="leaf_loginng_avatar" src="<?php echo esc_url($avatar_url); ?>">
-        </div>
+        <img class="leaf_loginng_avatar leaf_loginng_move_avatar" src="<?php echo esc_url($avatar_url); ?>">
     <?php
     } else {
     ?>

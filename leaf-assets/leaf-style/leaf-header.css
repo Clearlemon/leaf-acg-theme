@@ -149,8 +149,17 @@ body {
 
 }
 
-.leaf-headnav {
-    width: 70%;
+.leaf_header_block {
+    display: flex;
+    margin: 0px 10%;
+    justify-content: space-between;
+}
+
+.leaf_head_nav_search_user {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .leaf-headnav li:hover>ul {
@@ -160,7 +169,7 @@ body {
 }
 
 .leaf_login_enroll_img {
-    padding: 19px;
+    padding: 19px 0px;
     font-size: 14px;
     text-align: center;
 }
@@ -204,7 +213,6 @@ body {
 
 
 .leaf-navtop_bigbackground {
-    display: flex;
     z-index: 999;
     width: 100%;
     top: -60;
@@ -222,7 +230,6 @@ body {
 
 .leaf_nav_alooftop {
     position: fixed;
-    display: flex;
     z-index: 999;
     width: 100%;
     box-shadow: inset 0 0 2px #c5c5c5d1;
@@ -259,7 +266,7 @@ body {
 }
 
 .leaf_search_but {
-    height: 100%;
+    height: 25px;
     width: 100%;
     outline: medium;
     border: none;
@@ -267,17 +274,11 @@ body {
 }
 
 .logo_img_text {
-    width: 12%;
-    margin-left: 70px;
-}
-
-.leaf-user_img_admin {
-    width: var(--wp-leaf-nav-width);
+    width: 25%;
 }
 
 .leaf-user_img_admin {
     margin-left: 20px;
-    margin-right: 70px;
 }
 
 .leaf-head_nav_backgroundimg {
@@ -353,9 +354,13 @@ body {
 }
 
 .leaf_loginng_avatar {
-    width: 30%;
-    height: 80%;
+    width: 40%;
     border-radius: 100%;
+}
+
+.leaf_header_search_user {
+    display: flex;
+    align-items: center;
 }
 
 .leaf_login_enroll_avatar {
@@ -476,4 +481,91 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.leaf_pop_up_search {
+    display: none;
+}
+
+.leaf_sidebar_nav {
+    display: none;
+}
+
+.logo_text_mobile {
+    display: none;
+}
+
+@media screen and (min-width: 995px) and (max-width: 1200px) {
+    .navbar-form {
+        display: none;
+    }
+
+    .leaf_pop_up_search {
+        display: flex;
+        align-items: center;
+    }
+
+    .leaf_search_ali_icon {
+        width: 25px;
+        height: 25px;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+
+    .leaf_loginng_avatar {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 995px) {
+    .logo_img_text {
+        display: none;
+    }
+
+    .navbar-form {
+        display: none;
+    }
+
+    .leaf_pop_up_search {
+        display: flex;
+        align-items: center;
+    }
+
+    .leaf_search_ali_icon {
+        width: 25px;
+        height: 25px;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+
+    .leaf_sidebar_nav_ali_icon {
+        width: 25px;
+        height: 25px;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+
+    .leaf-headnav {
+        display: none;
+    }
+
+    .leaf_sidebar_nav {
+        display: block;
+    }
+
+    .logo_text_mobile {
+        display: block;
+    }
+
+    .leaf_header_search_user {
+        justify-content: flex-end;
+    }
+
+    .leaf-user_img_admin {
+        display: none;
+    }
+
 }

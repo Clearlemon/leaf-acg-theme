@@ -91,6 +91,7 @@
     font-size: 14px;
     background: #cbcbcb;
     border-radius: 5px;
+    text-align: center;
 }
 
 .single_synopsis_block {
@@ -566,4 +567,7 @@ iframe {
 
 .leaf_inhome_article_img {
     max-width: 100%;
+}
+.breadcrumb_navigation {
+    font-size: 16px;
 }

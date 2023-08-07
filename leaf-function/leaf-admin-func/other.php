@@ -165,7 +165,8 @@ function leaf_scripts_styles()
     }
 
     //引用阿里巴巴失衡图标
-    wp_enqueue_script('leaf-sideba-time', '//at.alicdn.com/t/c/font_4198813_b2p8wzx6qmh.js', array(), $var, true);
+    wp_enqueue_script('ali', '//at.alicdn.com/t/c/font_4198813_hacvc2pw3yc.js', array(), $var, true);
+    //引用本地JQ插件
     wp_enqueue_script('leaf-jq', get_template_directory_uri() . '/leaf-assets/leaf-javascript/jquery.js', array(), $var, false);
     wp_enqueue_script('leaf-slide-jq-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-slide-jq.min.js', array(), $var, false);
 }
@@ -195,78 +196,4 @@ if (!function_exists('leaf_post')) {
             return $default;
         }
     }
-}
-
-//判断是否为手机端用户，如果是就输出，如果不是则不输出
-$isMobile = wp_is_mobile();
-if ($isMobile) { ?>
-    <html>
-
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                text-decoration: none;
-            }
-
-            body {
-                background-image: url(http://www.98qy.com/sjbz/api.php);
-                background-position-x: center;
-                background-size: cover;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .mobile-all {
-                height: 50%;
-                width: 75%;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                border-radius: 15px;
-                backdrop-filter: saturate(200%) blur(30px);
-                background-color: hsl(0deg 0% 100% / 50%) !important;
-            }
-
-            h2 {
-                padding: 10px;
-            }
-
-            p {
-                padding: 10px;
-            }
-
-            .button>* {
-                margin: 20px 0px;
-            }
-
-            button {
-                height: 30px;
-                width: 100px;
-                margin: 0px 10px;
-                border: none;
-                background-color: hsl(0deg 0% 100% / 50%) !important;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="mobile-all">
-            <h2>ACG叶主题</h2>
-            <p>很抱歉各位，移动端样式还并未开发，请各位见谅，也请给位用PC端预览，敬请期待哦~~~【开源进主题群给主题提意见捏~~~】</p>
-            <div class="button">
-                <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=N2T0mL4vKokAfNLcTCagQBREy6sAmcmX&authKey=8r3bZ%2Bd%2FhUZZns33mff771UXno9%2BrbmqRJLZ5JXtO3Efx5ncXuCRnK0Lmm0R0X8L&noverify=0&group_code=785428622"><button>主题群</button></a>
-                <a href="https://github.com/Clearlemon/leaf-acg-theme"><button>GitHub地址</button></a>
-            </div>
-        </div>
-    </body>
-
-    </html>
-<?php
-    exit;
 }
