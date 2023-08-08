@@ -121,21 +121,21 @@ if (class_exists('CSF')) {
           ),
         )
       ),
-      // array(
-      //   'id'         => 'close-logo',
-      //   'title'      => '[移动端]LOGO样式选择',
-      //   'subtitle'   => '显示策略',
-      //   'inline'     => true,
-      //   'type'       => 'image_select',
-      //   'class' => 'leaf-three-tabbed-img',
-      //   'desc' => '选择你喜欢的导航logo样式，第一个为菜单页<b class="leaf_emphasis_fonts">[背景图+LOGO图]</b>样式，第二个为菜单页纯<b class="leaf_emphasis_fonts">[LOGO图]</b>样式,第三个为只在<b class="leaf_emphasis_fonts">导航栏顶部显示[LOGO]</b>样式。',
-      //   'options'    => array(
-      //     'mobile-bg-logo' => $img_setings_url . 'mobile-logo-bg'.$webp_format,
-      //     'mobile-img-logo' => $img_setings_url . 'mobile-logo-img'.$webp_format,
-      //     'mobile-home-img-logo' => $img_setings_url . 'mobile-home-logo-img'.$webp_format
-      //   ),
-      //   'default' =>  'mobile-img-logo',
-      // ),
+      array(
+        'id'         => 'mobile-close-logo',
+        'title'      => '[移动端]LOGO样式选择',
+        'subtitle'   => '显示策略',
+        'inline'     => true,
+        'type'       => 'image_select',
+        'class' => 'leaf-three-tabbed-img',
+        'desc' => '选择你喜欢的导航logo样式，第一个为菜单页<b class="leaf_emphasis_fonts">[背景图+LOGO图]</b>样式，第二个为菜单页纯<b class="leaf_emphasis_fonts">[LOGO图]</b>样式,第三个为只在<b class="leaf_emphasis_fonts">导航栏顶部显示[LOGO]</b>样式。',
+        'options'    => array(
+          'mobile-bg-logo' => $img_setings_url . 'mobile-logo-bg' . $webp_format,
+          'mobile-img-logo' => $img_setings_url . 'mobile-logo-img' . $webp_format,
+          'mobile-home-img-logo' => $img_setings_url . 'mobile-home-logo-img' . $webp_format
+        ),
+        'default' =>  'mobile-img-logo',
+      ),
     ),
   ));
 

@@ -1,6 +1,47 @@
 <header class="leaf-header-all">
+    <div class="leaf_sidebar_nav_shrink">
+        <div class="leaf_sidebar_nav_all">
+            <div class="leaf_sidebar_back_logo_block">
+                <img class="leaf_sidebar_back" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
+                <img class="leaf_sidebar_logo" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.png" alt="">
+            </div>
+            <?php $mobile_locations = get_nav_menu_locations();
+            if (isset($mobile_locations['leaf_head_nav'])) {
+                wp_nav_menu(
+                    array(
+                        'menu' => 'leaf_head_nav',
+                        'theme_location' => 'leaf_head_nav',
+                        'depth' => 3,
+                        'container' => 'div',
+                        'container_class' => 'leaf_sidebar_nav_block',
+                        'menu_class' => 'leaf-menu-sidebar-ul-block',
+                        'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                        'walker' => new Leaf_Sidebar_Nav_Create_style,
+                    )
+                );
+            }
+            ?>
+            <div class="leaf_sidebar_user_setting_block"></div>
+            <div class="leaf_sidebar_gadget_block"></div>
+        </div>
+        <div class="leaf_sidebar_nav_black" onclick="closeSearch()"></div>
+    </div>
+    <div class="leaf_search_eject_block_all_shrink">
+        <div class="leaf_search_mobile_black" onclick="closeSearch()"></div>
+        <div class="leaf_search_eject_block">
+            <form class="mobile_navbar-form" id="searchform" action="<?php echo get_bloginfo('url'); ?>">
+                <div class="leaf-banner_search">
+                    <input class="leaf_searc_input_box" type="text" class="form-control" name="s" size="35" placeholder="搜素一下？" id="keywords" maxlength="100">
+                    <span class="input-group-btn">
+                        <input type="submit" value="搜索" class="leaf_search_but" id="searchsubmit">
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- 菜单栏总体布局开始 -->
     <div class="leaf-navtop_bigbackground">
+
         <div class="leaf_header_block">
             <!-- LOGO图开始 -->
             <?php leaf_logo_text_img(); ?>
@@ -59,4 +100,5 @@
     <?php leaf_banner_genre(); ?>
 
     <!-- 大图Banner结束 -->
+
 </header>

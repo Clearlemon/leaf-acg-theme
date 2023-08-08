@@ -249,7 +249,6 @@ body {
 
 .leaf-banner_search {
     display: flex;
-    height: 50%;
     align-items: center;
     justify-content: center;
     padding: 13px 0px;
@@ -541,8 +540,8 @@ body {
     }
 
     .leaf_sidebar_nav_ali_icon {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;
@@ -568,4 +567,168 @@ body {
         display: none;
     }
 
+}
+
+/*侧边导航栏*/
+.leaf_sidebar_nav_shrink {
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: -100px;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 9999;
+    transition: all .3s ease-out 0s;
+}
+
+.leaf_sidebar_nav_unfold {
+    visibility: visible !important;
+    left: 0 !important;
+    opacity: 1 !important;
+}
+
+.leaf_sidebar_back {
+    width: 100%;
+    height: 20%;
+}
+
+.leaf_sidebar_nav_black {
+    flex: 30%;
+    background: #000;
+    opacity: .4;
+}
+
+.leaf_sidebar_nav_all {
+    position: relative;
+    flex: 65%;
+    max-width: 400px;
+    background: #ffffffba;
+    overflow-y: auto;
+}
+
+.leaf_sidebar_logo {
+    width: 70%;
+    position: absolute;
+    top: 7%;
+    z-index: 999999;
+    left: 15%;
+}
+
+.leaf_sidebar_nav_block {
+    margin: 5px 0px 0px 5px;
+}
+
+.leaf-menu-sidebar-ul-block {
+    padding: 5px;
+}
+
+.leaf_first_menu_sidebar {
+    font-size: 16px;
+    margin: 10px 0px;
+    position: relative;
+}
+
+.leaf_second_menu_sidebar {
+    padding: 2px;
+    font-size: 16px;
+    position: relative;
+    margin: 2px 0px 2px 10px;
+}
+
+.leaf_third_menu_sidebar {
+    padding: 2px;
+    font-size: 16px;
+}
+
+.leaf_sidebar_ico_ali {
+    position: absolute;
+    right: 0;
+    top: 2;
+}
+
+.leaf_second_menu_sidebar. {
+    position: relative;
+}
+
+.leaf_second_menu_sidebar>.leaf_sidebar_ico_ali {
+    position: absolute;
+    right: 0;
+    top: 2;
+}
+
+.leaf_second_menu_sidebar_ul,
+.leaf_third_menu_sidebar_ul {
+    opacity: 0;
+    display: none;
+    transition: all .3s ease-out 0s;
+    visibility: hidden;
+}
+
+.leaf_first_menu_sidebar>.show-submenu,
+.leaf_second_menu_sidebar>.show-submenu {
+    opacity: 1;
+    display: block !important;
+    visibility: visible;
+}
+
+.sidebar-menu-link.leaf_link_all {
+    width: 85%;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar-menu-link.sidebar-sub-menu-link {
+    display: block;
+    padding: 5px;
+}
+
+.leaf_search_eject_block_all_shrink {
+    display: flex;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaf_search_block_unfold {
+    visibility: visible;
+}
+
+.leaf_search_eject_block {
+    padding: 10px;
+    top: 0;
+    opacity: 0;
+    transition: all .3s ease-out 0s;
+    position: relative;
+    flex: 70%;
+    max-width: 400px;
+    background: #fff;
+    z-index: 99999;
+    height: 150px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.leaf_search_mobile_black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .4;
+    background: #000;
+}
+
+.leaf_search_block_unfold .leaf_search_eject_block {
+    opacity: 1 !important;
+    top: -200px !important;
 }
