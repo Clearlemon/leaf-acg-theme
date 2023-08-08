@@ -134,19 +134,7 @@ function leaf_article_style()
                 <img class="leaf_article_user_img leaf_images_are_preloaded" src="<?php echo leaf_post_user_avatar(); ?>" alt="">
                 <p class="leaf_article_user_name"><?php the_author(); ?></p>
                 <div class="leaf_article_browse_comment_like">
-                    <span class="leaf_article_comment"><svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-pinglun"></use>
-                        </svg><?php echo get_comments_number(); ?></span>
-                    <span class="leaf_article_browse"><svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-liulan-mian"></use>
-                        </svg><?php get_post_views($post_id); ?></span>
-                    <span class="leaf_article_like"><svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-xihuan"></use>
-                        </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                                    echo get_post_meta($post_id, 'bigfa_ding', true);
-                                } else {
-                                    echo '0';
-                                } ?></span>
+                    <?php leaf_browse_comment_like(); ?>
                 </div>
                 <div class="leaf_article_classification" onmouseover="showDiv(this)" onmouseout="hideDiv(this)">
                     <?php echo leaf_post_tag($leaf_post_tag_number); ?>
@@ -178,19 +166,7 @@ function leaf_article_biglong_style()
                     </div>
                     <p class="leaf_article_user_name_long"><?php the_author(); ?></p>
                     <div class="leaf_article_browse_comment_like_long">
-                        <span class="leaf_article_comment_long"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-pinglun"></use>
-                            </svg><?php echo get_comments_number(); ?></span>
-                        <span class="leaf_article_browse_long"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-liulan-mian"></use>
-                            </svg><?php get_post_views($post_id); ?></span>
-                        <span class="leaf_article_like_long"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-xihuan"></use>
-                            </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                                        echo get_post_meta($post_id, 'bigfa_ding', true);
-                                    } else {
-                                        echo '0';
-                                    } ?></span>
+                        <?php leaf_browse_comment_like(); ?>
                     </div>
                     <div class="leaf_home_article_time_long"><span class="article_time_long"><?php echo leaf_post_time(); ?></span>
                     </div>
@@ -254,19 +230,7 @@ function leaf_article_three_img_card_style()
                 </div>
                 <div class="leaf_article_information_three_img_card">
                     <div class="leaf_article_browse_comment_like_three_img_card">
-                        <span class="leaf_article_comment_three_img_card"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-pinglun"></use>
-                            </svg><?php echo get_comments_number(); ?></span>
-                        <span class="leaf_article_browse_three_img_card"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-liulan-mian"></use>
-                            </svg><?php get_post_views($post_id); ?></span>
-                        <span class="leaf_article_like_three_img_card"><svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-xihuan"></use>
-                            </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                                        echo get_post_meta($post_id, 'bigfa_ding', true);
-                                    } else {
-                                        echo '0';
-                                    } ?></span>
+                        <?php leaf_browse_comment_like(); ?>
                     </div>
                     <div class="leaf_home_article_time_three_img_card">
                         <span class="article_time_three_img_card"><?php echo leaf_post_time(); ?></span>
@@ -309,19 +273,7 @@ function leaf_small_card_articles_alling()
                         <img class="leaf_home_small_card_user_img leaf_images_are_preloaded" src="<?php echo leaf_post_user_avatar(); ?>" alt="">
                         <p class="leaf_home_small_card_user_name"><?php the_author(); ?></p>
                         <div class="leaf_home_small_card_browse_comment_like">
-                            <span class="leaf_article_comment_three_img_card"><svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-pinglun"></use>
-                                </svg><?php echo get_comments_number(); ?></span>
-                            <span class="leaf_article_browse_three_img_card"><svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-liulan-mian"></use>
-                                </svg><?php get_post_views($post_id); ?></span>
-                            <span class="leaf_article_like_three_img_card"><svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-xihuan"></use>
-                                </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                                            echo get_post_meta($post_id, 'bigfa_ding', true);
-                                        } else {
-                                            echo '0';
-                                        } ?></span>
+                            <?php leaf_browse_comment_like(); ?>
                         </div>
                     </div>
                 </div>
@@ -351,19 +303,7 @@ function leaf_article_container()
             <div class="leaf_article_topimg_card"> <?php if (is_sticky()) { ?><img src="<?php echo get_template_directory_uri(); ?>/leaf-assets/leaf-images/postingtop_bg.png" alt=""> <?php } ?></div>
 
             <div class="leaf_article_browse_comment_like_card">
-                <span class="leaf_article_comment"><svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-pinglun"></use>
-                    </svg><?php echo get_comments_number(); ?></span>
-                <span class="leaf_article_browse"><svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liulan-mian"></use>
-                    </svg><?php get_post_views($post_id); ?></span>
-                <span class="leaf_article_like"><svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-xihuan"></use>
-                    </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                                echo get_post_meta($post_id, 'bigfa_ding', true);
-                            } else {
-                                echo '0';
-                            } ?></span>
+                <?php leaf_browse_comment_like(); ?>
             </div>
             <div class="leaf_home_article_content_card">
                 <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">

@@ -151,7 +151,7 @@ body {
 
 .leaf_header_block {
     display: flex;
-    margin: 0px 10%;
+    margin: 0px 7%;
     justify-content: space-between;
 }
 
@@ -273,7 +273,8 @@ body {
 }
 
 .logo_img_text {
-    width: 25%;
+    width: 20%;
+    text-align: center;
 }
 
 .leaf-user_img_admin {
@@ -291,6 +292,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #ffffff;
+    width: 100%;
 }
 
 .leaf_h1_title {
@@ -709,11 +711,9 @@ body {
     opacity: 0;
     transition: all .3s ease-out 0s;
     position: relative;
-    flex: 70%;
     max-width: 400px;
     background: #fff;
     z-index: 99999;
-    height: 150px;
     border-radius: 4px;
     text-align: center;
 }

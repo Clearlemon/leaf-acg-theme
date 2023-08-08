@@ -319,7 +319,6 @@ function leaf_custom_pagination()
 {
     global $wp_query;
 
-    $big = 999999999; // 需要一个足够大的数字，确保所有页面都能显示在分页中
 
     // 获取当前页码
     $current_page = max(1, get_query_var('paged'));
@@ -328,7 +327,6 @@ function leaf_custom_pagination()
     $home_url = esc_url(home_url('/'));
 
     $paginate_links = paginate_links(array(
-        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
         'current' => $current_page,
         'mid_size' => 2,
         'prev_text' => '',
@@ -432,6 +430,7 @@ function leaf_single_child_category_name($post_id = '')
 
     return false; // 如果没有子分类或者获取失败，返回false
 }
+//文章内容的标签输出
 function leaf_single_tag()
 {
     $tags = get_the_tags();
@@ -443,4 +442,24 @@ function leaf_single_tag()
             $tages_number++;
         }
     }
+}
+//文章首页点赞|评论|浏览|相关信息函数
+function leaf_browse_comment_like()
+{
+    $post_id = get_the_ID();
+?>    
+        <span class="leaf_article_comment"><svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-pinglun"></use>
+            </svg><?php echo get_comments_number(); ?></span>
+        <span class="leaf_article_browse"><svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-liulan"></use>
+            </svg><?php get_post_views($post_id); ?></span>
+        <span class="leaf_article_like"><svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-dianzan"></use>
+            </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
+                        echo get_post_meta($post_id, 'bigfa_ding', true);
+                    } else {
+                        echo '0';
+                    } ?></span>
+<?php
 }
