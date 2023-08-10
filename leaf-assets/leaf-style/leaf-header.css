@@ -484,16 +484,31 @@ body {
     object-fit: cover;
 }
 
-.leaf_pop_up_search {
-    display: none;
-}
 
 .leaf_sidebar_nav {
     display: none;
 }
 
+.leaf_search_ali_icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 .logo_text_mobile {
     display: none;
+}
+
+.mobile_nav_logo_block {
+    width: 200px;
+    height: 50px;
+}
+
+.leaf_sidebar_noback_logo {
+    width: 75%;
+    padding: 50px;
 }
 
 @media screen and (min-width: 995px) and (max-width: 1200px) {
@@ -502,7 +517,7 @@ body {
     }
 
     .leaf_pop_up_search {
-        display: flex;
+        display: flex !important;
         align-items: center;
     }
 
@@ -529,7 +544,7 @@ body {
     }
 
     .leaf_pop_up_search {
-        display: flex;
+        display: flex !important;
         align-items: center;
     }
 

@@ -1,12 +1,7 @@
 <html>
 
-<head>
-    <title>叶ACG - 一个好看的二次元博客主题</title>
-    <meta name="keywords" content="ACG,二次元,游戏,主题,Wordpress,叶">
-    <meta name="description" content="一个免费好看的二次元个人博客主题。">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
 <?php
+leaf_seo();
 require_once get_theme_file_path('/leaf-theme/theme-header.php');
 ?>
 <main class="single_all_first">

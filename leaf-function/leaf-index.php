@@ -326,6 +326,7 @@ function leaf_article_container()
     </div>
 <?php
 }
+//图片文章样式
 function leaf_article_photo_album()
 {
     $post_id = get_the_ID();

@@ -1,6 +1,9 @@
-<?php require_once get_theme_file_path('/leaf-theme/theme-header.php');  ?>
-<main class="leaf_search_page">
-    <div class="leaf_search_page_all">
+<?php
+leaf_seo();
+require_once get_theme_file_path('/leaf-theme/theme-header.php');
+?>
+<main class="leaf_search_page leaf_postings_main">
+    <div class="leaf_search_page_all leaf_article_display">
         <div class="search_page_title">
             <?php
             //输出您所搜索的文字

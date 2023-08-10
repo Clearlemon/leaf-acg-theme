@@ -23,6 +23,7 @@ function leaf_logo_text_img()
         echo '<div class="logo_img logo_img_text"><a href="' . $leaf_home_url . '"><img class="leaf-img_logo" src="' . $logo_tabbed_img . '" alt="' . $leaf_blog_name . '"></a></div>';
     }
 }
+
 //手机端LOGO
 function leaf_mobile_logo_text_img()
 {
@@ -104,7 +105,7 @@ function leaf_theme_overall_color()
     }
     ?>
     }
-<?php
+    <?php
 }
 
 //注册导航栏菜单
@@ -235,5 +236,62 @@ class Leaf_Sidebar_Nav_Create_style extends Walker_Nav_Menu
 
         // 寻找现有的ul元素，并添加新的类
         $output = str_replace('<ul class="sub-menu">', '<ul class="' . $sub_menu_class . '">', $output);
+    }
+}
+
+
+//输出弹窗搜索还是传统搜索函数
+function leaf_close_search_fun()
+{
+    $leaf_close_search = _leaf('leaf_close_search');
+    if ($leaf_close_search == 'pop-ups-search-deom') {
+    ?>
+        <div class="leaf_pop_up_search">
+            <svg class="leaf_search_ali_icon" aria-hidden="true">
+                <use xlink:href="#icon-icon-sousuo"></use>
+            </svg>
+        </div>
+    <?php
+    } elseif ($leaf_close_search == 'input-search-deom') {
+    ?>
+        <form class="navbar-form" id="searchform" action="<?php echo get_bloginfo('url'); ?>">
+            <div class="leaf-banner_search">
+                <input class="leaf_searc_input_box" type="text" class="form-control" name="s" size="35" placeholder="搜素一下？" id="keywords" maxlength="100">
+                <span class="input-group-btn">
+                    <input type="submit" value="搜索" class="leaf_search_but" id="searchsubmit">
+                </span>
+            </div>
+        </form>
+        <div class="leaf_pop_up_search" style="display: none;">
+            <svg class="leaf_search_ali_icon" aria-hidden="true">
+                <use xlink:href="#icon-icon-sousuo"></use>
+            </svg>
+        </div>
+    <?php
+    }
+}
+//输出移动端的LOGO样式
+function leaf_sidebar_moblie_all()
+{
+    $mobile_close_logo = _leaf('mobile-close-logo');
+    if ($mobile_close_logo == 'mobile-bg-logo') {
+    ?>
+        <div class="leaf_sidebar_back_logo_block">
+            <img class="leaf_sidebar_back" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
+            <img class="leaf_sidebar_logo" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.png" alt="">
+        </div>
+    <?php
+    } elseif ($mobile_close_logo == 'mobile-img-logo') {
+    ?>
+        <div class="leaf_sidebar_logo_block">
+            <img class="leaf_sidebar_noback_logo" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.png" alt="">
+        </div>
+    <?php
+    } elseif ($mobile_close_logo == 'mobile-home-img-logo') {
+    ?>
+        <div class="leaf_sidebar_back_logo_block">
+            <img class="leaf_sidebar_back" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
+        </div>
+<?php
     }
 }

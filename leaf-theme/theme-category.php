@@ -1,6 +1,9 @@
-<?php require_once get_theme_file_path('/leaf-theme/theme-header.php');  ?>
-<main class="leaf_category_page">
-    <div class="leaf_category_page_all">
+<?php
+leaf_seo();
+require_once get_theme_file_path('/leaf-theme/theme-header.php');
+?>
+<main class="leaf_category_page leaf_postings_main">
+    <div class="leaf_category_page_all leaf_article_display">
         <div class="category_page_title">
             <?php
             the_archive_title('<h1 class="page-title">', '</h1>');

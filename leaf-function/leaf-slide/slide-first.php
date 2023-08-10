@@ -21,7 +21,7 @@ function leaf_slide_first_func()
                 $slide_set_name = $key['slide_set_name'];
                 $slide_set_new_ups_left = $key['slide_set_new_ups_left'];
                 $slide_display_information_all = $key['slide_display_information_all'];
-                $slide_set_links = $$key['slide_set_links'];
+                $slide_set_links = $key['slide_set_links'];
                 //以下为获取文章分类的代码
                 $post_categories = get_cat_name($slide_set_categories);
                 //以下内容为html代码
@@ -31,7 +31,7 @@ function leaf_slide_first_func()
 ?>
 
                 <div class="swiper-slide leaf-slide">
-                    <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?><a class="leaf_links" <?php if ($slide_set_new_ups_left == true) { ?> target="_blank" <?php } ?> href="<?php echo $slide_set_links ?>"><?php } ?>
+                    <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?><a class="leaf_links" <?php if ($slide_set_new_ups_left == true) { ?> target="_blank" <?php } ?> href="<?php echo $slide_set_links; ?>"><?php } ?>
                         <img class="leaf_slide_back" src="<?php echo $slide_set_img; ?>" alt="">
                         <div class="leaf_slide_all_information">
                             <div class="leaf_slide_classify">
@@ -59,6 +59,7 @@ function leaf_slide_first_func()
                 //获取幻灯片的设置
                 $slide_set_post_id = $key['slide_set_post_id']; //获取文章的$slide_set_post_id为获取文章ID并赋值
                 $slide_set_new_ups_right  = $key['slide_set_new_ups_right'];
+                $slide_display_information_all = $key['slide_display_information_all'];
                 //依据文章的ID获得相关信息
                 $post_link = get_permalink($slide_set_post_id); //获取文章的链接
                 $author_id = get_post_field('post_author', $slide_set_post_id); // 获取文章的作者ID
@@ -82,7 +83,7 @@ function leaf_slide_first_func()
                                 <div class="slide_avatar_block">
                                     <?php if (isset($slide_display_information_all) && in_array('slide_in_avatar', $slide_display_information_all)) { ?><img class="slide_avatar" src="<?php echo $avatar_url; ?>" alt=""><?php } ?>
                                 </div>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $author_name; ?></p><?php } ?>
+                                <?php if (isset($slide_display_information_all) && in_array('slide_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $author_name; ?></p><?php } ?>
                                 <?php if (isset($slide_display_information_all) && in_array('slide_in_time', $slide_display_information_all)) { ?><p class="slide_time"><?php echo leaf_post_time($slide_set_post_id); ?></p><?php } ?>
                             </div>
                         </div>

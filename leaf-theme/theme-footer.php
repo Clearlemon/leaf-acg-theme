@@ -51,4 +51,5 @@
             },
         });
     }
+    var total = <?php echo $GLOBALS["wp_query"]->max_num_pages; ?>;
 </script>

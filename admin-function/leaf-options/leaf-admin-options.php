@@ -176,7 +176,7 @@ if (class_exists('CSF')) {
         'content' => '弹出搜素&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp传统搜索框',
       ),
       array(
-        'id'         => 'close-logo',
+        'id'         => 'leaf_close_search',
         'title'      => '搜索框样式选择',
         'subtitle'   => '显示策略',
         'inline'     => true,
