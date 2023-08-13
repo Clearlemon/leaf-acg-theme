@@ -99,7 +99,6 @@ function leaf_scripts_styles()
     //引用主题的JavaScript和CSS 文件
     wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);
 
-
     wp_enqueue_style('leaf-header', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-header.css', array(), $var, 'all');
     wp_enqueue_style('leaf-footer', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-footer.css', array(), $var, 'all');
     wp_enqueue_style('leaf-sideba-all', get_template_directory_uri() . '/leaf-assets/leaf-style/leaf-sideba-all.css', array(), $var, 'all');

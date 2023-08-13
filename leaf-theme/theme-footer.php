@@ -52,4 +52,6 @@
         });
     }
     var total = <?php echo $GLOBALS["wp_query"]->max_num_pages; ?>;
+    var category_id = <?php echo get_queried_object_id(); ?>;
+    var search_keyword = "<?php echo get_search_query(); ?>";
 </script>

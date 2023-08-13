@@ -349,6 +349,30 @@ function leaf_custom_pagination()
     }
 }
 
+//获取翻页或者ajax加载功能
+function leaf_ajax_paginated()
+{
+    $leaf_post_ajax_radio = _leaf('leaf_post_ajax_radio');
+    if ($leaf_post_ajax_radio == 'paginated_loading') {
+        leaf_custom_pagination();
+    } elseif ($leaf_post_ajax_radio == 'ajax_loading') {
+        if (_leaf('home_filter_loading') == true) {
+?>
+            <div class="leaf-post-button">
+                <button id="leaf-load-car-more-button" class="leaf_show show-more m-feed-loader">加载更多</button>
+            </div>
+        <?php
+        } else {
+        ?>
+            <div class="leaf-post-button">
+                <button id="leaf-load-more-button" class="leaf_show show-more m-feed-loader">加载更多</button>
+            </div>
+    <?php
+        }
+    }
+}
+
+
 //获取文章的分类
 function leaf_post_category_name($post_id = '')
 {
@@ -447,19 +471,19 @@ function leaf_single_tag()
 function leaf_browse_comment_like()
 {
     $post_id = get_the_ID();
-?>    
-        <span class="leaf_article_comment"><svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-pinglun"></use>
-            </svg><?php echo get_comments_number(); ?></span>
-        <span class="leaf_article_browse"><svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-liulan"></use>
-            </svg><?php get_post_views($post_id); ?></span>
-        <span class="leaf_article_like"><svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-dianzan"></use>
-            </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
-                        echo get_post_meta($post_id, 'bigfa_ding', true);
-                    } else {
-                        echo '0';
-                    } ?></span>
+    ?>
+    <span class="leaf_article_comment"><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-pinglun"></use>
+        </svg><?php echo get_comments_number(); ?></span>
+    <span class="leaf_article_browse"><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-liulan"></use>
+        </svg><?php get_post_views($post_id); ?></span>
+    <span class="leaf_article_like"><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-dianzan"></use>
+        </svg> <?php if (get_post_meta($post_id, 'bigfa_ding', true)) {
+                    echo get_post_meta($post_id, 'bigfa_ding', true);
+                } else {
+                    echo '0';
+                } ?></span>
 <?php
 }

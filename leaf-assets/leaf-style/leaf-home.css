@@ -240,7 +240,7 @@
 }
 
 .leaf_article_user_img {
-    width: 6%;
+    width: 5%;
     border-radius: 100%;
     margin-right: 5px;
 }
@@ -1451,6 +1451,8 @@
 .leaf-custom-pagination {
     text-align: center;
     padding: 10px;
+    width: 100%;
+    float: left;
     margin-top: 10px;
 }
 
@@ -1485,11 +1487,35 @@
     text-align: center;
 }
 
-#leaf-load-more-button {
+#leaf-load-more-button,
+#leaf-load-car-more-button {
     height: 3%;
     width: 15%;
     border-radius: 15px;
     border: none;
+}
+
+.leaf_post_content_ajax_assets {
+    display: flex;
+    flex-direction: column;
+}
+
+.leaf_post_home_choose {
+    display: flex;
+}
+
+.home_category {
+    padding: 5;
+}
+
+.current_click {
+    color: #6b6b97;
+    background: #b4eaff9c;
+    border-radius: 8px;
+}
+
+.ajax_car_choose {
+    margin: 35px 0px 10px 0px;
 }
 
 /*手机自适应*/

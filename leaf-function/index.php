@@ -16,6 +16,7 @@ $files = array(
     'leaf-function/leaf-slide/slide-first.php',
     //文章AJAX设置
     'leaf-function/leaf-ajax/leaf-ajax-first.php',
+    'leaf-function/leaf-ajax/leaf-ajax-second.php',
 );
 foreach ($files as $file) {
     require_once get_theme_file_path('/' . $file);

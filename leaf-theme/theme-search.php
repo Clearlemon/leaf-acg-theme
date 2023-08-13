@@ -45,9 +45,11 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
             <?php
             }
 
-            leaf_custom_pagination();
             ?>
         </div>
+    </div>
+    <div class="leaf-post-button">
+        <button id="leaf-load-more-button" class="show-more m-feed-loader">加载更多</button>
     </div>
     <div class="leaf-sidebar">
     </div>

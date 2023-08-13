@@ -3,7 +3,7 @@ leaf_seo();
 require_once get_theme_file_path('/leaf-theme/theme-header.php');
 ?>
 <main class="leaf_category_page leaf_postings_main">
-    <div class="leaf_category_page_all leaf_article_display">
+    <div class="leaf_category_page_all">
         <div class="category_page_title">
             <?php
             the_archive_title('<h1 class="page-title">', '</h1>');
@@ -41,9 +41,12 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
             <?php
             }
 
-            leaf_custom_pagination();
             ?>
+
         </div>
+    </div>
+    <div class="leaf-post-button">
+        <button id="leaf-load-more-button" class="leaf-ck leaf_show show-more m-feed-loader">加载更多</button>
     </div>
     <div class="leaf-sidebar">
     </div>

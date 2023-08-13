@@ -342,19 +342,61 @@ if (class_exists('CSF')) {
         ),
         'default' =>  'input-search-deom',
       ),
+
       array(
-        'id'         => 'leaf_post_radio',
+        'id'    => 'home_filter_loading',
+        'type'  => 'switcher',
+        'title' => '首页文章分类加载',
+      ),
+      array(
+        'id'          => 'home_filter_loading_select',
+        'type'        => 'select',
+        'title'       => '输入你要加载的分类',
+        'placeholder' => '请输入你要添加的分类名',
+        'class' => 'fields_no_padding-top',
+        'chosen'      => true,
+        'ajax'        => true,
+        'multiple'    => true,
+        'sortable'    => true,
+        'options'     => 'categories',
+        'dependency' => array('home_filter_loading', '==', true),
+        'settings' => array(
+          'min_length'  => 1,
+        ),
+      ),
+      array(
+        'id'           => 'leaf_home_article_module',
+        'type'         => 'sorter',
+        'title'        => '[移动端]文章显示块',
+        'class' => 'fields_no_padding-top',
+        'desc' => '如要启用某个展示块则将这个块移到<b class="leaf_emphasis_fonts">[启用]</b>中，如果不启用这个块则移到<b class="leaf_emphasis_fonts">[不启用]</b>中，
+        <br>注<b class="leaf_emphasis_fonts">此展示块不会依据屏幕分辨率大小选择显示，而是判断当前用户用是[PC端]还是[移动端]来显示|部分文章可能不支持哦~~~</b>',
+        'default'      => array(
+          'enabled'    => array(
+            'module_article' => '文章数据[点赞，评论，浏览]',
+            'module_avatar' => '用户头像',
+            'module_title' => '副标题',
+            'module_name' => '用户名',
+            'module_time' => '时间',
+            'module_car' => '分类',
+          ),
+          'disabled'   => array(
+            'module_tag' => '标签',
+          ),
+        ),
+      ),
+
+      array(
+        'id'         => 'leaf_post_ajax_radio',
         'type'       => 'radio',
         'title'      => '文章加载方式',
         'class' => 'fields_no_padding-top leaf_radio_horizontal',
         'options'    => array(
           'paginated_loading' => '分页加载',
           'ajax_loading' => 'AJAX刷新加载',
-          'pull_down_loading' => '下拉自动加载',
         ),
         'default'    => array('paginated_loading')
       ),
-
       array(
         'type'    => 'heading',
         'content' => '<h3>   ----文章模块样式选择----    </h3>',
