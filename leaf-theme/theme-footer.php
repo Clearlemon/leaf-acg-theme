@@ -1,6 +1,7 @@
 <footer class="leaf_footer_all">
     <div class="leaf_footer_all_balck">
         <?php leaf_close_home_foot_assets(); ?>
+        
     </div>
 </footer>
 <script>

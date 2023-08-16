@@ -27,7 +27,11 @@ function leaf_close_home_foot_assets()
                                                     } ?></p>
             <p class="footer_succinct_mysql_blcok"><?php if ($foot_succinct_database_queries == true) { ?>数据库<?php echo get_num_queries(); ?>次查询 | 用时：<?php timer_stop(1, 7) ?>秒 | 消耗了：<?php echo memory_get_peak_usage() / 1024 / 1024; ?>MB 内存<?php } ?></p>
         </div>
-
+        <div class="leaf_moblie_blcok">
+            <p class="leaf_moblie_text"><?php if (!empty($foot_succinct_textarea)) {
+                                            echo $foot_succinct_textarea;
+                                        } ?></p>
+        </div>
     <?php
     } else {
         $foot_complex = _leaf('foot_complex');
@@ -96,6 +100,9 @@ function leaf_close_home_foot_assets()
                 <div class="leaf_footer_copyright"><?php echo $foot_complex_logo_text_copyright; ?></div>
                 <?php if ($foot_complex_database_queries == true) { ?><div class="leaf_mysql_data">数据库<?php echo get_num_queries(); ?>次查询 | 用时：<?php timer_stop(1, 7) ?>秒 | 消耗了：<?php echo memory_get_peak_usage() / 1024 / 1024; ?>MB 内存</div><?php } ?>
             </div>
+        </div>
+        <div class="leaf_moblie_blcok">
+            <p class="leaf_moblie_text"><?php echo $foot_complex_logo_text_copyright; ?></p>
         </div>
     <?php } ?>
 <?php } ?>

@@ -122,3 +122,18 @@
 .footer_succinct_icp_block {
     display: flex;
 }
+
+.leaf_moblie_text {
+    display: none;
+}
+
+@media screen and (min-width: 1px) and (max-width: 995px) {
+    .leaf_footer_link_profile_copyright_sideab_contact {
+        display: none;
+    }
+
+    .leaf_moblie_text {
+        display: block;
+        padding: 10px;
+    }
+}
