@@ -347,12 +347,15 @@ if (class_exists('CSF')) {
         'id'    => 'home_filter_loading',
         'type'  => 'switcher',
         'title' => '首页文章分类加载',
+        'desc' => '此功能需要搭配<b class="leaf_emphasis_fonts">[文章加载方式]的[AJAX刷新加载]</b>来使用，如未启用<b class="leaf_emphasis_fonts">[AJAX刷新加载]</b>则此功能无法使用',
+        'dependency' => array('leaf_post_ajax_radio', '==', 'ajax_loading', '', 'visible'),
       ),
       array(
         'id'          => 'home_filter_loading_select',
         'type'        => 'select',
         'title'       => '输入你要加载的分类',
         'placeholder' => '请输入你要添加的分类名',
+        'desc' => '请输入你的<b class="leaf_emphasis_fonts">[分类名]</b>这里建议添加个<b class="leaf_emphasis_fonts">6</b>个左右即可，默认是加载所有文章',
         'class' => 'fields_no_padding-top',
         'chosen'      => true,
         'ajax'        => true,
@@ -385,7 +388,6 @@ if (class_exists('CSF')) {
           ),
         ),
       ),
-
       array(
         'id'         => 'leaf_post_ajax_radio',
         'type'       => 'radio',
@@ -395,18 +397,9 @@ if (class_exists('CSF')) {
           'paginated_loading' => '分页加载',
           'ajax_loading' => 'AJAX刷新加载',
         ),
-        'default'    => array('paginated_loading')
+        'default'    => 'paginated_loading'
       ),
-      array(
-        'type'    => 'heading',
-        'content' => '<h3>   ----文章模块样式选择----    </h3>',
-      ),
-      //副标题
-      array(
-        'type'    => 'subheading',
-        'content' => '左图文章样式&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp顶部大图文章样式&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp底部三图文章样式&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp传统方形文章样式&nbsp&nbsp&nbsp|
-                &nbsp&nbsp&nbsp顶图方形文章样式&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp[bing]图文章样式&nbsp&nbsp&nbsp|',
-      ),
+
     ),
   ));
 
@@ -415,7 +408,165 @@ if (class_exists('CSF')) {
     'title'       => '底部设置',
     'icon'        => 'icon-zujian-dibudaohang',
     'description' => '',
-    'fields'      => array(),
+    'fields'      => array(
+      array(
+        'type'    => 'heading',
+        'content' => '<h3>   ----底部样式选择----    </h3>',
+      ),
+      array(
+        'type'    => 'subheading',
+        'content' => '简洁样式&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp复杂样式样式&nbsp&nbsp&nbsp',
+      ),
+      array(
+        'id'         => 'leaf_close_home_foot_assets',
+        'title'      => '底部样式',
+        'subtitle'   => '显示策略',
+        'inline'     => true,
+        'type'       => 'image_select',
+        'desc' => '选择你喜欢的底部样式，默认为<b class="leaf_emphasis_fonts">[简洁]</b>样式。',
+        'options'    => array(
+          'leaf_article_succinct_foot' => $img_setings_url . 'leaf_article_succinct_foot' . $webp_format,
+          'leaf_article_complex_foot' => $img_setings_url . 'leaf_article_complex_foot' . $webp_format,
+        ),
+        'default' =>  'leaf_article_succinct_foot',
+      ),
+      array(
+        'id'        => 'foot_complex',
+        'type'      => 'fieldset',
+        'title'     => '丰富底部设置',
+        'dependency' => array('leaf_close_home_foot_assets', '==', 'leaf_article_complex_foot'),
+        'fields'    => array(
+          array(
+            'id'         => 'foot_logo_set',
+            'type'       => 'button_set',
+            'title'      => '底部LOGO选择',
+            'options'    => array(
+              'foot_img_logo'  => '图片LOGO',
+              'foot_text_logo' => '文字logo',
+            ),
+            'default'    => 'foot_text_logo'
+          ),
+          array(
+            'id'    => 'foot_complex_logo_text',
+            'class' => 'fields_no_padding-top',
+            'dependency' => array('foot_logo_set', '==', 'foot_text_logo'),
+            'type'  => 'text',
+            'default' => '叶ACG主题',
+            'title' => '底部文字LOGO',
+          ),
+          array(
+            'id'    => 'foot_complex_logo_img',
+            'type'  => 'upload',
+            'title' => '底部图片LOGO',
+            'preview' => true,
+            'default' => $img_url . 'logo' . $webp_format,
+            'dependency' => array('foot_logo_set', '==', 'foot_img_logo'),
+          ),
+          array(
+            'id'    => 'foot_complex_text',
+            'class' => 'fields_no_padding-top',
+            'type'  => 'textarea',
+            'title' => 'LOGO底部文字',
+            'default' => 'Leaf-主题是一个二次元个人博客主题，有着丰富的文章样式，以及强大的编辑器功能，还有那无微不至的优化功能，最后就是那浓浓的二次元味道~~',
+          ),
+          array(
+            'id'        => 'foot_complex_qr_code',
+            'type'      => 'group',
+            'title'     => '二维码设置',
+            'max'     => 2,
+            'fields'    => array(
+              array(
+                'id'    => 'foot_right_img',
+                'type'  => 'upload',
+                'title' => '二维码图片',
+                'preview' => true,
+              ),
+              array(
+                'id'    => 'foot_right_text',
+                'type'  => 'text',
+                'title' => '二维码底部文字',
+              ),
+            ),
+          ),
+          array(
+            'id'    => 'foot_complex_links_switcher',
+            'type'  => 'switcher',
+            'title' => '是否开启友联块',
+          ),
+          array(
+            'id'        => 'foot_complex_links',
+            'type'      => 'group',
+            'title'     => '友联设置',
+            'accordion_title_prefix' => '底部友联模块',
+            'accordion_title_auto' => false,
+            'accordion_title_number'  =>  true,
+            'max'     => 8,
+            'dependency' => array('foot_complex_links_switcher', '==', true),
+            'fields'    => array(
+              array(
+                'id'    => 'foot_complex_links_img',
+                'type'  => 'upload',
+                'title' => '友联图片',
+                'preview' => true,
+              ),
+              array(
+                'id'    => 'foot_complex_links_link',
+                'type'  => 'text',
+                'title' => '友联链接',
+              ),
+
+            ),
+          ),
+          array(
+            'id'    => 'foot_complex_logo_text_copyright',
+            'class' => 'fields_no_padding-top',
+            'type'    => 'textarea',
+            'default' => '叶主题@2023-2023',
+            'title' => 'LOGO底部文字',
+          ),
+          array(
+            'id'    => 'foot_complex_database_queries',
+            'type'  => 'switcher',
+            'title' => '数据库查询',
+          ),
+
+        ),
+      ),
+      array(
+        'id'        => 'foot_succinct',
+        'type'      => 'fieldset',
+        'title'     => '简洁底部设置',
+        'dependency' => array('leaf_close_home_foot_assets', '==', 'leaf_article_succinct_foot'),
+        'fields'    => array(
+          array(
+            'id'    => 'foot_succinct_database_queries',
+            'type'  => 'switcher',
+            'title' => '数据库查询',
+          ),
+          array(
+            'class' => 'fields_no_padding-top',
+            'id'    => 'foot_succinct_icpnumber',
+            'type'  => 'text',
+            'title' => '备案号',
+            'default' => '123456789'
+          ),
+          array(
+            'class' => 'fields_no_padding-top',
+            'id'    => 'foot_succinct_moe_icpnumber',
+            'type'  => 'text',
+            'title' => '萌备案号',
+            'default' => '123456789'
+          ),
+          array(
+            'class' => 'fields_no_padding-top',
+            'id'      => 'foot_succinct_textarea',
+            'type'    => 'textarea',
+            'default' => '叶主题@2023-2023',
+            'title'   => '底部自定义区块',
+          ),
+        ),
+      ),
+    ),
   ));
   //主题外观设置
   CSF::createSection($prefix, array(
@@ -627,48 +778,25 @@ if (class_exists('CSF')) {
       // 所有侧边栏开启结束
       //单独页面侧边栏开启开始
       array(
-        'id'    => 'leaf_home_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启首页侧边栏[首页]侧边栏',
+        'id'           => 'leaf_separate_sideba_open',
+        'type'         => 'sorter',
+        'title'        => '[移动端]文章显示块',
+        'class' => 'fields_no_padding-top',
         'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
+        'desc' => '如要启用某个展示块则将这个块移到<b class="leaf_emphasis_fonts">[启用]</b>中，如果不启用这个块则移到<b class="leaf_emphasis_fonts">[不启用]</b>中，',
+        'default'      => array(
+          'enabled'    => array(
+            'module_home' => '首页',
+          ),
+          'disabled'   => array(
+            'module_tag' => '标签页',
+            'module_search' => '搜索页',
+            'module_classify' => '分类页',
+            'module_saysay' => '说说页',
+            'module_post' => '文章页',
+          ),
+        ),
       ),
-      array(
-        'id'    => 'leaf_single_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启[文章页]侧边栏',
-        'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
-      ),
-      array(
-        'id'    => 'leaf_tag_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启[标签页]侧边栏',
-        'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
-      ),
-      array(
-        'id'    => 'leaf_classify_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启[分类页]侧边栏',
-        'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
-      ),
-      array(
-        'id'    => 'leaf_links_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启[友情页]侧边栏',
-        'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
-      ),
-      array(
-        'id'    => 'leaf_search_sideba_open',
-        'type'  => 'switcher',
-        'title' => '单独开启[搜索页]侧边栏',
-        'dependency' => array('leaf_all_sideba_open', '==', '', '', 'false'),
-        'desc'     => '如果想要单独开启这个侧边栏块的话请<b class="leaf_emphasis_fonts">禁用[所有侧边栏]</b>这个开关才能进行选择>',
-      ),
-
     ),
   ));
 

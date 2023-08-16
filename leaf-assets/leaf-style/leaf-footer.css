@@ -64,6 +64,7 @@
 
 .leaf_footer_contact_img_text {
     text-align: center;
+    width: calc(100%/2);
 }
 
 .leaf_footer_link_block {
@@ -109,4 +110,15 @@
 .leaf_footer_link_block {
     width: 100%;
     margin: 10px 0px;
+}
+
+.leaf_footer_succinct_block {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_succinct_icp_block {
+    display: flex;
 }

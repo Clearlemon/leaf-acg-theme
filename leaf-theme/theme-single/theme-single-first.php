@@ -125,9 +125,9 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
 
         ?>
     </div>
-    <div class="leaf-sidebar">
-        <?php dynamic_sidebar('leaf-article-sideba'); ?>
-    </div>
+    <?php
+    leaf_all_separate_sideba_open();
+    ?>
 </main>
 
 <body>

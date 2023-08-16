@@ -539,7 +539,6 @@ function leaf_article_photo_album()
 {
     $post_id = get_the_ID();
     $leaf_home_article_module = _leaf('leaf_home_article_module');
-    $enabled = $leaf_home_article_module['enabled'];
 
 ?>
     <div class="leaf_article_photo_album_img_time_title">
@@ -643,9 +642,10 @@ function leaf_home_post_ajax_assets()
                 } elseif ($leaf_close_home_post_assets == 'leaf_article_style' || $leaf_close_home_post_assets == 'leaf_article_biglong_style' || $leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
                 ?>
                     <div id="filtered-posts" class="leaf_post_content_ajax_assets"></div>
-                    <?php
+                <?php
                 } else {
-                    ?>貌似没有设置文章展示块欸？要不去后台设置一下吗？
+                ?>
+                    <p>貌似没有设置文章展示块欸？要不去后台设置一下吗？</p>
                 <?php
                 }
                 ?>

@@ -47,11 +47,12 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
 
             ?>
         </div>
+        <div class="leaf-post-button">
+            <button id="leaf-load-more-button" class="leaf-ck leaf_show show-more m-feed-loader">加载更多</button>
+        </div>
     </div>
-    <div class="leaf-post-button">
-        <button id="leaf-load-more-button" class="show-more m-feed-loader">加载更多</button>
-    </div>
-    <div class="leaf-sidebar">
-    </div>
+    <?php
+    leaf_all_separate_sideba_open();
+    ?>
 </main>
 <?php require_once get_theme_file_path('/leaf-theme/theme-footer.php'); ?>

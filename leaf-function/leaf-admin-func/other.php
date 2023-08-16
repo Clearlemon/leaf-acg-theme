@@ -164,7 +164,7 @@ function leaf_scripts_styles()
     }
 
     //引用阿里巴巴失衡图标
-    wp_enqueue_script('ali', '//at.alicdn.com/t/c/font_4198813_ofx80pe6bym.js', array(), $var, true);
+    wp_enqueue_script('ali', '//at.alicdn.com/t/c/font_4198813_3a4xmlg6j2e.js', array(), $var, true);
     //引用本地JQ插件
     wp_enqueue_script('leaf-jq', get_template_directory_uri() . '/leaf-assets/leaf-javascript/jquery.js', array(), $var, false);
     wp_enqueue_script('leaf-slide-jq-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf-slide-jq.min.js', array(), $var, false);

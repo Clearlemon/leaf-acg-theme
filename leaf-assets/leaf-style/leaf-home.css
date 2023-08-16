@@ -1520,6 +1520,13 @@
 
 /*手机自适应*/
 @media screen and (max-width: 380px) {
+
+    #leaf-load-more-button,
+    #leaf-load-car-more-button {
+        width: 33%;
+        height: 5%;
+    }
+
     .leaf_postings_main {
         margin: 0px 0px;
         margin-top: 25px;
@@ -1653,6 +1660,13 @@
 }
 
 @media screen and (max-width: 540px) and (min-width:380px) {
+
+    #leaf-load-more-button,
+    #leaf-load-car-more-button {
+        width: 33%;
+        height: 5%;
+    }
+
     .leaf_postings_main {
         margin: 0px 0px;
         margin-top: 25px;
@@ -1753,6 +1767,13 @@
 
 /*手机端样式*/
 @media screen and (max-width: 750px)and (min-width: 540px) {
+
+    #leaf-load-more-button,
+    #leaf-load-car-more-button {
+        width: 25%;
+        height: 4%;
+    }
+
     .leaf_postings_main {
         margin: 0px 0%;
         margin-top: 25px;
@@ -1847,6 +1868,13 @@
 
 /*中等屏幕*/
 @media screen and (min-width: 751px) and (max-width: 995px) {
+
+    #leaf-load-more-button,
+    #leaf-load-car-more-button {
+        width: 25%;
+        height: 4%;
+    }
+
     .leaf_postings_main {
         margin: 0px 3%;
         margin-top: 25px;
@@ -1888,6 +1916,13 @@
 
 
 @media screen and (min-width: 995px) and (max-width: 1666px) {
+
+    #leaf-load-more-button,
+    #leaf-load-car-more-button {
+        width: 25%;
+        height: 4%;
+    }
+
     .leaf_postings_main {
         margin: 0px 6%;
         margin-top: 25px;

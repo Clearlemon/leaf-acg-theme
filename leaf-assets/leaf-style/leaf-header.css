@@ -502,8 +502,7 @@ body {
 }
 
 .mobile_nav_logo_block {
-    width: 200px;
-    height: 50px;
+    display: none;
 }
 
 .leaf_sidebar_noback_logo {
@@ -537,6 +536,12 @@ body {
 @media screen and (min-width: 1px) and (max-width: 995px) {
     .logo_img_text {
         display: none;
+    }
+
+    .mobile_nav_logo_block {
+        width: 200px;
+        height: 50px;
+        display: block;
     }
 
     .navbar-form {
@@ -587,6 +592,9 @@ body {
 }
 
 /*侧边导航栏*/
+
+
+
 .leaf_sidebar_nav_shrink {
     opacity: 0;
     display: flex;
