@@ -44,6 +44,8 @@ function leaf_close_home_foot_assets()
         $foot_complex_logo_text_copyright = $foot_complex['foot_complex_logo_text_copyright'];
         $foot_complex_database_queries = $foot_complex['foot_complex_database_queries'];
         $foot_complex_links_switcher = $foot_complex['foot_complex_links_switcher'];
+        $foot_complex_moe_icpnumber = $foot_complex['foot_complex_moe_icpnumber'];
+        $foot_complex_icpnumber = $foot_complex['foot_complex_icpnumber'];
         $logo = '';
         if ($foot_logo_set == 'foot_text_logo') {
             $logo = '<p class="footer_logo_title">' . $foot_logo_text . '</p>';
@@ -97,7 +99,20 @@ function leaf_close_home_foot_assets()
                 </div>
             <?php } ?>
             <div class="leaf_footer_copyright_block">
-                <div class="leaf_footer_copyright"><?php echo $foot_complex_logo_text_copyright; ?></div>
+                <div class="leaf_footer_copyright"><?php echo $foot_complex_logo_text_copyright; ?>
+                    <div class="footer_succinct_icp_block">
+                        <p class="footer_succinct_icp"><svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-beian"></use>
+                            </svg>备案号：<?php if (!empty($foot_complex_icpnumber)) {
+                                            echo esc_html($foot_complex_icpnumber);
+                                        } ?></p>
+                        <p class="footer_moe_icp_succinct"><svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-beianxinxi-ICP-gonganbeian"></use>
+                            </svg>萌备案号：<?php if (!empty($foot_complex_moe_icpnumber)) {
+                                            echo esc_html($foot_complex_moe_icpnumber);
+                                        } ?></p>
+                    </div>
+                </div>
                 <?php if ($foot_complex_database_queries == true) { ?><div class="leaf_mysql_data">数据库<?php echo get_num_queries(); ?>次查询 | 用时：<?php timer_stop(1, 7) ?>秒 | 消耗了：<?php echo memory_get_peak_usage() / 1024 / 1024; ?>MB 内存</div><?php } ?>
             </div>
         </div>

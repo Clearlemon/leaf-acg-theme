@@ -518,6 +518,20 @@ if (class_exists('CSF')) {
             ),
           ),
           array(
+            'id'    => 'foot_complex_icpnumber',
+            'class' => 'fields_no_padding-top',
+            'type'    => 'text',
+            'default' => '123456789',
+            'title' => '底部公安备案号',
+          ),
+          array(
+            'id'    => 'foot_complex_moe_icpnumber',
+            'class' => 'fields_no_padding-top',
+            'type'    => 'text',
+            'default' => '123456789',
+            'title' => '底部萌备案号',
+          ),
+          array(
             'id'    => 'foot_complex_logo_text_copyright',
             'class' => 'fields_no_padding-top',
             'type'    => 'textarea',

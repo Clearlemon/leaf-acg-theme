@@ -6,7 +6,7 @@ require_once get_theme_file_path('/header.php');
 wp_head();
 ?>
 <?php
-//引用主题的主体文件
+//引用主题的主首页文件
 require_once get_theme_file_path('/leaf-theme/theme-index.php');
 ?>
 <?php

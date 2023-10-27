@@ -96,7 +96,14 @@ function leaf_featured_image($post_id = '')
     // 获取文章模块功能的缩略图
     //其中get_post_meta($post_id, 'leaf-theme-post', true);为框架默认获取值
     $_leaf_post = get_post_meta($post_id, 'leaf-theme-post', true);
-    $leaf_diy_thumbnail = $_leaf_post['leaf_post_thumbnail_img'];
+    if (is_string($_leaf_post)) {
+        // 如果 $_leaf_post 是字符串，尝试将其反序列化成数组
+        $_leaf_post = unserialize($_leaf_post);
+    }
+
+    // 然后再尝试获取 'leaf_post_thumbnail_img'
+    $leaf_diy_thumbnail = isset($_leaf_post['leaf_post_thumbnail_img']) ? $_leaf_post['leaf_post_thumbnail_img'] : '';
+
 
     if ($leaf_diy_thumbnail) {
         $first_image = $leaf_diy_thumbnail;
@@ -122,7 +129,7 @@ function leaf_featured_image($post_id = '')
     }
 
     if (!$first_image) {
-        return 'http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php';
+        return 'http://leaf/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php';
     }
 
     return $first_image;
@@ -148,10 +155,8 @@ function leaf_featured_many_image($post_id, $img_number = 1)
             $first_image = $matches[1][$img_number - 1];
         }
     }
-
-
     if (!$first_image) {
-        return 'http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php';
+        return 'http://leaf/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php';
     }
 
     return $first_image;

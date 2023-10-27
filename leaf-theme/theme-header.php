@@ -39,7 +39,17 @@
     <div class="leaf-navtop_bigbackground">
         <div class="leaf_header_block">
             <?php leaf_logo_text_img(); ?>
-            <div class="leaf_head_nav_search_user">
+            <div class="leaf_head_nav_search_user" <?php $close_nav_layout = _leaf('close-nav-layout');
+                                                    if ($close_nav_layout == 'to-right') {
+                                                        echo 'style="justify-content: flex-end;"';
+                                                    }  ?>>
+                <?php
+
+                $close_nav_layout = _leaf('close-nav-layout');
+                if ($close_nav_layout == 'to-center') {
+                    echo '<div class="leaf_to_center_block"></div>';
+                }
+                ?>
                 <div class="leaf_sidebar_nav">
                     <svg class="leaf_sidebar_nav_ali_icon" aria-hidden="true">
                         <use xlink:href="#icon-row-full"></use>

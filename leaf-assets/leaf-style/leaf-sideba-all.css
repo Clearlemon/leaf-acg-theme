@@ -1,8 +1,7 @@
 .leaf-sidebar {
-    float: left;
-    padding: 10px 10px;
-    margin-left: 20px;
-    width: 24%;
+    padding: 10px 0px;
+    margin-left: 5%;
+    width: 27%;
 }
 
 .leaf_sidebat_all_fixed>* {
@@ -31,7 +30,7 @@
     width: 26%;
     border-radius: 100%;
     margin-top: -20px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .sidebar_home_user_name_briefly {

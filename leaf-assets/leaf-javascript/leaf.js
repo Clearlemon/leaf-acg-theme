@@ -1,23 +1,3 @@
-// 获取目标元素
-var targetDiv = document.querySelector('.leaf-navtop_bigbackground');
-
-// 监听滚动事件
-window.addEventListener('scroll', function () {
-    // 获取元素距离页面顶部的高度
-    var divOffsetTop = targetDiv.offsetTop;
-
-    // 获取滚动距离
-    var scrollDistance = window.pageYOffset || document.documentElement.scrollTop;
-
-    // 判断滚动距离是否超过60像素
-    if (scrollDistance > divOffsetTop + 60) {
-        // 修改 class 属性为 leaf_nav_alooftop
-        targetDiv.className = 'leaf_nav_alooftop';
-    } else {
-        // 恢复原来的 class 属性
-        targetDiv.className = 'leaf-navtop_bigbackground';
-    }
-});
 
 //添加文章分类的class标签元素
 //第一种文章样式
@@ -229,5 +209,3 @@ function loadPosts(selectedCategory, paged) {
         }
     });
 }
-
-

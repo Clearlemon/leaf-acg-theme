@@ -10,14 +10,12 @@ function leaf_single_first_style()
         $sticky_posts = new WP_Query($args);
         $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
         while ($sticky_posts->have_posts()) : $sticky_posts->the_post();
-            if ($leaf_close_home_post_assets == 'leaf_article_style' || $leaf_close_home_post_assets == 'leaf_article_biglong_style' || $leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
-                    leaf_close_home_post_assets();
-                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
-                    leaf_article_biglong_style();
-                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
-                    leaf_article_three_img_card_style();
-                }
+            if ($leaf_close_home_post_assets == 'leaf_article_style') {
+                leaf_article_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
+                leaf_article_biglong_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
+                leaf_article_three_img_card_style();
             }
         endwhile;
         wp_reset_query();
@@ -27,14 +25,12 @@ function leaf_single_first_style()
         the_post();
         $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
         if (!is_sticky() || is_paged()) {
-            if ($leaf_close_home_post_assets == 'leaf_article_style' || $leaf_close_home_post_assets == 'leaf_article_biglong_style' || $leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
-                    leaf_close_home_post_assets();
-                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
-                    leaf_article_biglong_style();
-                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
-                    leaf_article_three_img_card_style();
-                }
+            if ($leaf_close_home_post_assets == 'leaf_article_style') {
+                leaf_article_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
+                leaf_article_biglong_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
+                leaf_article_three_img_card_style();
             }
         }
     }
@@ -67,7 +63,7 @@ function leaf_single_second_style()
         the_post();
 
         $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
-        if (!is_sticky()) {
+        if (!is_sticky() || is_paged()) {
             if ($leaf_close_home_post_assets == 'leaf_small_card_articles_alling') {
                 leaf_small_card_articles_alling();
             } elseif ($leaf_close_home_post_assets == 'leaf_article_container') {
@@ -78,6 +74,8 @@ function leaf_single_second_style()
         }
     }
 }
+
+//运用在首页分类ajax加载的功能
 
 function leaf_close_home_post_assets()
 {
@@ -96,6 +94,7 @@ function leaf_close_home_post_assets()
         leaf_article_three_img_card_style();
     }
 }
+
 //所有的文章样式块
 //左图文章样式
 function leaf_article_style()
@@ -141,7 +140,7 @@ function leaf_article_style()
             </div>
             <div class="leaf_article_description">
                 <p class="article_description_texte">
-                    <?php echo leaf_post_excerpt(160); ?>
+                    <?php echo leaf_post_excerpt(80); ?>
                 </p>
             </div>
             <div class="leaf_article_other_elements">
@@ -410,7 +409,7 @@ function leaf_small_card_articles_alling()
                 </div>
                 <a class="leaf_home_article_links leaf_link_all" href="<?php echo get_permalink(); ?>">
                     <p class="leaf_home_small_card_texte">
-                        <?php echo leaf_post_excerpt(81); ?>
+                        <?php echo leaf_post_excerpt(45); ?>
                     </p>
                 </a>
                 <div class="leaf_home_small_card_other_all">
@@ -447,6 +446,7 @@ function leaf_small_card_articles_alling()
     </div>
 <?php
 }
+//第二种卡片样式
 function leaf_article_container()
 {
     $post_id = get_the_ID();
@@ -555,12 +555,12 @@ function leaf_article_photo_album()
     </div>
     <?php
 }
+
 //首页文章展示方式
 function leaf_home_post_ajax_assets()
 {
     $home_filter_loading = _leaf('home_filter_loading');
     if ($home_filter_loading == false) {
-
     ?>
         <div class="leaf_posting_inhome_all">
             <?php
@@ -587,7 +587,11 @@ function leaf_home_post_ajax_assets()
                     </div>
                 </div>
                 <?php
-            } elseif ($leaf_close_home_post_assets == 'leaf_article_style' || $leaf_close_home_post_assets == 'leaf_article_biglong_style' || $leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_style') {
+                leaf_single_first_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
+                leaf_single_first_style();
+            } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
                 leaf_single_first_style();
             } else {
                 ?>貌似没有设置文章展示块欸？要不去后台设置一下吗？
@@ -659,9 +663,41 @@ function leaf_home_post_ajax_assets()
                         <li class="home_category" cateid="0">全部文章</li>
                     </ul>
                 </div>
+                <?php
+                $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
+                if ($leaf_close_home_post_assets == 'leaf_small_card_articles_alling') {
+                ?>
+                    <div class="leaf_home_article_small_card_style">
+                        <div id="filtered-posts" class="leaf_home_article_small_card_style_all">
+                        </div>
+                    </div>
+                <?php    } elseif ($leaf_close_home_post_assets == 'leaf_article_container') {
+                ?>
+                    <div class="leaf_home_article_card_style">
+                        <div id="filtered-posts" class="leaf_home_article_style_card">
+                        </div>
+                    </div>
+                <?php } elseif ($leaf_close_home_post_assets == 'leaf_article_photo_album') {
+                ?>
+                    <div class="leaf_home_article_photo_album_style">
+                        <div id="filtered-posts" class="leaf_article_photo_album_all">
+                        </div>
+                    </div>
+                <?php } ?>
                 <div id="filtered-posts" class="leaf_post_content_ajax_assets"></div>
             </div>
 <?php
         }
+    }
+}
+//首页判断是否开启幻灯片则修改css
+function leaf_home_main_css_change()
+{
+    $leaf_slide_layout_choose = _leaf('leaf_slide_layout_choose');
+
+    if ($leaf_slide_layout_choose == _leaf('leaf_slide_layout_choose-1') || _leaf('leaf_slide_layout_choose-2') || _leaf('leaf_slide_layout_choose-3')) {
+        echo 'leaf_postings_main';
+    } else {
+        echo 'leaf_slideshow_postings_main';
     }
 }

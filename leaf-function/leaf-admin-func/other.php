@@ -84,9 +84,10 @@ function modify_link_manager_menu()
 //后台引入样式文件
 function enqueue_custom_admin_styles()
 {
+    $var = '1.0.8';  // 版本号（注意是字符串类型）
     //引用主题的设置样式文件
-    wp_enqueue_style('leaf', CSF::include_plugin_url('assets/css/leaf.css'), array(), '1.0.0', 'all');
-    wp_enqueue_style('leaf-min', CSF::include_plugin_url('assets/css/leaf.min.css'), array(), '1.0.0', 'all');
+    wp_enqueue_style('leaf', CSF::include_plugin_url('assets/css/leaf.css'), array(), $var, 'all');
+    wp_enqueue_style('leaf-min', CSF::include_plugin_url('assets/css/leaf.min.css'), array(), $var, 'all');
 }
 add_action('admin_enqueue_scripts', 'enqueue_custom_admin_styles');
 
@@ -94,7 +95,7 @@ add_action('admin_enqueue_scripts', 'enqueue_custom_admin_styles');
 function leaf_scripts_styles()
 {
 
-    $var = '1.0';  // 版本号（注意是字符串类型）
+    $var = '1.0.8';  // 版本号（注意是字符串类型）
 
     //引用主题的JavaScript和CSS 文件
     wp_enqueue_script('leaf-min', get_template_directory_uri() . '/leaf-assets/leaf-javascript/leaf.min.js', array(), $var, true);

@@ -108,12 +108,13 @@ if (class_exists('CSF')) {
                             </div>
                             <?php leaf_sidebar_home_user_information(); ?>
                         </div>
+                        <div class="sidebar_home_user_html"><?php if (!empty($leaf_home_user_box_html)) {
+                                                                echo $leaf_home_user_box_html;
+                                                            } else {
+                                                                echo '<p>这是用户简介区块</p>';
+                                                            } ?></div>
                     </div>
-                    <div class="sidebar_home_user_html"><?php if (!empty($leaf_home_user_box_html)) {
-                                                            echo $leaf_home_user_box_html;
-                                                        } else {
-                                                            echo '<p>这是用户简介区块</p>';
-                                                        } ?></div>
+
                 </div>
             </div>
         <?php

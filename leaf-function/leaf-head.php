@@ -277,20 +277,20 @@ function leaf_sidebar_moblie_all()
     if ($mobile_close_logo == 'mobile-bg-logo') {
     ?>
         <div class="leaf_sidebar_back_logo_block">
-            <img class="leaf_sidebar_back" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
-            <img class="leaf_sidebar_logo" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.png" alt="">
+            <img class="leaf_sidebar_back" src="http://leaf/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
+            <img class="leaf_sidebar_logo" src="http://leaf/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.webp" alt="">
         </div>
     <?php
     } elseif ($mobile_close_logo == 'mobile-img-logo') {
     ?>
         <div class="leaf_sidebar_logo_block">
-            <img class="leaf_sidebar_noback_logo" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.png" alt="">
+            <img class="leaf_sidebar_noback_logo" src="http://leaf/wp-content/themes/leaf-acg-theme/leaf-assets/leaf-images/leaf-background-settings/logo.webp" alt="">
         </div>
     <?php
     } elseif ($mobile_close_logo == 'mobile-home-img-logo') {
     ?>
         <div class="leaf_sidebar_back_logo_block">
-            <img class="leaf_sidebar_back" src="http://localhost/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
+            <img class="leaf_sidebar_back" src="http://leaf/wp-content/themes/leaf-acg-theme/leaf-api/leaf-acg-img-api/acg.php" alt="">
         </div>
 <?php
     }

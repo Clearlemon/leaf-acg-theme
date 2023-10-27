@@ -105,6 +105,7 @@
 
 .leaf_footer_copyright {
     color: #7e7e7e;
+    display: flex;
 }
 
 .leaf_footer_link_block {
@@ -128,7 +129,9 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 995px) {
-    .leaf_footer_link_profile_copyright_sideab_contact {
+
+    .leaf_footer_link_profile_copyright_sideab_contact,
+    .leaf_footer_succinct_block {
         display: none;
     }
 

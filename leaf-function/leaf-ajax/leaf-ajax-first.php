@@ -1,4 +1,5 @@
 <?php
+//首页文章分类加载
 //ajax加载文章列表
 add_action('wp_ajax_nopriv_ajax_index_post', 'ajax_index_post_square');
 add_action('wp_ajax_ajax_index_post', 'ajax_index_post_square');

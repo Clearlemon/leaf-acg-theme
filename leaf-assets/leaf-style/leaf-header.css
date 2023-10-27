@@ -210,18 +210,14 @@ body {
     border: 2px solid #e7e7e7;
 }
 
-
-
 .leaf-navtop_bigbackground {
-    z-index: 999;
+    position: relative;
+    top: 0;
     width: 100%;
-    top: -60;
-    position: absolute;
+    z-index: 9999;
     box-shadow: inset 0 0 2px #c5c5c5d1;
     backdrop-filter: saturate(200%) blur(30px);
     background-color: hsl(0deg 0% 100% / 50%) !important;
-    transition: transform 1s ease;
-    transform: translateY(60px);
 }
 
 .login_img {
@@ -372,20 +368,24 @@ body {
 .leaf_slide_slider_article_all {
     display: flex;
     flex-direction: column;
-    height: 40%;
+    /* height: 40%; */
 }
 
 /*第一种幻灯片的样式设计*/
-.leaf_slide_all_information {
+.leaf_slide_outside_div_book {
     position: absolute;
-    padding: 20px;
     bottom: 0;
-    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .5));
+}
+
+.leaf_slide_all_information {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 96%;
-    background: linear-gradient(transparent, rgba(0, 0, 0, .5));
+    width: 100%;
+
 }
 
 .leaf_slide_avatar_name_time>p {
@@ -754,4 +754,12 @@ body {
 .leaf_search_block_unfold .leaf_search_eject_block {
     opacity: 1 !important;
     top: -200px !important;
+}
+
+/*宽995px以下的分辨率*/
+@media screen and (max-width: 995px) {
+
+    .leaf_head_nav_search_user {
+        justify-content: space-between !important;
+    }
 }

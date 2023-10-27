@@ -33,24 +33,26 @@ function leaf_slide_first_func()
                 <div class="swiper-slide leaf-slide">
                     <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?><a class="leaf_links" <?php if ($slide_set_new_ups_left == true) { ?> target="_blank" <?php } ?> href="<?php echo $slide_set_links; ?>"><?php } ?>
                         <img class="leaf_slide_back" src="<?php echo $slide_set_img; ?>" alt="">
-                        <div class="leaf_slide_all_information">
-                            <div class="leaf_slide_classify">
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_categories', $slide_display_information_all)) { ?><p class="slide_classify"><?php echo $post_categories; ?></p><?php } ?>
-                            </div>
-                            <div class="leaf_slide_title">
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_title', $slide_display_information_all)) { ?><h2 class="slide_title"><?php echo $slide_set_title; ?></h2><?php } ?>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_sub_title', $slide_display_information_all)) { ?><p class="slide_sub_title"><?php echo $slide_set_sub_title; ?></p><?php } ?>
-                            </div>
-                            <div class="leaf_slide_avatar_name_time">
-                                <div class="slide_avatar_block">
-                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_avatar', $slide_display_information_all)) { ?><img class="slide_avatar" src="<?php echo $slide_set_avatar; ?>" alt=""><?php } ?>
+                        <div class="leaf_slide_outside_div_book">
+                            <div class="leaf_slide_all_information">
+                                <div class="leaf_slide_classify">
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_categories', $slide_display_information_all)) { ?><p class="slide_classify"><?php echo $post_categories; ?></p><?php } ?>
                                 </div>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $slide_set_name; ?></p><?php } ?>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_time', $slide_display_information_all)) { ?><p class="slide_time"><?php echo $slide_set_time ?></p><?php } ?>
+                                <div class="leaf_slide_title">
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_title', $slide_display_information_all)) { ?><h2 class="slide_title"><?php echo $slide_set_title; ?></h2><?php } ?>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_sub_title', $slide_display_information_all)) { ?><p class="slide_sub_title"><?php echo $slide_set_sub_title; ?></p><?php } ?>
+                                </div>
+                                <div class="leaf_slide_avatar_name_time">
+                                    <div class="slide_avatar_block">
+                                        <?php if (isset($slide_display_information_all) && in_array('slide_in_avatar', $slide_display_information_all)) { ?><img class="slide_avatar" src="<?php echo $slide_set_avatar; ?>" alt=""><?php } ?>
+                                    </div>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $slide_set_name; ?></p><?php } ?>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_time', $slide_display_information_all)) { ?><p class="slide_time"><?php echo $slide_set_time ?></p><?php } ?>
+                                </div>
                             </div>
-                        </div>
-                        <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?>
+                            <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?>
                         </a><?php } ?>
+                </div>
                 </div>
 
             <?php
@@ -71,24 +73,25 @@ function leaf_slide_first_func()
                 <div class="swiper-slide leaf-slide">
                     <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?><a class="leaf_links" <?php if ($slide_set_new_ups_right == true) { ?> target="_blank" <?php } ?> href="<?php echo $post_link; ?>"><?php } ?>
                         <img class="leaf_slide_back" src="<?php echo leaf_featured_image($slide_set_post_id); ?>" alt="">
-                        <div class="leaf_slide_all_information">
-                            <div class="leaf_slide_classify">
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_categories', $slide_display_information_all)) { ?><p class="slide_classify"><?php echo $post_category; ?></p><?php } ?>
-                            </div>
-                            <div class="leaf_slide_title">
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_title', $slide_display_information_all)) { ?><h2 class="slide_title"><?php echo $post_title; ?></h2><?php } ?>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_sub_title', $slide_display_information_all)) { ?><p class="slide_sub_title"><?php echo leaf_post_excerpt(20, $slide_set_post_id); ?></p><?php } ?>
-                            </div>
-                            <div class="leaf_slide_avatar_name_time">
-                                <div class="slide_avatar_block">
-                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_avatar', $slide_display_information_all)) { ?><img class="slide_avatar" src="<?php echo $avatar_url; ?>" alt=""><?php } ?>
+                        <div class="leaf_slide_outside_div_book">
+                            <div class="leaf_slide_all_information">
+                                <div class="leaf_slide_classify">
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_categories', $slide_display_information_all)) { ?><p class="slide_classify"><?php echo $post_category; ?></p><?php } ?>
                                 </div>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $author_name; ?></p><?php } ?>
-                                <?php if (isset($slide_display_information_all) && in_array('slide_in_time', $slide_display_information_all)) { ?><p class="slide_time"><?php echo leaf_post_time($slide_set_post_id); ?></p><?php } ?>
+                                <div class="leaf_slide_title">
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_title', $slide_display_information_all)) { ?><h2 class="slide_title"><?php echo $post_title; ?></h2><?php } ?>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_sub_title', $slide_display_information_all)) { ?><p class="slide_sub_title"><?php echo leaf_post_excerpt(20, $slide_set_post_id); ?></p><?php } ?>
+                                </div>
+                                <div class="leaf_slide_avatar_name_time">
+                                    <div class="slide_avatar_block">
+                                        <?php if (isset($slide_display_information_all) && in_array('slide_in_avatar', $slide_display_information_all)) { ?><img class="slide_avatar" src="<?php echo $avatar_url; ?>" alt=""><?php } ?>
+                                    </div>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_name', $slide_display_information_all)) { ?><p class="slide_name"><?php echo $author_name; ?></p><?php } ?>
+                                    <?php if (isset($slide_display_information_all) && in_array('slide_in_time', $slide_display_information_all)) { ?><p class="slide_time"><?php echo leaf_post_time($slide_set_post_id); ?></p><?php } ?>
+                                </div>
                             </div>
-                        </div>
-                        <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?>
-                        </a><?php } ?>
+                            <?php if (isset($slide_display_information_all) && in_array('slide_in_links', $slide_display_information_all)) { ?>
+                        </a><?php } ?></div>
                 </div>
 <?php
             }
