@@ -16,7 +16,7 @@
 
                         // 处理所选的菜单选项
                         if (value === 'bilibili') {
-                            // 插入红色背景标签
+                            // 插入哔哩哔哩标签
                             editor.insertContent('[' + value + ' url="输入BV号"][/' + value + ']');
                         }
                     },
@@ -32,7 +32,7 @@
 
                         // 处理所选的菜单选项
                         if (value === 'tencent') {
-                            // 插入蓝色背景标签
+                            // 插入腾讯视频标签
                             editor.insertContent('[' + value + ' url="输入视频ID"][/' + value + ']');
                         }
                     },
@@ -48,7 +48,7 @@
 
                         // 处理所选的菜单选项
                         if (value === 'leafvideo') {
-                            // 插入蓝色背景标签
+                            // 插入自视频标签
                             editor.insertContent('[' + value + ' url="输入视频链接" src="输入视频的封面图片"][/' + value + ']');
                         }
                     },

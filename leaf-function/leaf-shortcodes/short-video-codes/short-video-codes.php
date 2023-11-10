@@ -7,9 +7,11 @@ function content_video_bilibili($atts, $content = null)
         'url' => '', // 设置默认标题为空
     ), $atts);
 
+
     $url = $atts['url'];
 
-    $output = '<iframe height="80%" width="100%" src="//player.bilibili.com/player.html?bvid=' . esc_html($url) . '&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>';
+
+    $output = '<div class="leaf_video" ><iframe src="//player.bilibili.com/player.html?bvid=' . esc_html($url) . '&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe></div>';
     return $output;
 }
 add_shortcode('bilibili', 'content_video_bilibili');
@@ -21,9 +23,11 @@ function content_video_tencent($atts, $content = null)
         'url' => '', // 设置默认标题为空
     ), $atts);
 
+
     $url = $atts['url'];
 
-    $output = '<iframe height="80%" width="100%" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=' . esc_html($url) . '&amp;width=500&amp;height=375&amp;auto=0" allowfullscreen="" frameborder="0" height="40%" width="100%"></iframe>';
+
+    $output = '<div class="leaf_video" ><iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=' . esc_html($url) . '&amp;auto=0" allowfullscreen="" frameborder="0"></iframe></div>';
     return $output;
 }
 add_shortcode('tencent', 'content_video_tencent');

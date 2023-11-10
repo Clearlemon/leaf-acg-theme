@@ -42,6 +42,7 @@ function leaf_custom_previous_next_links()
     //进行上一篇或者下一篇来判断
     if (!empty($previous_post)) {
         $previous_post_id = $previous_post->ID;
+        $previous_post_class = "previous_post";
     }
 
     if (!empty($next_post)) {
@@ -49,7 +50,7 @@ function leaf_custom_previous_next_links()
     }
 
     if ($previous_post || $next_post) {
-        echo '<div class="lea_fprevious_next_links">';
+        echo '<div class="lea_fprevious_next_links ' . $previous_post_class . '">';
         //如果上一篇有文章的话则输出这些html，如果没有则不会输出相关内容
         if ($previous_post) {
             echo '<div class="leaf_previous_post_link_title_block"><a href="' . get_permalink($previous_post->ID) . '">';

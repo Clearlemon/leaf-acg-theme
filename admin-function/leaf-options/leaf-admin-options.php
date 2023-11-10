@@ -397,9 +397,33 @@ if (class_exists('CSF')) {
           'paginated_loading' => '分页加载',
           'ajax_loading' => 'AJAX刷新加载',
         ),
-        'default'    => 'paginated_loading'
+        'default'    => 'paginated_loading',
+        'desc' => '默认为分页加载，注：如要开启<b class="leaf_emphasis_fonts">[文章分类加载]</b>功能必须选择AJAXX刷新加载。',
       ),
-
+      //缩略图设置开始
+      //标题
+      array(
+        'type'    => 'heading',
+        'content' => '<h3>   ----缩略图设置----    </h3>',
+      ),
+      //副标题
+      array(
+        'type'    => 'subheading',
+        'content' => '缩略图设置&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp懒加载设置&nbsp&nbsp&nbsp',
+      ),
+      array(
+        'id'    => 'post_thumbnail_switcher',
+        'type'  => 'switcher',
+        'title' => '是否开启缩略图',
+        'desc' => '默认为不启用此功能，<b class="leaf_emphasis_fonts">如需使用并自定义缩略图图片则开启此功能</b>',
+      ),
+      array(
+        'id'    => 'post_thumbnail_img',
+        'type'  => 'upload',
+        'title' => '缩略图上传',
+        'preview' => true,
+        'dependency' => array('post_thumbnail_switcher', '==', true),
+      ),
     ),
   ));
 

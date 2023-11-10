@@ -60,8 +60,9 @@
                 } else {
                     echo '<div class="mobile_nav_logo_block" ></div>';
                 } ?>
-                <?php $locations = get_nav_menu_locations();
-                if (isset($locations['leaf_head_nav'])) {
+                <?php
+                $locations = get_nav_menu_locations();
+                if (isset($locations['leaf_head_nav']) && has_nav_menu('leaf_head_nav')) {
                     wp_nav_menu(
                         array(
                             'menu' => 'leaf_head_nav',
@@ -74,6 +75,8 @@
                             'walker' => new Leaf_Nav_Create_style(),
                         )
                     );
+                } else {
+                    echo '<div class="leaf_nav_remind_title" >你貌似没设置菜单欸？去设置一个<a target="_blank" href="/wp-admin/nav-menus.php?action=edit&menu=0">[菜单]</a>吧？</div>'; // 如果菜单不存在，则输出 "555"
                 } ?>
                 <div class="leaf_header_search_user">
                     <?php leaf_close_search_fun(); ?>

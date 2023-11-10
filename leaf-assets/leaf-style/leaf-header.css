@@ -214,7 +214,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1;
     box-shadow: inset 0 0 2px #c5c5c5d1;
     backdrop-filter: saturate(200%) blur(30px);
     background-color: hsl(0deg 0% 100% / 50%) !important;
@@ -533,8 +533,12 @@ body {
     }
 }
 
-@media screen and (min-width: 1px) and (max-width: 995px) {
+@media screen and (max-width: 995px) {
     .logo_img_text {
+        display: none;
+    }
+
+    .leaf_nav_remind_title {
         display: none;
     }
 
@@ -754,6 +758,10 @@ body {
 .leaf_search_block_unfold .leaf_search_eject_block {
     opacity: 1 !important;
     top: -200px !important;
+}
+
+.leaf_nav_remind_title {
+    font-size: 13px;
 }
 
 /*宽995px以下的分辨率*/

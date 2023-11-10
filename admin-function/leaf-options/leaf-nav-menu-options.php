@@ -1,10 +1,9 @@
 <?php if (!defined('ABSPATH')) {
   die;
-} // Cannot access directly.
+}
 
-//
-// Set a unique slug-like ID
-//
+//主题导航栏模块设置
+
 $prefix = '_prefix_menu_options';
 
 //

@@ -1,15 +1,10 @@
 <?php if (!defined('ABSPATH')) {
   die;
 } // Cannot access directly.
-
-//
-// Metabox of the PAGE
-// Set a unique slug-like ID
-//
 $prefix_page_opts = 'leaf-theme-page-article';
 
 //
-// Create a metabox
+// 页面独立功能模块设置
 //
 // CSF::createMetabox($prefix_page_opts, array(
 //   'title'        => 'Custom Page Options',

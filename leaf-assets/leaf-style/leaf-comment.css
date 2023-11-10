@@ -144,7 +144,7 @@
 }
 
 .leaf_user_avatar_img_comments_inside {
-    width: 100%;
+    width: 35px;
     border-radius: 100%;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .leaf_time_name_ip_text_comment_inside_block_raly_li_right {
-    width: 90%;
+    width: 100%;
 }
 
 .leaf_time_browser_ip_comments_inside_all_block_raly_li_right {
@@ -204,7 +204,6 @@
 .leaf_user_reply_text__inside_block {
     display: flex;
     align-items: center;
-    padding: 5px 0px;
     font-size: 14px;
     line-height: 1.5em;
     color: #777;

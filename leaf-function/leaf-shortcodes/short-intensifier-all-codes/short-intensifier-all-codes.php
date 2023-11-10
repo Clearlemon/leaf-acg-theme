@@ -1,14 +1,10 @@
 <?php
-// Control core classes for avoid errors
+//短代码函数文件
 if (class_exists('CSF')) {
 
-    //
-    // Set a unique slug-like ID
     $prefix = 'my_shortcodes';
     $img = get_template_directory_uri() . '/leaf-function/leaf-shortcodes/short-intensifier-all-codes/';
 
-    //
-    // Create a shortcoder
     CSF::createShortcoder($prefix, array(
         'button_title' => 'Leaf-[短代码增强]',
         'select_title' => 'Leaf-[短代码增强]',
@@ -17,9 +13,6 @@ if (class_exists('CSF')) {
 
     ));
 
-
-    //
-    // Another basic shortcode
     CSF::createSection($prefix, array(
         'title'     => 'Leaf-网盘下载',
         'view'      => 'normal',
@@ -80,11 +73,33 @@ if (class_exists('CSF')) {
         'shortcode' => 'my_shortcode',
         'fields'    => array(
             array(
-                'id'    => 'title',
-                'type'  => 'text',
-                'title' => 'Titlte',
+                'id'         => 'card-set',
+                'type'       => 'button_set',
+                'title'      => '获取文章选择',
+                'options'    => array(
+                    'enabled'  => '一键获取',
+                    'disabled' => '自定义',
+                ),
+                'default'    => 'enabled'
             ),
 
+            array(
+                'id'          => 'post',
+                'type'        => 'select',
+                'title'       => '输入你想要插入的文章名',
+                'placeholder' => '输入你想要插入的文章名',
+                'desc' => '请输入你的<b class="leaf_emphasis_fonts">[文章名]</b>',
+                //'class' => 'fields_no_padding-top',
+                'chosen'      => true,
+                'ajax'        => true,
+                'multiple'    => true,
+                'sortable'    => true,
+                'options'     => 'posts',
+                //'dependency' => array('home_filter_loading', '==', true),
+                'settings' => array(
+                    'min_length'  => 1,
+                ),
+            ),
             array(
                 'id'    => 'content',
                 'type'  => 'text',
@@ -103,7 +118,7 @@ if (class_exists('CSF')) {
 }
 
 
-//输出网盘下载短代码
+//输出网盘下载短代码函数
 function content_cloud($atts, $content = null)
 {
     // 获取标题和颜色

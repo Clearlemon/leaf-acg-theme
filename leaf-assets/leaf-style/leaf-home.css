@@ -169,6 +169,11 @@
     flex-wrap: nowrap;
     height: 150px;
     margin: 10px 5px;
+    width: 100%;
+}
+
+.leaf_home_article_biglong_style {
+    width: 100%;
 }
 
 .leaf_home_article_detailed {
@@ -1490,10 +1495,11 @@
 
 #leaf-load-more-button,
 #leaf-load-car-more-button {
-    height: 3%;
-    width: 15%;
+    height: 25px;
+    width: 130px;
     border-radius: 15px;
     border: none;
+    font-size: 12px;
 }
 
 .leaf_post_content_ajax_assets {
@@ -1522,12 +1528,6 @@
 
 /*手机自适应*/
 @media screen and (max-width: 380px) {
-
-    #leaf-load-more-button,
-    #leaf-load-car-more-button {
-        width: 33%;
-        height: 5%;
-    }
 
     .leaf_postings_main {
         margin: 0px 0px;
@@ -1626,12 +1626,6 @@
 
 @media screen and (max-width: 540px) and (min-width:380px) {
 
-    #leaf-load-more-button,
-    #leaf-load-car-more-button {
-        width: 33%;
-        height: 5%;
-    }
-
     .leaf_postings_main {
         margin: 0px 0px;
         margin-top: 100px;
@@ -1689,21 +1683,10 @@
 /*手机端样式*/
 @media screen and (max-width: 750px)and (min-width: 540px) {
 
-    #leaf-load-more-button,
-    #leaf-load-car-more-button {
-        width: 25%;
-        height: 4%;
-    }
-
     .leaf_postings_main {
         margin: 0px 0%;
         margin-top: 100px;
     }
-
-    .leaf_home_article_style {
-        width: 93%;
-    }
-
 
     .leaf_article_other_elements {
         width: 100%;
@@ -1738,12 +1721,6 @@
 /*中等屏幕*/
 @media screen and (min-width: 751px) and (max-width: 995px) {
 
-    #leaf-load-more-button,
-    #leaf-load-car-more-button {
-        width: 25%;
-        height: 4%;
-    }
-
     .leaf_postings_main {
         margin: 0px 3%;
         margin-top: 100px;
@@ -1758,12 +1735,6 @@
 
 
 @media screen and (min-width: 995px) and (max-width: 1666px) {
-
-    #leaf-load-more-button,
-    #leaf-load-car-more-button {
-        width: 25%;
-        height: 4%;
-    }
 
     .leaf_postings_main {
         margin: 0px 6%;

@@ -1,15 +1,11 @@
 <?php if (!defined('ABSPATH')) {
   die;
-} // Cannot access directly.
+}
 
-// //
-// // Set a unique slug-like ID
-// //
+//分类页设置扩展
 // $prefix = '_prefix_taxonomy_options';
 
-// //
-// // Create taxonomy options
-// //
+
 // CSF::createTaxonomyOptions($prefix, array(
 //   'taxonomy' => 'category',
 // ));
@@ -20,9 +16,7 @@
 // CSF::createSection($prefix, array(
 //   'fields' => array(
 
-    
-//     A text field
-    
+
 //     array(
 //       'id'    => 'opt-text',
 //       'type'  => 'text',

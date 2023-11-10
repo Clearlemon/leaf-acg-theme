@@ -45,7 +45,7 @@
 }
 
 .leaf_footer_sideab_block {
-    width: 40%;
+    width: 30%;
     margin: 0px 10%;
 }
 
@@ -54,12 +54,12 @@
 }
 
 .leaf_footer_contact_block {
-    width: 20%;
+    width: 30%;
     display: flex;
 }
 
 .leaf_footer_contact_img {
-    width: 65%;
+    width: 110px;
 }
 
 .leaf_footer_contact_img_text {
@@ -73,6 +73,8 @@
 
 .leaf_footer_link_text_block {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .leaf_footer_link_img {
@@ -84,12 +86,12 @@
 }
 
 .leaf_footer_link_img_block {
-    width: 92%;
+    max-width: 95%;
+    width: 90%;
 }
 
 .leaf_footer_text_block {
-    width: 8%;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     align-items: center;
 }
@@ -98,6 +100,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     width: 100%;
     margin: 15px;
@@ -126,6 +129,15 @@
 
 .leaf_moblie_text {
     display: none;
+}
+
+.footer_succinct_icp>.icon,
+.footer_moe_icp_succinct>.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 1px) and (max-width: 995px) {

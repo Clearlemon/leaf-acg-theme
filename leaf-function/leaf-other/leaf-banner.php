@@ -7,14 +7,18 @@ function leaf_banner_genre()
     //获取$accordion_values对应设置的id值并复制给自己创建的值中
     $accordion_values = _leaf('leaf_banner_seting');
 
-    $leaf_banner_img_upload = $accordion_values['leaf_banner_img_upload'];
-    $leaf_banner_mp4_upload = $accordion_values['leaf_banner_mp4_upload'];
-    $leaf_banner_height = $accordion_values['leaf_banner_height'];
-    $leaf_banner_title_switcher = $accordion_values['leaf_banner_title_switcher'];
-    $leaf_banner_title_h1 = $accordion_values['leaf_banner_title_h1'];
-    $leaf_banner_title_h4 = $accordion_values['leaf_banner_title_h4'];
-    $leaf_banner_one_word_switcher = $accordion_values['leaf_banner_one_word_switcher'];
-    $banner_one_word_choose  = $accordion_values['banner_one_word_choose'];
+    //判断$accordion_values内是否有值&数组存在
+    if (is_array($accordion_values)) {
+        $leaf_banner_img_upload = isset($accordion_values['leaf_banner_img_upload']) ? $accordion_values['leaf_banner_img_upload'] : '';
+        $leaf_banner_mp4_upload = isset($accordion_values['leaf_banner_mp4_upload']) ? $accordion_values['leaf_banner_mp4_upload'] : '';
+        $leaf_banner_height = isset($accordion_values['leaf_banner_height']) ? $accordion_values['leaf_banner_height'] : '';
+        $leaf_banner_title_switcher = isset($accordion_values['leaf_banner_title_switcher']) ? $accordion_values['leaf_banner_title_switcher'] : '';
+        $leaf_banner_title_h1 = isset($accordion_values['leaf_banner_title_h1']) ? $accordion_values['leaf_banner_title_h1'] : '';
+        $leaf_banner_title_h4 = isset($accordion_values['leaf_banner_title_h4']) ? $accordion_values['leaf_banner_title_h4'] : '';
+        $leaf_banner_one_word_switcher = isset($accordion_values['leaf_banner_one_word_switcher']) ? $accordion_values['leaf_banner_one_word_switcher'] : '';
+        $banner_one_word_choose = isset($accordion_values['banner_one_word_choose']) ? $accordion_values['banner_one_word_choose'] : '';
+    }
+
     //输出内容
     if ($banner_close == 'leaf_home_banner_1') { ?>
         <div class="leaf-head_nav_backgroundimg">
