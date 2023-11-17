@@ -152,6 +152,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function toggleTextClass(element) {
+    // 获取要修改的 p 元素
+    var textElement = element.querySelector('.leaf_click_view_text') || element.querySelector('.leaf_click_view_text_block');
+
+    // 如果元素有 leaf_click_view_text 类，则替换为 leaf_click_view_text_block，否则反之
+    if (textElement.classList.contains('leaf_click_view_text')) {
+        textElement.classList.remove('leaf_click_view_text');
+        textElement.classList.add('leaf_click_view_text_block');
+    } else {
+        textElement.classList.remove('leaf_click_view_text_block');
+        textElement.classList.add('leaf_click_view_text');
+    }
+}
+
+
 //主题点赞功能
 $.fn.postLike = function () {
     if ($(this).hasClass('done')) {

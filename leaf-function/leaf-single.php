@@ -286,9 +286,6 @@ function set_post_views()
 }
 add_action('get_header', 'set_post_views');
 
-//获取上一篇的图片函数
-
-//获取上一篇的图片函数
 
 //获取文章的副标题
 function leaf_post_deputy_title()

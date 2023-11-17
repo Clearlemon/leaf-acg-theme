@@ -52,9 +52,7 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
                 <div class="single_synopsis_block">
                     <p>这是文章的简介演示，文章一共有3种简介样式，目前展示的是第一张，如果想看其他的样式可以去后台or文档去查看样式，简介样式做的不是特别的好看请见谅</p>
                 </div>
-
-
-
+                
         <?php the_content();
                             endwhile;
                         endif;

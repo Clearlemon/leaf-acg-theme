@@ -25,9 +25,6 @@ function leaf_slide_first_func()
                 //以下为获取文章分类的代码
                 $post_categories = get_cat_name($slide_set_categories);
                 //以下内容为html代码
-
-
-
 ?>
 
                 <div class="swiper-slide leaf-slide">

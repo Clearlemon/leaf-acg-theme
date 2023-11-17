@@ -9,12 +9,14 @@ function cntent_password_viewing($atts, $content = null)
     ), $atts);
 
     // 检查是否提供了key参数
-    if (empty($atts['key'])) {
+    if (empty($atts['key']) || !isset($atts['key'])) {
         return '请提供密码';
     }
 
+
     // 获取当前用户输入的密码
-    $entered_password = sanitize_text_field($_POST['password']);
+    $entered_password = isset($_POST['password']) ? sanitize_text_field($_POST['password']) : '';
+
 
     // 获取正确的密码（你可以根据自己的需求设置密码）
     $correct_password = $atts['key'];

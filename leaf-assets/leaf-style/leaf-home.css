@@ -809,7 +809,7 @@
 }
 
 .leaf_article_photo_album_all {
-    column-count: 4;
+    column-count: 3;
     column-gap: 15px;
     margin-bottom: 20px;
 }
@@ -1180,16 +1180,18 @@
 }
 
 .leaf_home_article_small_card_style_all {
-    display: grid;
+    display: flex;
     margin: 5px;
-    grid-template-columns: repeat(4, 25%);
     justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .leaf_home_small_card_articles_alling {
-    width: 95%;
+    width: 31%;
     height: 100%;
-    margin: 10px;
+    margin: 5px;
 }
 
 .leaf_home_small_card_articles_img {
@@ -1543,10 +1545,6 @@
         justify-content: space-between;
     }
 
-    .leaf_article_other_elements {
-        align-items: flex-end;
-    }
-
     .leaf_article_classification_long {
         width: 75%;
     }
@@ -1573,7 +1571,7 @@
     }
 
     .article_description_texte {
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 3;
     }
 
     .leaf_home_small_card_texte,
@@ -1631,13 +1629,17 @@
         margin-top: 100px;
     }
 
+    .leaf_article_photo_album_all {
+        column-count: 2;
+    }
+
     .article_description_texte {
         font-size: 14px;
         color: #7c7575;
         line-height: 1.7;
         letter-spacing: 0.3px;
         display: -webkit-box;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         word-break: break-all;
@@ -1773,6 +1775,10 @@
         text-overflow: ellipsis;
         -webkit-line-clamp: 4;
     }
+
+    .leaf_home_small_card_articles_alling {
+        width: 46%;
+    }
 }
 
 @media screen and (min-width: 655px) and (max-width: 1390px) {
@@ -1838,5 +1844,55 @@
     .leaf-sidebar {
         width: 100%;
         margin-left: 0;
+    }
+}
+
+/*宽360px以下的分辨率*/
+@media screen and (max-width:360px) {
+
+    .leaf_article_classification_three_img_card,
+    .leaf_article_user_img_inthree_img_card,
+    .leaf_home_article_time,
+    .leaf_home_article_deputy_title,
+    .leaf_article_user_img {
+        display: none;
+    }
+
+    .leaf_article_browse_comment_like_three_img_card {
+        width: 80%;
+    }
+
+    .leaf_home_small_card_user_img {
+        width: 30px !important;
+        height: 30px;
+    }
+
+    .three_img_card_ingimg,
+    .leaf_article_user_name {
+        width: 25%;
+    }
+
+    .leaf_home_article_links {
+        width: 80%;
+    }
+
+    .leaf_home_article_links.leaf_link_all {
+        width: 100%;
+    }
+
+    .leaf_home_article_title {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .leaf_home_article_container .leaf_home_article_card .leaf_home_article_content_card {
+        width: 240px;
+    }
+}
+
+/*整体布局*/
+@media screen and (max-width:1200px) {
+    .leaf_float_style {
+        margin: 0;
     }
 }

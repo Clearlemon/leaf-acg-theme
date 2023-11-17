@@ -201,32 +201,36 @@ class Leaf_Sidebar_Nav_Create_style extends Walker_Nav_Menu
         $attributes .= !empty($item->url)        ? ' href="'   . esc_attr($item->url) . '"' : '';
         $attributes .= ' class="sidebar-menu-link ' . ($depth > 0 ? 'sidebar-sub-menu-link' : 'leaf_link_all') . '"';
 
-        //添加a的样式
+        // 根据深度动态设置 $link_before 和 $link_after 的值
+        $link_before = $depth == 0 ? '<span>' : '<strong>';
+        $link_after = $depth == 0 ? '</span>' : '</strong>';
+
+        // 使用动态设置的值构建 $item_output
         $item_output = sprintf(
             '%1$s<a%2$s>%3$s%4$s%5$s</a>',
             $args->before,
             $attributes,
-            $args->link_before,
+            $link_before,
             apply_filters('the_title', $item->title, $item->ID),
-            $args->link_after
+            $link_after
         );
-        //上面这个item_output我要说一下。这里写的有点死。
-        //如果一级菜单是<a><span>我是菜单</span></a>
-        //然而其他级菜单是<a><strong>我是菜单</strong></a>
-        //这样的情况，$args->link_before是固定值就不行了，要自行判断
-        //$link_before = $depth == 0 ? '<span>' : '<strong>';
-        //$link_after = $depth == 0 ? '</span>' : '</strong>';
-        //类似这个意思。
-        // 添加可能的 div 内容
-        if ($args->walker->has_children && $depth <= 1) {
+
+        // 获取当前菜单项的子菜单项
+        $children = wp_get_nav_menu_items($item->ID);
+
+        // 检查是否有子菜单项
+        if (!empty($children) && $depth <= 1) {
             $item_output .= '<div class="leaf_sidebar_ico_ali">
-            <svg class="leaf_sidebar_nav_ali_icon" aria-hidden="true">
-                        <use xlink:href="#icon-xiangxia"></use>
-                    </svg>
-                    </div>';
+        <svg class="leaf_sidebar_nav_ali_icon" aria-hidden="true">
+            <use xlink:href="#icon-xiangxia"></use>
+        </svg>
+    </div>';
         }
 
+
+
         $item_output .= $args->after;
+
 
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
 

@@ -70,19 +70,19 @@ if (class_exists('CSF')) {
     CSF::createSection($prefix, array(
         'title'     => 'Leaf-网站卡片',
         'view'      => 'normal',
-        'shortcode' => 'my_shortcode',
+        'shortcode' => 'card_post',
         'fields'    => array(
             array(
-                'id'         => 'card-set',
+                'id'         => 'card_set',
                 'type'       => 'button_set',
                 'title'      => '获取文章选择',
                 'options'    => array(
-                    'enabled'  => '一键获取',
-                    'disabled' => '自定义',
+                    '1'  => '一键获取',
+                    '2' => '自定义',
                 ),
-                'default'    => 'enabled'
+                'default'    => '1'
             ),
-
+            //一件获取设置块
             array(
                 'id'          => 'post',
                 'type'        => 'select',
@@ -95,7 +95,7 @@ if (class_exists('CSF')) {
                 'multiple'    => true,
                 'sortable'    => true,
                 'options'     => 'posts',
-                //'dependency' => array('home_filter_loading', '==', true),
+                'dependency' => array('card_set', '==', '1'),
                 'settings' => array(
                     'min_length'  => 1,
                 ),
@@ -104,7 +104,37 @@ if (class_exists('CSF')) {
                 'id'    => 'content',
                 'type'  => 'text',
                 'class' => 'leaf-no-options-shortcodes',
-                'title' => 'Content',
+                'title' => '内容',
+                'dependency' => array('card_set', '==', '1'),
+            ),
+            //自定义获取设置块
+            array(
+                'id'    => 'diy_img',
+                'type'  => 'upload',
+                'title' => '卡片缩略图选择',
+                'preview' => true,
+                'dependency' => array('card_set', '==', '2'),
+            ),
+            array(
+                'id'    => 'diy_title',
+                'type'  => 'text',
+                'class' => 'fields_no_padding-top',
+                'title' => '标题',
+                'dependency' => array('card_set', '==', '2'),
+            ),
+            array(
+                'id'    => 'diy_links',
+                'type'  => 'text',
+                'class' => 'fields_no_padding-top',
+                'title' => '链接',
+                'dependency' => array('card_set', '==', '2'),
+            ),
+            array(
+                'id'    => 'content',
+                'type'  => 'textarea',
+                'class' => 'fields_no_padding-top',
+                'dependency' => array('card_set', '==', '2'),
+                'title' => '内容',
             ),
         )
     ));
@@ -490,3 +520,70 @@ function content_cloud($atts, $content = null)
     }
 }
 add_shortcode('cloud', 'content_cloud');
+
+//卡片内嵌
+function content_card_post($atts, $content = null)
+{
+    // 获取标题和颜色
+    $atts = shortcode_atts(array(
+        //选择获取
+        'card_set' => '',
+        //一件获取文章
+        'post' => '',
+        //diy文章
+        'diy_img' => '',
+        'diy_title' => '',
+        'diy_links' => '',
+        'content' => '',
+    ), $atts);
+    //获取文章获取方式
+    $card_set = $atts['card_set'];
+    //获取文章ID数
+    $post = $atts['post'];
+    //获取自定义图片
+    $diy_img = $atts['diy_img'];
+    //获取自定义标题
+    $diy_title = $atts['diy_title'];
+    //获取自定义链接
+    $diy_links = $atts['diy_links'];
+    //获取自定义内容
+    $content = $atts['content'];
+
+    if ($card_set == '1') {
+        //赋值
+        $post_id = !empty($post) ? $post : null;
+
+        //依据ID获取图片
+        $img = leaf_featured_image($post_id);
+        //依据ID获取内容
+        $id_content = leaf_post_excerpt(200, $post_id);
+
+
+        $output = '<div class="leaf_single_card_post">
+        <a class="leaf_card_post_links" href="' . get_permalink($post_id) . '">
+            <div class="leaf_single_card_post_img">
+                <img class="leaf_single_card_img" src="' .  $img . '" alt="">
+            </div>
+            <div class="leaf_single_card_post_text">
+            <h2 class="leaf_single_card_title">' . get_the_title($post_id) . '</h2>
+                <p class="leaf_single_carf_text">' . $id_content . '</p>
+            </div>
+        </a>
+    </div>';
+        return $output;
+    } else {
+        $output = '<div class="leaf_single_card_post">
+            <a class="leaf_card_post_links" href="' . $diy_links . '">
+                <div class="leaf_single_card_post_img">
+                    <img class="leaf_single_card_img" src="' . $diy_img . '" alt="">
+                </div>
+                <div class="leaf_single_card_post_text">
+                    <h2 class="leaf_single_card_title">' . $diy_title . '</h2>
+                    <p class="leaf_single_carf_text">' . $content . '</p>
+                </div>
+            </a>
+        </div>';
+        return $output;
+    }
+}
+add_shortcode('card_post', 'content_card_post');
