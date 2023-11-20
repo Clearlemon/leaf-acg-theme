@@ -11,11 +11,35 @@ function leaf_single_first_style()
         $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
         while ($sticky_posts->have_posts()) : $sticky_posts->the_post();
             if ($leaf_close_home_post_assets == 'leaf_article_style') {
-                leaf_article_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_style();
+                }
             } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
-                leaf_article_biglong_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_biglong_style();
+                }
             } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-                leaf_article_three_img_card_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_three_img_card_style();
+                }
             }
         endwhile;
         wp_reset_query();
@@ -26,11 +50,35 @@ function leaf_single_first_style()
         $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
         if (!is_sticky() || is_paged()) {
             if ($leaf_close_home_post_assets == 'leaf_article_style') {
-                leaf_article_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_style();
+                }
             } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
-                leaf_article_biglong_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_biglong_style();
+                }
             } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-                leaf_article_three_img_card_style();
+                if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                    leaf_article_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                    leaf_article_biglong_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                    leaf_article_three_img_card_style();
+                } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                    leaf_article_three_img_card_style();
+                }
             }
         }
     }
@@ -87,11 +135,29 @@ function leaf_close_home_post_assets()
             leaf_article_biglong_style();
         } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
             leaf_article_three_img_card_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+            leaf_article_style();
         }
     } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
-        leaf_article_biglong_style();
+        if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+            leaf_article_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+            leaf_article_biglong_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+            leaf_article_three_img_card_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+            leaf_article_biglong_style();
+        }
     } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-        leaf_article_three_img_card_style();
+        if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+            leaf_article_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+            leaf_article_biglong_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+            leaf_article_three_img_card_style();
+        } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+            leaf_article_three_img_card_style();
+        }
     }
 }
 

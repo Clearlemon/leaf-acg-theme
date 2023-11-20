@@ -48,9 +48,9 @@ require_once get_theme_file_path('/leaf-theme/theme-header.php');
 
                 ?>
             </div>
-            <div class="leaf-post-button">
-                <button id="leaf-load-more-button" class="leaf-ck leaf_show show-more m-feed-loader">加载更多</button>
-            </div>
+            <?php
+            leaf_ajax_paginated();
+            ?>
         </div>
         <?php
         leaf_all_separate_sideba_open();

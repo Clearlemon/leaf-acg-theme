@@ -9,10 +9,7 @@
                 <?php leaf_home_post_ajax_assets(); ?>
             </div>
             <?php
-            $leaf_post_ajax_radio = _leaf('leaf_post_ajax_radio');
-            if ($leaf_post_ajax_radio == 'ajax_loading') {
-                leaf_ajax_paginated();
-            }
+            leaf_ajax_paginated();
             ?>
         </div>
 

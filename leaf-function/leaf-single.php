@@ -297,16 +297,17 @@ function leaf_post_deputy_title()
         echo $deputy_title;
     }
 }
+//获取文章的副标题的颜色
 function leaf_post_deputy_color()
 {
-    $deputy_title_color = _leaf_post('leaf_post_deputy_title_color', '');
-    $deputy_title_color_diy = _leaf_post('leaf_post_deputy_title_color_skin', '');
+    $deputy_title_color_diy = _leaf_post('leaf_post_deputy_title_color', '');
+    $deputy_title_color = _leaf_post('leaf_post_deputy_title_color_skin', '');
 
     if ($deputy_title_color != '') {
-        echo '#' . $deputy_title_color_diy;
+        echo $deputy_title_color;
     }
     if ($deputy_title_color_diy != '') {
-        echo $deputy_title_color;
+        echo $deputy_title_color_diy;
     }
 }
 //获取文章的背景图

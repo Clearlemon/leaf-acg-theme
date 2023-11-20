@@ -774,3 +774,44 @@ iframe {
         padding-top: 5px;
     }
 }
+
+/*导航网址*/
+.leaf_card_nav {
+    box-shadow: inset 0 0 2px #c5c5c5d1;
+    backdrop-filter: saturate(200%) blur(30px);
+    background-color: hsl(0deg 11.87% 98.21% / 66%);
+    border-radius: 20px;
+}
+
+.card_nav_all {
+    display: flex;
+}
+
+.card_nav_img {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.card_nav_title {
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    margin-top: 0;
+}
+
+.card_nav_content {
+    font-size: 13px;
+}
+
+.card_nav_tag {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}

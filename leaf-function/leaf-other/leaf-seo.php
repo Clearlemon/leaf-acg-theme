@@ -37,28 +37,49 @@ function leaf_seo()
             </style>
         </head>
 
-    <?php
+        <?php
     } elseif (is_single()) {
-    ?>
+        if (_leaf_post('post_seo_switcher', '') == true) {
+            $keywords = _leaf_post('post_seo_keywords', '');
+            $description = _leaf_post('post_seo_description', '');
+            $title = _leaf_post('post_seo_title', '');
+        ?>
 
-        <head>
-            <title>
-                <?php
-                echo the_title();
-                echo '-';
-                echo get_bloginfo('description'); ?>
-            </title>
-            <meta name="keywords" content="ACG,二次元,游戏,主题,Wordpress,叶">
-            <meta name="description" content="一个免费好看的二次元个人博客主题。">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-            <style type="text/css">
-                <?php leaf_theme_overall_color(); ?>
-            </style>
-        </head>
+            <head>
+                <title>
+                    <?php echo $title ?>
+                </title>
+                <meta name="keywords" content="<?php echo $keywords ?>">
+                <meta name="description" content="<?php echo $description ?>">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+                <style type="text/css">
+                    <?php leaf_theme_overall_color(); ?>
+                </style>
+            </head>
 
-    <?php
+        <?php
+        } else {
+        ?>
+
+            <head>
+                <title>
+                    <?php
+                    echo the_title();
+                    echo '-';
+                    echo get_bloginfo('description'); ?>
+                </title>
+                <meta name="keywords" content="ACG,二次元,游戏,主题,Wordpress,叶">
+                <meta name="description" content="一个免费好看的二次元个人博客主题。">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+                <style type="text/css">
+                    <?php leaf_theme_overall_color(); ?>
+                </style>
+            </head>
+
+        <?php
+        }
     } elseif (is_search()) {
-    ?>
+        ?>
 
         <head>
             <title>

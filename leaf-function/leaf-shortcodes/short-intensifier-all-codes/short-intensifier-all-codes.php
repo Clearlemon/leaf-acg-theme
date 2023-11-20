@@ -142,8 +142,47 @@ if (class_exists('CSF')) {
     CSF::createSection($prefix, array(
         'title'     => 'Leaf-网址导航',
         'view'      => 'normal',
-        'shortcode' => 'my_shortcode',
-        'fields'    => array()
+        'shortcode' => 'card_nav',
+        'fields'    => array(
+            array(
+                'id'    => 'img',
+                'type'  => 'upload',
+                'title' => '卡片缩略图选择',
+                'preview' => true,
+
+            ),
+            array(
+                'id'    => 'title',
+                'type'  => 'text',
+                'class' => 'fields_no_padding-top',
+                'title' => '标题',
+
+            ),
+            array(
+                'id'    => 'links',
+                'type'  => 'text',
+                'class' => 'fields_no_padding-top',
+                'title' => '链接',
+            ),
+            array(
+                'id'    => 'tag',
+                'type'  => 'text',
+                'class' => 'fields_no_padding-top',
+                'title' => '标签',
+            ),
+            array(
+                'id'    => 'nav_content',
+                'type'  => 'textarea',
+                'class' => 'fields_no_padding-top',
+                'title' => '内容',
+            ),
+            array(
+                'id'    => 'content',
+                'type'  => 'text',
+                'class' => 'leaf-no-options-shortcodes',
+                'title' => '内容',
+            ),
+        )
     ));
 }
 
@@ -587,3 +626,43 @@ function content_card_post($atts, $content = null)
     }
 }
 add_shortcode('card_post', 'content_card_post');
+
+//网址导航
+function content_card_nav($atts, $content = null)
+{
+    // 获取标题和颜色
+    $atts = shortcode_atts(array(
+        //网址导航设置
+        'img' => '',
+        'title' => '',
+        'links' => '',
+        'tag' => '',
+        'nav_content' => '',
+    ), $atts);
+    //获取自定义图片
+    $img = $atts['img'];
+    //获取自定义标题
+    $title = $atts['title'];
+    //获取自定义链接
+    $links = $atts['links'];
+    //标签
+    $tag = $atts['tag'];
+    //获取自定义内容
+    $content = $atts['nav_content'];
+
+
+    $output = '<a class="card_nav_links" href="' . $links . '">
+    <div class="leaf_card_nav">
+        <div class="card_nav_all">
+            <img class="card_nav_img" src="' . $img . '" alt="">
+            <div class="card_nav_text">
+                <h2 class="card_nav_title">' . $title . '</h2>
+                <p class="card_nav_content">' . $content . '</p>
+            </div>
+        </div>
+        <div class="card_nav_tag">' . $tag . '</div>
+    </div>
+</a>';
+    return $output;
+}
+add_shortcode('card_nav', 'content_card_nav');

@@ -299,3 +299,7 @@ function leaf_sidebar_moblie_all()
 <?php
     }
 }
+
+function leaf_all_seo(){
+
+}

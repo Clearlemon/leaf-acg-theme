@@ -25,11 +25,35 @@ function leaf_home_ajax_sift_post()
             $leaf_close_home_post_assets = _leaf('leaf_close_home_post_assets');
             if (!is_sticky() || is_paged()) {
                 if ($leaf_close_home_post_assets == 'leaf_article_style') {
-                    leaf_article_style();
+                    if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                        leaf_article_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                        leaf_article_biglong_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                        leaf_article_three_img_card_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                        leaf_article_style();
+                    }
                 } elseif ($leaf_close_home_post_assets == 'leaf_article_biglong_style') {
-                    leaf_article_biglong_style();
+                    if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                        leaf_article_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                        leaf_article_biglong_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                        leaf_article_three_img_card_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                        leaf_article_biglong_style();
+                    }
                 } elseif ($leaf_close_home_post_assets == 'leaf_article_three_img_card_style') {
-                    leaf_article_three_img_card_style();
+                    if (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-1') {
+                        leaf_article_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-2') {
+                        leaf_article_biglong_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-3') {
+                        leaf_article_three_img_card_style();
+                    } elseif (_leaf_post('', 'leaf-post-genre',) == 'leaf-post-genre-0') {
+                        leaf_article_three_img_card_style();
+                    }
                 } elseif ($leaf_close_home_post_assets == 'leaf_small_card_articles_alling') {
                     leaf_small_card_articles_alling();
                 } elseif ($leaf_close_home_post_assets == 'leaf_article_container') {

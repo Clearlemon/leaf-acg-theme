@@ -224,18 +224,33 @@ CSF::createSection($prefix_post_opts, array(
 ));
 
 CSF::createSection($prefix_post_opts, array(
-  'title'  => '文章[内容]功能',
+  'title'  => '文章[简介]功能',
   'icon'   => 'fas fa-tint',
   'fields' => array(
-
     array(
-      'id'    => 'opt-alt-text',
-      'type'  => 'text',
-      'title' => 'Text',
+      'id'    => 'post_profile_switcher',
+      'type'  => 'switcher',
+      'title' => '是否开启文章简介',
+    ),
+    array(
+      'id'         => 'post_profile_set',
+      'type'       => 'button_set',
+      'title'      => 'Button Set',
+      'options'    => array(
+        'profile_1'  => '简介样式1',
+        'profile_2' => '简介样式2',
+        'profile_3' => '简介样式3',
+      ),
+      'default'    => 'profile_1'
     ),
 
-
-
+    array(
+      'title'    => "[第一种]-简介内容",
+      'id'       => 'first_profile_text',
+      'type' => 'text',
+      'desc'     => '用于推动给SEO标题',
+      'dependency' => array('post_profile_set' == 'profile_1'),
+    ),
   )
 ));
 
@@ -245,12 +260,36 @@ CSF::createSection($prefix_post_opts, array(
   'fields' => array(
 
     array(
-      'id'    => 'opt-alt-text',
-      'type'  => 'text',
-      'title' => 'Text',
+      'id'    => 'post_seo_switcher',
+      'type'  => 'switcher',
+      'title' => '是否开启独立SEO',
+      'desc'     => '如需要字段与文章SEO则开启此功能<b class="leaf_emphasis_fonts">功能可能会与插件起冲突，慎用！！！</b>',
     ),
 
-  )
+    array(
+      'title'    => "SEO标题",
+      'id'       => 'post_seo_title',
+      'type' => 'text',
+      'class' => 'fields_no_padding-bottom fields_no_padding-top',
+      'desc'     => '用于推动给SEO标题',
+    ),
+
+    array(
+      'title'    => "SEO关键字",
+      'id'       => 'post_seo_keywords',
+      'type' => 'text',
+      'class' => 'fields_no_padding-bottom fields_no_padding-top',
+      'desc'     => '用于推送给SEO关键字',
+    ),
+
+    array(
+      'title'    => "SEO内容",
+      'id'       => 'post_seo_description',
+      'type' => 'textarea',
+      'class' => 'fields_no_padding-bottom fields_no_padding-top',
+      'desc'     => '用于推送给SEO内容',
+    ),
+  ),
 ));
 //侧边栏模块功能
 
@@ -271,10 +310,12 @@ CSF::createSection($prefix_meta_opts, array(
       'type'        => 'select',
       'title'       => '风格选择',
       'options'     => array(
-        'leaf-post-genre-1'     => '左边大图风格[默认]',
+        'leaf-post-genre-0'     => '跟随全局设置',
+        'leaf-post-genre-1'     => '左边大图风格',
         'leaf-post-genre-2'     => '顶部大图风格',
         'leaf-post-genre-3'     => '底部三图风格',
       ),
+      'default' =>  'leaf-post-genre-0',
     ),
     array(
       'id'    => 'leaf-post-tag-number',
